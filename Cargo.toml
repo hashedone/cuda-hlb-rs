@@ -1,0 +1,15 @@
+[package]
+name = "cuda-hlb"
+version = "0.1.0"
+authors = ["Bartłomiej Kuras <hash.deb@gmail.com>"]
+
+[features]
+default = ["runtime"]
+compiler = []
+runtime = []
+
+[build-dependencies]
+bindgen = "^0.26.3"
+
+[dependencies]
+libc = "^0.2"
