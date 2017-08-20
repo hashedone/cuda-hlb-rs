@@ -2,6 +2,8 @@ pub mod result;
 pub mod device;
 pub mod context;
 pub mod program;
+pub mod buffer;
+pub mod stream;
 
 use ffi::runtime as ffi;
 use std::mem::uninitialized;
@@ -9,20 +11,19 @@ use std;
 
 pub use self::result::Result;
 pub use self::device::Device;
+pub use self::context::Context;
 pub use self::program::Program;
+pub use self::buffer::Buffer;
+pub use self::stream::Stream;
 
 #[derive(Clone, Copy)]
 pub struct Cuda { }
-
-static mut INIT_RESULT: Result<Cuda> = Err(self::result::Error::Unknown);
 static INIT: std::sync::Once = std::sync::ONCE_INIT;
 
 pub fn init() {
     unsafe {
         INIT.call_once(|| {
-            use std::ops::Try;
-
-            INIT_RESULT = ffi::cuInit(0).into_result().map(|_| Cuda{});
+            ffi::cuInit(0);
         })
     };
 }
@@ -34,6 +35,7 @@ pub fn version() -> Result<i32> {
         Ok(v)
     }
 }
+
 pub fn devices() -> Result<impl Iterator<Item=Device>> {
     init();
 

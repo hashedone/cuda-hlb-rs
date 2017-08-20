@@ -1,6 +1,7 @@
 use super::ffi;
 use super::Result;
 use super::program::ProgramBuilder;
+use super::buffer::BufferBuilder;
 use std::ops::Deref;
 
 #[derive(Copy, Clone)]
@@ -9,7 +10,7 @@ pub struct Context {
 }
 
 impl Context {
-    pub(super) fn make_curent(&self) -> Result<()> {
+    pub(super) fn make_current(&self) -> Result<()> {
         unsafe {
             use std::ops::Try;
             ffi::cuCtxSetCurrent(self.handle).into_result()
@@ -18,6 +19,10 @@ impl Context {
 
     pub fn program_builder<'a>(&'a self) -> ProgramBuilder<'a> {
         ProgramBuilder::new(self)
+    }
+
+    pub fn buffer_builder<'a, T:Sized+Copy>(&'a self) -> BufferBuilder<'a, T> {
+        BufferBuilder::new(self)
     }
     
     // TODO: wrap state management functions
