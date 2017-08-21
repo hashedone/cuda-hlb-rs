@@ -18,11 +18,11 @@ impl Context {
         }
     }
 
-    pub fn program_builder<'a>(&'a self) -> ProgramBuilder<'a> {
+    pub fn program_builder(&self) -> ProgramBuilder {
         ProgramBuilder::new(self)
     }
 
-    pub fn buffer_builder<'a, T: Sized + Copy>(&'a self) -> BufferBuilder<'a, T> {
+    pub fn buffer_builder<T: Sized + Copy>(&self) -> BufferBuilder<T> {
         BufferBuilder::new(self)
     }
 

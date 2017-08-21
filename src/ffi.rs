@@ -1,6 +1,4 @@
-#![allow(non_upper_case_globals, non_camel_case_types, non_snake_case)]
-
-// include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+#![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unknown_lints, clippy)]
 
 #[cfg(feature = "compiler")]
 pub mod compiler {

@@ -233,7 +233,7 @@ impl std::ops::Try for ffi::CUresult {
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         use std::ops::Try;
-        let e = ffi::CUresult::from_error(self.clone());
+        let e = ffi::CUresult::from_error(*self);
 
         let s = unsafe {
             let mut buf = uninitialized();

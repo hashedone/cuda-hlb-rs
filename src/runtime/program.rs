@@ -20,7 +20,7 @@ impl<'a> ProgramBuilder<'a> {
     }
 
     #[cfg(feature = "compiler")]
-    pub fn from_compiled(self, program: ::compiler::Program) -> Result<Program<'a>> {
+    pub fn build_from_compiled(self, program: ::compiler::Program) -> Result<Program<'a>> {
         let data = program.ptx().map_err(|_| super::result::Error::Unknown)?;
         unsafe {
             let mut handle = uninitialized();
@@ -33,7 +33,7 @@ impl<'a> ProgramBuilder<'a> {
         }
     }
 
-    pub fn from_file<S: Into<String>>(self, fname: S) -> Result<Program<'a>> {
+    pub fn build_from_file<S: Into<String>>(self, fname: S) -> Result<Program<'a>> {
         unsafe {
             let fname = std::ffi::CString::new(fname.into()).unwrap();
             let mut handle = uninitialized();
@@ -46,7 +46,7 @@ impl<'a> ProgramBuilder<'a> {
         }
     }
 
-    pub fn from_data<S: Into<String>>(self, data: S) -> Result<Program<'a>> {
+    pub fn build_from_data<S: Into<String>>(self, data: S) -> Result<Program<'a>> {
         unsafe {
             let data = std::ffi::CString::new(data.into()).unwrap();
             let mut handle = uninitialized();
