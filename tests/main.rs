@@ -3,8 +3,8 @@ extern crate cuda_hlb as cuda;
 fn main() {}
 
 #[test]
-#[cfg(feature="compiler")]
-#[cfg(feature="runtime")]
+#[cfg(feature = "compiler")]
+#[cfg(feature = "runtime")]
 fn load_kernel() {
     let program = r#"__global__ void hello(int *a, int *b)
     {
@@ -22,8 +22,8 @@ fn load_kernel() {
 }
 
 #[test]
-#[cfg(feature="compiler")]
-#[cfg(feature="runtime")]
+#[cfg(feature = "compiler")]
+#[cfg(feature = "runtime")]
 fn simple_adding() {
     let program = r#"__global__ void add(int *a, int *b)
     {
@@ -44,4 +44,3 @@ fn simple_adding() {
     let a = ctx.buffer_builder().device_from_slice(&[1 as i32; 128]);
     let b = ctx.buffer_builder().device_from_slice(&[2 as i32; 128]);
 }
-

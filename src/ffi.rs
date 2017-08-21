@@ -2,12 +2,12 @@
 
 // include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
-#[cfg(feature="compiler")]
+#[cfg(feature = "compiler")]
 pub mod compiler {
     include!(concat!(env!("OUT_DIR"), "/bindings_compiler.rs"));
 }
 
-#[cfg(feature="runtime")]
+#[cfg(feature = "runtime")]
 pub mod runtime {
     include!(concat!(env!("OUT_DIR"), "/bindings_driver.rs"));
 }

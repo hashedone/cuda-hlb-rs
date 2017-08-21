@@ -78,9 +78,15 @@ impl std::ops::Try for ffi::CUresult {
             ffi::CUresult::CUDA_ERROR_NOT_INITIALIZED => Err(Error::NotInitialized),
             ffi::CUresult::CUDA_ERROR_DEINITIALIZED => Err(Error::Deinitialized),
             ffi::CUresult::CUDA_ERROR_PROFILER_DISABLED => Err(Error::ProfilerDisabled),
-            ffi::CUresult::CUDA_ERROR_PROFILER_NOT_INITIALIZED => Err(Error::ProfilerNotInitialized),
-            ffi::CUresult::CUDA_ERROR_PROFILER_ALREADY_STARTED => Err(Error::ProfilerAlreadyStarted),
-            ffi::CUresult::CUDA_ERROR_PROFILER_ALREADY_STOPPED => Err(Error::ProfilerAlreadyStopped),
+            ffi::CUresult::CUDA_ERROR_PROFILER_NOT_INITIALIZED => {
+                Err(Error::ProfilerNotInitialized)
+            }
+            ffi::CUresult::CUDA_ERROR_PROFILER_ALREADY_STARTED => {
+                Err(Error::ProfilerAlreadyStarted)
+            }
+            ffi::CUresult::CUDA_ERROR_PROFILER_ALREADY_STOPPED => {
+                Err(Error::ProfilerAlreadyStopped)
+            }
             ffi::CUresult::CUDA_ERROR_NO_DEVICE => Err(Error::NoDevice),
             ffi::CUresult::CUDA_ERROR_INVALID_DEVICE => Err(Error::InvalidDevice),
             ffi::CUresult::CUDA_ERROR_INVALID_IMAGE => Err(Error::InvalidImage),
@@ -100,12 +106,18 @@ impl std::ops::Try for ffi::CUresult {
             ffi::CUresult::CUDA_ERROR_CONTEXT_ALREADY_IN_USE => Err(Error::ContextAlreadyInUse),
             ffi::CUresult::CUDA_ERROR_PEER_ACCESS_UNSUPPORTED => Err(Error::PeerAccessUnsupported),
             ffi::CUresult::CUDA_ERROR_INVALID_PTX => Err(Error::InvalidPtx),
-            ffi::CUresult::CUDA_ERROR_INVALID_GRAPHICS_CONTEXT => Err(Error::InvalidGraphicsContext),
+            ffi::CUresult::CUDA_ERROR_INVALID_GRAPHICS_CONTEXT => {
+                Err(Error::InvalidGraphicsContext)
+            }
             ffi::CUresult::CUDA_ERROR_NVLINK_UNCORRECTABLE => Err(Error::NvlinkUncorrectable),
             ffi::CUresult::CUDA_ERROR_INVALID_SOURCE => Err(Error::InvalidSource),
             ffi::CUresult::CUDA_ERROR_FILE_NOT_FOUND => Err(Error::FileNotFound),
-            ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND => Err(Error::SharedObjectSymbolNotFound),
-            ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_INIT_FAILED => Err(Error::SharedObjectInitFailed),
+            ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND => {
+                Err(Error::SharedObjectSymbolNotFound)
+            }
+            ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_INIT_FAILED => {
+                Err(Error::SharedObjectInitFailed)
+            }
             ffi::CUresult::CUDA_ERROR_OPERATING_SYSTEM => Err(Error::OperatingSystem),
             ffi::CUresult::CUDA_ERROR_INVALID_HANDLE => Err(Error::InvalidHandle),
             ffi::CUresult::CUDA_ERROR_NOT_FOUND => Err(Error::NotFound),
@@ -113,15 +125,23 @@ impl std::ops::Try for ffi::CUresult {
             ffi::CUresult::CUDA_ERROR_ILLEGAL_ADDRESS => Err(Error::IllegalAddress),
             ffi::CUresult::CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES => Err(Error::LaunchOutOfResources),
             ffi::CUresult::CUDA_ERROR_LAUNCH_TIMEOUT => Err(Error::LaunchTimeout),
-            ffi::CUresult::CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING => Err(Error::LaunchIncompatibleTexturing),
-            ffi::CUresult::CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED => Err(Error::PeerAccessAlreadyEnabled),
+            ffi::CUresult::CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING => {
+                Err(Error::LaunchIncompatibleTexturing)
+            }
+            ffi::CUresult::CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED => {
+                Err(Error::PeerAccessAlreadyEnabled)
+            }
             ffi::CUresult::CUDA_ERROR_PEER_ACCESS_NOT_ENABLED => Err(Error::PeerAccessNotEnabled),
             ffi::CUresult::CUDA_ERROR_PRIMARY_CONTEXT_ACTIVE => Err(Error::PrimaryContextActive),
             ffi::CUresult::CUDA_ERROR_CONTEXT_IS_DESTROYED => Err(Error::ContextIsDestroyed),
             ffi::CUresult::CUDA_ERROR_ASSERT => Err(Error::Assert),
             ffi::CUresult::CUDA_ERROR_TOO_MANY_PEERS => Err(Error::TooManyPeers),
-            ffi::CUresult::CUDA_ERROR_HOST_MEMORY_ALREADY_REGISTERED => Err(Error::HostMemoryAlreadyRegistered),
-            ffi::CUresult::CUDA_ERROR_HOST_MEMORY_NOT_REGISTERED => Err(Error::HostMemoryNotRegistered),
+            ffi::CUresult::CUDA_ERROR_HOST_MEMORY_ALREADY_REGISTERED => {
+                Err(Error::HostMemoryAlreadyRegistered)
+            }
+            ffi::CUresult::CUDA_ERROR_HOST_MEMORY_NOT_REGISTERED => {
+                Err(Error::HostMemoryNotRegistered)
+            }
             ffi::CUresult::CUDA_ERROR_HARDWARE_STACK_ERROR => Err(Error::HardwareStackError),
             ffi::CUresult::CUDA_ERROR_ILLEGAL_INSTRUCTION => Err(Error::IllegalInstruction),
             ffi::CUresult::CUDA_ERROR_MISALIGNED_ADDRESS => Err(Error::MisalignedAddress),
@@ -130,7 +150,7 @@ impl std::ops::Try for ffi::CUresult {
             ffi::CUresult::CUDA_ERROR_LAUNCH_FAILED => Err(Error::LaunchFailed),
             ffi::CUresult::CUDA_ERROR_NOT_PERMITTED => Err(Error::NotPermitted),
             ffi::CUresult::CUDA_ERROR_NOT_SUPPORTED => Err(Error::NotSupported),
-            ffi::CUresult::CUDA_ERROR_UNKNOWN => Err(Error::Unknown)
+            ffi::CUresult::CUDA_ERROR_UNKNOWN => Err(Error::Unknown),
         }
     }
 
@@ -167,7 +187,9 @@ impl std::ops::Try for ffi::CUresult {
             Error::NvlinkUncorrectable => ffi::CUresult::CUDA_ERROR_NVLINK_UNCORRECTABLE,
             Error::InvalidSource => ffi::CUresult::CUDA_ERROR_INVALID_SOURCE,
             Error::FileNotFound => ffi::CUresult::CUDA_ERROR_FILE_NOT_FOUND,
-            Error::SharedObjectSymbolNotFound => ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND,
+            Error::SharedObjectSymbolNotFound => {
+                ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND
+            }
             Error::SharedObjectInitFailed => ffi::CUresult::CUDA_ERROR_SHARED_OBJECT_INIT_FAILED,
             Error::OperatingSystem => ffi::CUresult::CUDA_ERROR_OPERATING_SYSTEM,
             Error::InvalidHandle => ffi::CUresult::CUDA_ERROR_INVALID_HANDLE,
@@ -176,14 +198,20 @@ impl std::ops::Try for ffi::CUresult {
             Error::IllegalAddress => ffi::CUresult::CUDA_ERROR_ILLEGAL_ADDRESS,
             Error::LaunchOutOfResources => ffi::CUresult::CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES,
             Error::LaunchTimeout => ffi::CUresult::CUDA_ERROR_LAUNCH_TIMEOUT,
-            Error::LaunchIncompatibleTexturing => ffi::CUresult::CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING,
-            Error::PeerAccessAlreadyEnabled => ffi::CUresult::CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED,
+            Error::LaunchIncompatibleTexturing => {
+                ffi::CUresult::CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING
+            }
+            Error::PeerAccessAlreadyEnabled => {
+                ffi::CUresult::CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED
+            }
             Error::PeerAccessNotEnabled => ffi::CUresult::CUDA_ERROR_PEER_ACCESS_NOT_ENABLED,
             Error::PrimaryContextActive => ffi::CUresult::CUDA_ERROR_PRIMARY_CONTEXT_ACTIVE,
             Error::ContextIsDestroyed => ffi::CUresult::CUDA_ERROR_CONTEXT_IS_DESTROYED,
             Error::Assert => ffi::CUresult::CUDA_ERROR_ASSERT,
             Error::TooManyPeers => ffi::CUresult::CUDA_ERROR_TOO_MANY_PEERS,
-            Error::HostMemoryAlreadyRegistered => ffi::CUresult::CUDA_ERROR_HOST_MEMORY_ALREADY_REGISTERED,
+            Error::HostMemoryAlreadyRegistered => {
+                ffi::CUresult::CUDA_ERROR_HOST_MEMORY_ALREADY_REGISTERED
+            }
             Error::HostMemoryNotRegistered => ffi::CUresult::CUDA_ERROR_HOST_MEMORY_NOT_REGISTERED,
             Error::HardwareStackError => ffi::CUresult::CUDA_ERROR_HARDWARE_STACK_ERROR,
             Error::IllegalInstruction => ffi::CUresult::CUDA_ERROR_ILLEGAL_INSTRUCTION,
@@ -211,7 +239,7 @@ impl std::fmt::Display for Error {
             let mut buf = uninitialized();
             match ffi::cuGetErrorString(e, &mut buf) {
                 ffi::CUresult::CUDA_SUCCESS => Ok(()),
-                _ => Err(std::fmt::Error::default())
+                _ => Err(std::fmt::Error::default()),
             }?;
 
             std::ffi::CStr::from_ptr(buf)

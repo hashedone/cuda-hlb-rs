@@ -5,27 +5,23 @@ pub mod program;
 pub mod buffer;
 pub mod stream;
 
-use ffi::runtime as ffi;
-use std::mem::uninitialized;
-use std;
+pub use self::buffer::Buffer;
+pub use self::context::Context;
+pub use self::device::Device;
+pub use self::program::Program;
 
 pub use self::result::Result;
-pub use self::device::Device;
-pub use self::context::Context;
-pub use self::program::Program;
-pub use self::buffer::Buffer;
 pub use self::stream::Stream;
+use ffi::runtime as ffi;
+use std;
+use std::mem::uninitialized;
 
 #[derive(Clone, Copy)]
-pub struct Cuda { }
+pub struct Cuda {}
 static INIT: std::sync::Once = std::sync::ONCE_INIT;
 
 pub fn init() {
-    unsafe {
-        INIT.call_once(|| {
-            ffi::cuInit(0);
-        })
-    };
+    unsafe { INIT.call_once(|| { ffi::cuInit(0); }) };
 }
 
 pub fn version() -> Result<i32> {
@@ -36,7 +32,7 @@ pub fn version() -> Result<i32> {
     }
 }
 
-pub fn devices() -> Result<impl Iterator<Item=Device>> {
+pub fn devices() -> Result<impl Iterator<Item = Device>> {
     init();
 
     let c = unsafe {
@@ -45,14 +41,16 @@ pub fn devices() -> Result<impl Iterator<Item=Device>> {
         c
     };
 
-    let res = (0..c).map(|i| unsafe {
-        let mut h = uninitialized();
-        let r = ffi::cuDeviceGet(&mut h, i);
-        match r {
-            ffi::CUresult::CUDA_SUCCESS => Some(Device::new(h)),
-            _ => None
-        }
-    }).filter_map(|x| x);
+    let res = (0..c)
+        .map(|i| unsafe {
+            let mut h = uninitialized();
+            let r = ffi::cuDeviceGet(&mut h, i);
+            match r {
+                ffi::CUresult::CUDA_SUCCESS => Some(Device::new(h)),
+                _ => None,
+            }
+        })
+        .filter_map(|x| x);
 
     Ok(res)
 }

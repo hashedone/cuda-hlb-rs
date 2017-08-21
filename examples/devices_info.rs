@@ -12,4 +12,4 @@ fn main() {
         Ok(())
     }.unwrap_or_else(|e: cuda::result::CUError| println!("{}", e));
 }*/
-fn main() { }
+fn main() {}

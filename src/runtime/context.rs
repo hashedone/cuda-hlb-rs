@@ -1,12 +1,13 @@
-use super::ffi;
+
 use super::Result;
-use super::program::ProgramBuilder;
 use super::buffer::BufferBuilder;
+use super::ffi;
+use super::program::ProgramBuilder;
 use std::ops::Deref;
 
 #[derive(Copy, Clone)]
 pub struct Context {
-    handle: ffi::CUcontext
+    handle: ffi::CUcontext,
 }
 
 impl Context {
@@ -21,22 +22,25 @@ impl Context {
         ProgramBuilder::new(self)
     }
 
-    pub fn buffer_builder<'a, T:Sized+Copy>(&'a self) -> BufferBuilder<'a, T> {
+    pub fn buffer_builder<'a, T: Sized + Copy>(&'a self) -> BufferBuilder<'a, T> {
         BufferBuilder::new(self)
     }
-    
+
     // TODO: wrap state management functions
     // TODO: wrap context reseting
 }
 
 pub struct PrimaryContext {
     device: ffi::CUdevice,
-    ctx: Context
+    ctx: Context,
 }
 
 impl PrimaryContext {
     pub(super) fn new(device: ffi::CUdevice, ctx: ffi::CUcontext) -> PrimaryContext {
-        PrimaryContext { device, ctx: Context { handle: ctx } }
+        PrimaryContext {
+            device,
+            ctx: Context { handle: ctx },
+        }
     }
 }
 
@@ -51,7 +55,9 @@ impl Drop for PrimaryContext {
 impl Deref for PrimaryContext {
     type Target = Context;
 
-    fn deref(&self) -> &Context { &self.ctx }
+    fn deref(&self) -> &Context {
+        &self.ctx
+    }
 }
 
 // TODO: wrap Context Management functions

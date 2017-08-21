@@ -1,10 +1,11 @@
+
+use super::Result;
 use super::ffi;
 use super::init;
-use super::Result;
 use std::mem::uninitialized;
 
 pub struct Stream {
-    pub(super) handle: ffi::CUstream
+    pub(super) handle: ffi::CUstream,
 }
 
 impl Stream {
@@ -23,7 +24,10 @@ impl Stream {
 
         unsafe {
             let mut handle = uninitialized();
-            ffi::cuStreamCreate(&mut handle, ffi::CUstream_flags::CU_STREAM_NON_BLOCKING as u32);
+            ffi::cuStreamCreate(
+                &mut handle,
+                ffi::CUstream_flags::CU_STREAM_NON_BLOCKING as u32,
+            );
             Ok(Stream { handle })
         }
     }
@@ -43,4 +47,3 @@ impl Drop for Stream {
         }
     }
 }
-

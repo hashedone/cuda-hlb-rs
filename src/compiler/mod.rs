@@ -3,8 +3,8 @@ pub mod result;
 pub use self::result::Result;
 
 use ffi::compiler as ffi;
-use std::mem::uninitialized;
 use std;
+use std::mem::uninitialized;
 
 pub fn version() -> Result<(i32, i32)> {
     unsafe {
@@ -23,7 +23,7 @@ pub enum GpuArch {
     Compute35,
     Compute50,
     Compute52,
-    Compute53
+    Compute53,
 }
 
 pub struct Compiler {
@@ -31,11 +31,11 @@ pub struct Compiler {
     name: String,
     headers: Vec<(std::string::String, std::string::String)>,
     flags: Vec<std::string::String>,
-    name_expressions: Vec<std::string::String>
+    name_expressions: Vec<std::string::String>,
 }
 
 pub struct Program {
-    prog: ffi::nvrtcProgram
+    prog: ffi::nvrtcProgram,
 }
 
 impl Compiler {
@@ -45,7 +45,7 @@ impl Compiler {
             name: "".into(),
             headers: vec![],
             flags: vec![],
-            name_expressions: vec![]
+            name_expressions: vec![],
         }
     }
 
@@ -59,7 +59,11 @@ impl Compiler {
         self
     }
 
-    pub fn header<SN: Into<String>, SS: Into<String>>(&mut self, name: SN, src: SS) -> &mut Compiler {
+    pub fn header<SN: Into<String>, SS: Into<String>>(
+        &mut self,
+        name: SN,
+        src: SS,
+    ) -> &mut Compiler {
         self.headers.push((name.into(), src.into()));
         self
     }
@@ -71,7 +75,7 @@ impl Compiler {
             GpuArch::Compute35 => "-arch compute_35",
             GpuArch::Compute50 => "-arch compute_50",
             GpuArch::Compute52 => "-arch compute_52",
-            GpuArch::Compute53 => "-arch compute_53"
+            GpuArch::Compute53 => "-arch compute_53",
         };
         self.flags.push(flag.into());
         self
@@ -121,25 +125,25 @@ impl Compiler {
         let src = std::ffi::CString::new(self.src.clone()).unwrap();
         let name = std::ffi::CString::new(self.name.clone()).unwrap();
         let headers_cnt = self.headers.len();
-        let headers = self.headers.iter()
-            .map(|&(ref name, ref src)| (
-                std::ffi::CString::new(name.clone()).unwrap(),
-                std::ffi::CString::new(src.clone()).unwrap()
-            ))
+        let headers = self.headers
+            .iter()
+            .map(|&(ref name, ref src)| {
+                (
+                    std::ffi::CString::new(name.clone()).unwrap(),
+                    std::ffi::CString::new(src.clone()).unwrap(),
+                )
+            })
             .collect::<Vec<_>>();
-        let (headers_names, headers_srcs): (Vec<_>, Vec<_>) = headers.iter()
-            .map(|&(ref name, ref src)| (
-                name.as_ptr(),
-                src.as_ptr()
-            ))
+        let (headers_names, headers_srcs): (Vec<_>, Vec<_>) = headers
+            .iter()
+            .map(|&(ref name, ref src)| (name.as_ptr(), src.as_ptr()))
             .unzip();
         let flags_cnt = self.flags.len();
-        let flags = self.flags.iter()
+        let flags = self.flags
+            .iter()
             .map(|f| std::ffi::CString::new(f.clone()).unwrap())
             .collect::<Vec<_>>();
-        let flags_p = flags.iter()
-            .map(|f| f.as_ptr())
-            .collect::<Vec<_>>();
+        let flags_p = flags.iter().map(|f| f.as_ptr()).collect::<Vec<_>>();
 
         unsafe {
             let mut prog = uninitialized();
@@ -149,17 +153,15 @@ impl Compiler {
                 name.as_ptr(),
                 headers_cnt as i32,
                 headers_srcs.as_ptr(),
-                headers_names.as_ptr())?;
-            
+                headers_names.as_ptr(),
+            )?;
+
             for expr in self.name_expressions.iter().cloned() {
                 let cexpr = std::ffi::CString::new(expr).unwrap();
                 ffi::nvrtcAddNameExpression(prog, cexpr.as_ptr())?;
             }
 
-            ffi::nvrtcCompileProgram(
-                prog,
-                flags_cnt as i32,
-                flags_p.as_ptr())?;
+            ffi::nvrtcCompileProgram(prog, flags_cnt as i32, flags_p.as_ptr())?;
 
             Ok(Program { prog })
         }
@@ -187,7 +189,11 @@ impl Program {
             let mut log = vec![uninitialized(); log_size as usize];
             ffi::nvrtcGetProgramLog(self.prog, log.as_mut_ptr())?;
 
-            Ok(std::ffi::CStr::from_ptr(log.as_ptr()).to_string_lossy().into())
+            Ok(
+                std::ffi::CStr::from_ptr(log.as_ptr())
+                    .to_string_lossy()
+                    .into(),
+            )
         }
     }
 

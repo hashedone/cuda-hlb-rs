@@ -6,9 +6,8 @@ extern crate libc;
 
 mod ffi;
 
-#[cfg(feature="compiler")]
+#[cfg(feature = "compiler")]
 pub mod compiler;
 
-#[cfg(feature="runtime")]
+#[cfg(feature = "runtime")]
 pub mod runtime;
-
