@@ -1,4 +1,3 @@
-
 use super::Result;
 use super::context::PrimaryContext;
 use super::ffi;

@@ -1,13 +1,16 @@
 pub mod result;
+
 pub mod device;
 pub mod context;
 pub mod program;
 pub mod buffer;
 pub mod stream;
+pub mod kernel;
 
 pub use self::buffer::Buffer;
 pub use self::context::Context;
 pub use self::device::Device;
+pub use self::kernel::Kernel;
 pub use self::program::Program;
 
 pub use self::result::Result;

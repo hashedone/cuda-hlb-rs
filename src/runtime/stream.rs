@@ -1,4 +1,3 @@
-
 use super::Result;
 use super::ffi;
 use super::init;

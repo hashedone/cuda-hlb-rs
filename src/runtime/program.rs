@@ -1,5 +1,5 @@
-
 use super::Context;
+use super::Kernel;
 use super::Result;
 use super::ffi;
 use std;
@@ -10,8 +10,8 @@ pub struct ProgramBuilder<'a> {
 }
 
 pub struct Program<'a> {
-    handle: ffi::CUmodule,
-    context: &'a Context,
+    pub(super) handle: ffi::CUmodule,
+    pub(super) context: &'a Context,
 }
 
 impl<'a> ProgramBuilder<'a> {
@@ -62,7 +62,12 @@ impl<'a> ProgramBuilder<'a> {
     // TODO: Multiply file programs
 }
 
-impl<'a> Program<'a> {}
+impl<'a> Program<'a> {
+    pub fn get_kernel<S: Into<String>>(&self, name: S) -> Result<Kernel> {
+        let name = std::ffi::CString::new(name.into()).unwrap();
+        Kernel::new(self, &name)
+    }
+}
 
 impl<'a> Drop for Program<'a> {
     fn drop(&mut self) {
