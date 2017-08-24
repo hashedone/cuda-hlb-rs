@@ -6,10 +6,8 @@ authors = ["Bartłomiej Kuras <hash.deb@gmail.com>"]
 [features]
 default = ["runtime"]
 compiler = []
-runtime = []
-
-[build-dependencies]
-bindgen = "^0.26.3"
+runtime = ["error-chain"]
 
 [dependencies]
 libc = "^0.2"
+error-chain = { version = "^0.10", optional = true }
