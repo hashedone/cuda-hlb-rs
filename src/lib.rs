@@ -8,10 +8,8 @@ extern crate error_chain;
 
 mod ffi;
 pub mod result;
-pub mod stream;
 
 pub use self::result::Result;
-pub use self::stream::Stream;
 
 use std::mem::uninitialized;
 
@@ -58,16 +56,6 @@ impl Cuda {
             ffi::cuCtxSetCurrent(context)?;
         }
         Ok(context)
-    }
-
-    pub fn new_stream(&self) -> Result<Stream> {
-        self.make_current()?;
-        Stream::new()
-    }
-
-    pub fn new_non_blocking_stream(&self) -> Result<Stream> {
-        self.make_current()?;
-        Stream::new_non_blocking()
     }
 }
 
