@@ -6,8 +6,9 @@ extern crate libc;
 #[macro_use]
 extern crate error_chain;
 
-mod ffi;
+pub mod ffi;
 pub mod result;
+pub mod module;
 
 pub use self::result::Result;
 
@@ -47,7 +48,7 @@ impl Cuda {
         }
     }
 
-    fn make_current(&self) -> Result<ffi::CUcontext> {
+    pub fn make_current(&self) -> Result<ffi::CUcontext> {
         let context = match self.context {
             Context::Primary(_, context) => context,
         };

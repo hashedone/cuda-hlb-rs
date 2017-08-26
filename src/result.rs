@@ -20,6 +20,10 @@ fn get_cuda_err_string(err: DriverError) -> String {
 }
 
 error_chain! {
+    foreign_links {
+        CStringParse(std::ffi::NulError);
+    }
+
     errors {
         Driver(e: DriverError) {
             display("Driver error: {}", get_cuda_err_string(*e))
