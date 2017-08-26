@@ -14,7 +14,7 @@ fn get_cuda_err_string(err: DriverError) -> String {
                 .to_str()
                 .map(|s| String::from(s))
                 .unwrap_or_else(|_| String::new()),
-            _ => String::new()
+            _ => String::new(),
         }
     }
 }
@@ -29,6 +29,9 @@ error_chain! {
             display("Driver error: {}", get_cuda_err_string(*e))
         }
         NoDevices
+        BuffersSizeMissmatch(source: usize, dest: usize) {
+            display("Missmatching buffers size, source: {}, dest: {}", source, dest)
+        }
     }
 }
 
@@ -39,17 +42,18 @@ impl std::ops::Try for ffi::CUresult {
     fn into_result(self) -> Result<()> {
         match self {
             ffi::CUresult::CUDA_SUCCESS => Ok(()),
-            err => Err(ErrorKind::Driver(err).into())
+            err => Err(ErrorKind::Driver(err).into()),
         }
     }
 
     fn from_error(v: Error) -> ffi::CUresult {
         match v {
             Error(ErrorKind::Driver(err), _) => err,
-            _ => ffi::CUresult::CUDA_ERROR_UNKNOWN
+            _ => ffi::CUresult::CUDA_ERROR_UNKNOWN,
         }
     }
 
-    fn from_ok(_: ()) -> ffi::CUresult { ffi::CUresult::CUDA_SUCCESS }
+    fn from_ok(_: ()) -> ffi::CUresult {
+        ffi::CUresult::CUDA_SUCCESS
+    }
 }
-

@@ -9,7 +9,9 @@ extern crate error_chain;
 pub mod ffi;
 pub mod result;
 pub mod module;
+pub mod buffer;
 
+pub use self::buffer::Buffer;
 pub use self::result::Result;
 
 use std::mem::uninitialized;
@@ -60,8 +62,18 @@ impl Cuda {
     }
 
     pub fn load_module<'a, Module: module::Module<'a>>(&'a self) -> Result<Module> {
-        self.make_current()?;
-        unsafe { Module::load(self) }
+        Module::load(self)
+    }
+
+    pub unsafe fn uninitialized_buffer<'a, T: Sized>(
+        &'a self,
+        cnt: usize,
+    ) -> Result<Buffer<'a, T>> {
+        Buffer::uninitialized(self, cnt)
+    }
+
+    pub fn new_buffer<'a, T: Sized>(&'a self, cnt: usize) -> Result<Buffer<'a, T>> {
+        Buffer::new(self, cnt)
     }
 }
 

@@ -4,24 +4,34 @@
 
 #[repr(C)]
 pub struct __BindgenUnionField<T>(::std::marker::PhantomData<T>);
-impl <T> __BindgenUnionField<T> {
+impl<T> __BindgenUnionField<T> {
     #[inline]
-    pub fn new() -> Self { __BindgenUnionField(::std::marker::PhantomData) }
+    pub fn new() -> Self {
+        __BindgenUnionField(::std::marker::PhantomData)
+    }
     #[inline]
-    pub unsafe fn as_ref(&self) -> &T { ::std::mem::transmute(self) }
+    pub unsafe fn as_ref(&self) -> &T {
+        ::std::mem::transmute(self)
+    }
     #[inline]
-    pub unsafe fn as_mut(&mut self) -> &mut T { ::std::mem::transmute(self) }
+    pub unsafe fn as_mut(&mut self) -> &mut T {
+        ::std::mem::transmute(self)
+    }
 }
-impl <T> ::std::default::Default for __BindgenUnionField<T> {
+impl<T> ::std::default::Default for __BindgenUnionField<T> {
     #[inline]
-    fn default() -> Self { Self::new() }
+    fn default() -> Self {
+        Self::new()
+    }
 }
-impl <T> ::std::clone::Clone for __BindgenUnionField<T> {
+impl<T> ::std::clone::Clone for __BindgenUnionField<T> {
     #[inline]
-    fn clone(&self) -> Self { Self::new() }
+    fn clone(&self) -> Self {
+        Self::new()
+    }
 }
-impl <T> ::std::marker::Copy for __BindgenUnionField<T> { }
-impl <T> ::std::fmt::Debug for __BindgenUnionField<T> {
+impl<T> ::std::marker::Copy for __BindgenUnionField<T> {}
+impl<T> ::std::fmt::Debug for __BindgenUnionField<T> {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         fmt.write_str("__BindgenUnionField")
     }
@@ -179,7 +189,11 @@ pub const CU_PARAM_TR_DEFAULT: ::std::os::raw::c_int = -1;
 pub type wchar_t = ::std::os::raw::c_int;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum idtype_t { P_ALL = 0, P_PID = 1, P_PGID = 2, }
+pub enum idtype_t {
+    P_ALL = 0,
+    P_PID = 1,
+    P_PGID = 2,
+}
 #[repr(C)]
 #[derive(Debug, Copy)]
 pub struct div_t {
@@ -188,23 +202,41 @@ pub struct div_t {
 }
 #[test]
 fn bindgen_test_layout_div_t() {
-    assert_eq!(::std::mem::size_of::<div_t>() , 8usize , concat ! (
-               "Size of: " , stringify ! ( div_t ) ));
-    assert_eq! (::std::mem::align_of::<div_t>() , 4usize , concat ! (
-                "Alignment of " , stringify ! ( div_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const div_t ) ) . quot as * const _ as usize }
-                , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( div_t ) , "::" ,
-                stringify ! ( quot ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const div_t ) ) . rem as * const _ as usize } ,
-                4usize , concat ! (
-                "Alignment of field: " , stringify ! ( div_t ) , "::" ,
-                stringify ! ( rem ) ));
+    assert_eq!(
+        ::std::mem::size_of::<div_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(div_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<div_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(div_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const div_t)).quot as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(div_t),
+            "::",
+            stringify!(quot)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const div_t)).rem as *const _ as usize },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(div_t),
+            "::",
+            stringify!(rem)
+        )
+    );
 }
 impl Clone for div_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -214,23 +246,41 @@ pub struct ldiv_t {
 }
 #[test]
 fn bindgen_test_layout_ldiv_t() {
-    assert_eq!(::std::mem::size_of::<ldiv_t>() , 16usize , concat ! (
-               "Size of: " , stringify ! ( ldiv_t ) ));
-    assert_eq! (::std::mem::align_of::<ldiv_t>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( ldiv_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const ldiv_t ) ) . quot as * const _ as usize }
-                , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( ldiv_t ) , "::" ,
-                stringify ! ( quot ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const ldiv_t ) ) . rem as * const _ as usize }
-                , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( ldiv_t ) , "::" ,
-                stringify ! ( rem ) ));
+    assert_eq!(
+        ::std::mem::size_of::<ldiv_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(ldiv_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ldiv_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ldiv_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const ldiv_t)).quot as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(ldiv_t),
+            "::",
+            stringify!(quot)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const ldiv_t)).rem as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(ldiv_t),
+            "::",
+            stringify!(rem)
+        )
+    );
 }
 impl Clone for ldiv_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -240,23 +290,41 @@ pub struct lldiv_t {
 }
 #[test]
 fn bindgen_test_layout_lldiv_t() {
-    assert_eq!(::std::mem::size_of::<lldiv_t>() , 16usize , concat ! (
-               "Size of: " , stringify ! ( lldiv_t ) ));
-    assert_eq! (::std::mem::align_of::<lldiv_t>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( lldiv_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const lldiv_t ) ) . quot as * const _ as usize
-                } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( lldiv_t ) , "::" ,
-                stringify ! ( quot ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const lldiv_t ) ) . rem as * const _ as usize }
-                , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( lldiv_t ) , "::" ,
-                stringify ! ( rem ) ));
+    assert_eq!(
+        ::std::mem::size_of::<lldiv_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(lldiv_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<lldiv_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(lldiv_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const lldiv_t)).quot as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(lldiv_t),
+            "::",
+            stringify!(quot)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const lldiv_t)).rem as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(lldiv_t),
+            "::",
+            stringify!(rem)
+        )
+    );
 }
 impl Clone for lldiv_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 extern "C" {
     pub fn __ctype_get_mb_cur_max() -> usize;
@@ -265,62 +333,73 @@ extern "C" {
     pub fn atof(__nptr: *const ::std::os::raw::c_char) -> f64;
 }
 extern "C" {
-    pub fn atoi(__nptr: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn atoi(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn atol(__nptr: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_long;
+    pub fn atol(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_long;
 }
 extern "C" {
-    pub fn atoll(__nptr: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_longlong;
+    pub fn atoll(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_longlong;
 }
 extern "C" {
-    pub fn strtod(__nptr: *const ::std::os::raw::c_char,
-                  __endptr: *mut *mut ::std::os::raw::c_char) -> f64;
+    pub fn strtod(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+    ) -> f64;
 }
 extern "C" {
-    pub fn strtof(__nptr: *const ::std::os::raw::c_char,
-                  __endptr: *mut *mut ::std::os::raw::c_char) -> f32;
+    pub fn strtof(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+    ) -> f32;
 }
 extern "C" {
-    pub fn strtold(__nptr: *const ::std::os::raw::c_char,
-                   __endptr: *mut *mut ::std::os::raw::c_char) -> f64;
+    pub fn strtold(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+    ) -> f64;
 }
 extern "C" {
-    pub fn strtol(__nptr: *const ::std::os::raw::c_char,
-                  __endptr: *mut *mut ::std::os::raw::c_char,
-                  __base: ::std::os::raw::c_int) -> ::std::os::raw::c_long;
+    pub fn strtol(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_long;
 }
 extern "C" {
-    pub fn strtoul(__nptr: *const ::std::os::raw::c_char,
-                   __endptr: *mut *mut ::std::os::raw::c_char,
-                   __base: ::std::os::raw::c_int) -> ::std::os::raw::c_ulong;
+    pub fn strtoul(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_ulong;
 }
 extern "C" {
-    pub fn strtoq(__nptr: *const ::std::os::raw::c_char,
-                  __endptr: *mut *mut ::std::os::raw::c_char,
-                  __base: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_longlong;
+    pub fn strtoq(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_longlong;
 }
 extern "C" {
-    pub fn strtouq(__nptr: *const ::std::os::raw::c_char,
-                   __endptr: *mut *mut ::std::os::raw::c_char,
-                   __base: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_ulonglong;
+    pub fn strtouq(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_ulonglong;
 }
 extern "C" {
-    pub fn strtoll(__nptr: *const ::std::os::raw::c_char,
-                   __endptr: *mut *mut ::std::os::raw::c_char,
-                   __base: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_longlong;
+    pub fn strtoll(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_longlong;
 }
 extern "C" {
-    pub fn strtoull(__nptr: *const ::std::os::raw::c_char,
-                    __endptr: *mut *mut ::std::os::raw::c_char,
-                    __base: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_ulonglong;
+    pub fn strtoull(
+        __nptr: *const ::std::os::raw::c_char,
+        __endptr: *mut *mut ::std::os::raw::c_char,
+        __base: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_ulonglong;
 }
 extern "C" {
     pub fn l64a(__n: ::std::os::raw::c_long) -> *mut ::std::os::raw::c_char;
@@ -359,18 +438,31 @@ pub struct __fsid_t {
 }
 #[test]
 fn bindgen_test_layout___fsid_t() {
-    assert_eq!(::std::mem::size_of::<__fsid_t>() , 8usize , concat ! (
-               "Size of: " , stringify ! ( __fsid_t ) ));
-    assert_eq! (::std::mem::align_of::<__fsid_t>() , 4usize , concat ! (
-                "Alignment of " , stringify ! ( __fsid_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const __fsid_t ) ) . __val as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( __fsid_t ) , "::" ,
-                stringify ! ( __val ) ));
+    assert_eq!(
+        ::std::mem::size_of::<__fsid_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__fsid_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const __fsid_t)).__val as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(__fsid_t),
+            "::",
+            stringify!(__val)
+        )
+    );
 }
 impl Clone for __fsid_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type __clock_t = ::std::os::raw::c_long;
 pub type __rlim_t = ::std::os::raw::c_ulong;
@@ -439,18 +531,31 @@ pub struct __sigset_t {
 }
 #[test]
 fn bindgen_test_layout___sigset_t() {
-    assert_eq!(::std::mem::size_of::<__sigset_t>() , 128usize , concat ! (
-               "Size of: " , stringify ! ( __sigset_t ) ));
-    assert_eq! (::std::mem::align_of::<__sigset_t>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( __sigset_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const __sigset_t ) ) . __val as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( __sigset_t ) , "::" ,
-                stringify ! ( __val ) ));
+    assert_eq!(
+        ::std::mem::size_of::<__sigset_t>(),
+        128usize,
+        concat!("Size of: ", stringify!(__sigset_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__sigset_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__sigset_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const __sigset_t)).__val as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(__sigset_t),
+            "::",
+            stringify!(__val)
+        )
+    );
 }
 impl Clone for __sigset_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type sigset_t = __sigset_t;
 #[repr(C)]
@@ -461,23 +566,41 @@ pub struct timespec {
 }
 #[test]
 fn bindgen_test_layout_timespec() {
-    assert_eq!(::std::mem::size_of::<timespec>() , 16usize , concat ! (
-               "Size of: " , stringify ! ( timespec ) ));
-    assert_eq! (::std::mem::align_of::<timespec>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( timespec ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const timespec ) ) . tv_sec as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( timespec ) , "::" ,
-                stringify ! ( tv_sec ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const timespec ) ) . tv_nsec as * const _ as
-                usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( timespec ) , "::" ,
-                stringify ! ( tv_nsec ) ));
+    assert_eq!(
+        ::std::mem::size_of::<timespec>(),
+        16usize,
+        concat!("Size of: ", stringify!(timespec))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<timespec>(),
+        8usize,
+        concat!("Alignment of ", stringify!(timespec))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const timespec)).tv_sec as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(timespec),
+            "::",
+            stringify!(tv_sec)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const timespec)).tv_nsec as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(timespec),
+            "::",
+            stringify!(tv_nsec)
+        )
+    );
 }
 impl Clone for timespec {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -487,23 +610,41 @@ pub struct timeval {
 }
 #[test]
 fn bindgen_test_layout_timeval() {
-    assert_eq!(::std::mem::size_of::<timeval>() , 16usize , concat ! (
-               "Size of: " , stringify ! ( timeval ) ));
-    assert_eq! (::std::mem::align_of::<timeval>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( timeval ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const timeval ) ) . tv_sec as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( timeval ) , "::" ,
-                stringify ! ( tv_sec ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const timeval ) ) . tv_usec as * const _ as
-                usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( timeval ) , "::" ,
-                stringify ! ( tv_usec ) ));
+    assert_eq!(
+        ::std::mem::size_of::<timeval>(),
+        16usize,
+        concat!("Size of: ", stringify!(timeval))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<timeval>(),
+        8usize,
+        concat!("Alignment of ", stringify!(timeval))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const timeval)).tv_sec as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(timeval),
+            "::",
+            stringify!(tv_sec)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const timeval)).tv_usec as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(timeval),
+            "::",
+            stringify!(tv_usec)
+        )
+    );
 }
 impl Clone for timeval {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type suseconds_t = __suseconds_t;
 pub type __fd_mask = ::std::os::raw::c_long;
@@ -514,43 +655,63 @@ pub struct fd_set {
 }
 #[test]
 fn bindgen_test_layout_fd_set() {
-    assert_eq!(::std::mem::size_of::<fd_set>() , 128usize , concat ! (
-               "Size of: " , stringify ! ( fd_set ) ));
-    assert_eq! (::std::mem::align_of::<fd_set>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( fd_set ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const fd_set ) ) . __fds_bits as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( fd_set ) , "::" ,
-                stringify ! ( __fds_bits ) ));
+    assert_eq!(
+        ::std::mem::size_of::<fd_set>(),
+        128usize,
+        concat!("Size of: ", stringify!(fd_set))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<fd_set>(),
+        8usize,
+        concat!("Alignment of ", stringify!(fd_set))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const fd_set)).__fds_bits as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(fd_set),
+            "::",
+            stringify!(__fds_bits)
+        )
+    );
 }
 impl Clone for fd_set {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type fd_mask = __fd_mask;
 extern "C" {
-    pub fn select(__nfds: ::std::os::raw::c_int, __readfds: *mut fd_set,
-                  __writefds: *mut fd_set, __exceptfds: *mut fd_set,
-                  __timeout: *mut timeval) -> ::std::os::raw::c_int;
+    pub fn select(
+        __nfds: ::std::os::raw::c_int,
+        __readfds: *mut fd_set,
+        __writefds: *mut fd_set,
+        __exceptfds: *mut fd_set,
+        __timeout: *mut timeval,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn pselect(__nfds: ::std::os::raw::c_int, __readfds: *mut fd_set,
-                   __writefds: *mut fd_set, __exceptfds: *mut fd_set,
-                   __timeout: *const timespec, __sigmask: *const __sigset_t)
-     -> ::std::os::raw::c_int;
+    pub fn pselect(
+        __nfds: ::std::os::raw::c_int,
+        __readfds: *mut fd_set,
+        __writefds: *mut fd_set,
+        __exceptfds: *mut fd_set,
+        __timeout: *const timespec,
+        __sigmask: *const __sigset_t,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn gnu_dev_major(__dev: ::std::os::raw::c_ulonglong)
-     -> ::std::os::raw::c_uint;
+    pub fn gnu_dev_major(__dev: ::std::os::raw::c_ulonglong) -> ::std::os::raw::c_uint;
 }
 extern "C" {
-    pub fn gnu_dev_minor(__dev: ::std::os::raw::c_ulonglong)
-     -> ::std::os::raw::c_uint;
+    pub fn gnu_dev_minor(__dev: ::std::os::raw::c_ulonglong) -> ::std::os::raw::c_uint;
 }
 extern "C" {
-    pub fn gnu_dev_makedev(__major: ::std::os::raw::c_uint,
-                           __minor: ::std::os::raw::c_uint)
-     -> ::std::os::raw::c_ulonglong;
+    pub fn gnu_dev_makedev(
+        __major: ::std::os::raw::c_uint,
+        __minor: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_ulonglong;
 }
 pub type blksize_t = __blksize_t;
 pub type blkcnt_t = __blkcnt_t;
@@ -566,23 +727,41 @@ pub struct pthread_attr_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_attr_t() {
-    assert_eq!(::std::mem::size_of::<pthread_attr_t>() , 56usize , concat ! (
-               "Size of: " , stringify ! ( pthread_attr_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_attr_t>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( pthread_attr_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_attr_t ) ) . __size as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_attr_t ) , "::"
-                , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_attr_t ) ) . __align as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_attr_t ) , "::"
-                , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_attr_t>(),
+        56usize,
+        concat!("Size of: ", stringify!(pthread_attr_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_attr_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_attr_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_attr_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_attr_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_attr_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_attr_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_attr_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -592,25 +771,41 @@ pub struct __pthread_internal_list {
 }
 #[test]
 fn bindgen_test_layout___pthread_internal_list() {
-    assert_eq!(::std::mem::size_of::<__pthread_internal_list>() , 16usize ,
-               concat ! (
-               "Size of: " , stringify ! ( __pthread_internal_list ) ));
-    assert_eq! (::std::mem::align_of::<__pthread_internal_list>() , 8usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( __pthread_internal_list ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const __pthread_internal_list ) ) . __prev as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( __pthread_internal_list
-                ) , "::" , stringify ! ( __prev ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const __pthread_internal_list ) ) . __next as *
-                const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( __pthread_internal_list
-                ) , "::" , stringify ! ( __next ) ));
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_internal_list>(),
+        16usize,
+        concat!("Size of: ", stringify!(__pthread_internal_list))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_internal_list>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__pthread_internal_list))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const __pthread_internal_list)).__prev as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(__pthread_internal_list),
+            "::",
+            stringify!(__prev)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const __pthread_internal_list)).__next as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(__pthread_internal_list),
+            "::",
+            stringify!(__next)
+        )
+    );
 }
 impl Clone for __pthread_internal_list {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type __pthread_list_t = __pthread_internal_list;
 #[repr(C)]
@@ -635,90 +830,156 @@ pub struct pthread_mutex_t___pthread_mutex_s {
 }
 #[test]
 fn bindgen_test_layout_pthread_mutex_t___pthread_mutex_s() {
-    assert_eq!(::std::mem::size_of::<pthread_mutex_t___pthread_mutex_s>() ,
-               40usize , concat ! (
-               "Size of: " , stringify ! ( pthread_mutex_t___pthread_mutex_s )
-               ));
-    assert_eq! (::std::mem::align_of::<pthread_mutex_t___pthread_mutex_s>() ,
-                8usize , concat ! (
-                "Alignment of " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __lock as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __lock ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __count as * const _ as usize } , 4usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __count ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __owner as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __owner ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __nusers as * const _ as usize } , 12usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __nusers ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __kind as * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __kind ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __spins as * const _ as usize } , 20usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __spins ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __elision as * const _ as usize } , 22usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __elision ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t___pthread_mutex_s ) ) .
-                __list as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_mutex_t___pthread_mutex_s ) , "::" , stringify ! (
-                __list ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_mutex_t___pthread_mutex_s>(),
+        40usize,
+        concat!("Size of: ", stringify!(pthread_mutex_t___pthread_mutex_s))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutex_t___pthread_mutex_s>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(pthread_mutex_t___pthread_mutex_s)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__lock as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__lock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__count as *const _ as usize },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__owner as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__owner)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__nusers as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__nusers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__kind as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__kind)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__spins as *const _ as usize },
+        20usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__spins)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__elision as *const _ as usize
+        },
+        22usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__elision)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t___pthread_mutex_s)).__list as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t___pthread_mutex_s),
+            "::",
+            stringify!(__list)
+        )
+    );
 }
 impl Clone for pthread_mutex_t___pthread_mutex_s {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_pthread_mutex_t() {
-    assert_eq!(::std::mem::size_of::<pthread_mutex_t>() , 40usize , concat ! (
-               "Size of: " , stringify ! ( pthread_mutex_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_mutex_t>() , 8usize , concat !
-                ( "Alignment of " , stringify ! ( pthread_mutex_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t ) ) . __data as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_mutex_t ) ,
-                "::" , stringify ! ( __data ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t ) ) . __size as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_mutex_t ) ,
-                "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutex_t ) ) . __align as * const
-                _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_mutex_t ) ,
-                "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_mutex_t>(),
+        40usize,
+        concat!("Size of: ", stringify!(pthread_mutex_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutex_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_mutex_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t)).__data as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t),
+            "::",
+            stringify!(__data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutex_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutex_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_mutex_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -729,24 +990,41 @@ pub struct pthread_mutexattr_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_mutexattr_t() {
-    assert_eq!(::std::mem::size_of::<pthread_mutexattr_t>() , 4usize , concat
-               ! ( "Size of: " , stringify ! ( pthread_mutexattr_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_mutexattr_t>() , 4usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( pthread_mutexattr_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutexattr_t ) ) . __size as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_mutexattr_t ) ,
-                "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_mutexattr_t ) ) . __align as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_mutexattr_t ) ,
-                "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_mutexattr_t>(),
+        4usize,
+        concat!("Size of: ", stringify!(pthread_mutexattr_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutexattr_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(pthread_mutexattr_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutexattr_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutexattr_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_mutexattr_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_mutexattr_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_mutexattr_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -770,89 +1048,151 @@ pub struct pthread_cond_t__bindgen_ty_1 {
 }
 #[test]
 fn bindgen_test_layout_pthread_cond_t__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<pthread_cond_t__bindgen_ty_1>() , 48usize
-               , concat ! (
-               "Size of: " , stringify ! ( pthread_cond_t__bindgen_ty_1 ) ));
-    assert_eq! (::std::mem::align_of::<pthread_cond_t__bindgen_ty_1>() ,
-                8usize , concat ! (
-                "Alignment of " , stringify ! ( pthread_cond_t__bindgen_ty_1 )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) . __lock
-                as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! ( __lock )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __futex as * const _ as usize } , 4usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! ( __futex
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __total_seq as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __total_seq ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __wakeup_seq as * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __wakeup_seq ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __woken_seq as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __woken_seq ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __mutex as * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! ( __mutex
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __nwaiters as * const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __nwaiters ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t__bindgen_ty_1 ) ) .
-                __broadcast_seq as * const _ as usize } , 44usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_cond_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __broadcast_seq ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_cond_t__bindgen_ty_1>(),
+        48usize,
+        concat!("Size of: ", stringify!(pthread_cond_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_cond_t__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_cond_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__lock as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__lock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__futex as *const _ as usize },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__futex)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__total_seq as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__total_seq)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__wakeup_seq as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__wakeup_seq)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__woken_seq as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__woken_seq)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__mutex as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__mutex)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__nwaiters as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__nwaiters)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_cond_t__bindgen_ty_1)).__broadcast_seq as *const _ as usize
+        },
+        44usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t__bindgen_ty_1),
+            "::",
+            stringify!(__broadcast_seq)
+        )
+    );
 }
 impl Clone for pthread_cond_t__bindgen_ty_1 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_pthread_cond_t() {
-    assert_eq!(::std::mem::size_of::<pthread_cond_t>() , 48usize , concat ! (
-               "Size of: " , stringify ! ( pthread_cond_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_cond_t>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( pthread_cond_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t ) ) . __data as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_cond_t ) , "::"
-                , stringify ! ( __data ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t ) ) . __size as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_cond_t ) , "::"
-                , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_cond_t ) ) . __align as * const _
-                as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_cond_t ) , "::"
-                , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_cond_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(pthread_cond_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_cond_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_cond_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t)).__data as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_cond_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_cond_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -863,23 +1203,41 @@ pub struct pthread_condattr_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_condattr_t() {
-    assert_eq!(::std::mem::size_of::<pthread_condattr_t>() , 4usize , concat !
-               ( "Size of: " , stringify ! ( pthread_condattr_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_condattr_t>() , 4usize , concat
-                ! ( "Alignment of " , stringify ! ( pthread_condattr_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_condattr_t ) ) . __size as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_condattr_t ) ,
-                "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_condattr_t ) ) . __align as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_condattr_t ) ,
-                "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_condattr_t>(),
+        4usize,
+        concat!("Size of: ", stringify!(pthread_condattr_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_condattr_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(pthread_condattr_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_condattr_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_condattr_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_condattr_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_condattr_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_condattr_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type pthread_key_t = ::std::os::raw::c_uint;
 pub type pthread_once_t = ::std::os::raw::c_int;
@@ -909,116 +1267,203 @@ pub struct pthread_rwlock_t__bindgen_ty_1 {
 }
 #[test]
 fn bindgen_test_layout_pthread_rwlock_t__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<pthread_rwlock_t__bindgen_ty_1>() ,
-               56usize , concat ! (
-               "Size of: " , stringify ! ( pthread_rwlock_t__bindgen_ty_1 )
-               ));
-    assert_eq! (::std::mem::align_of::<pthread_rwlock_t__bindgen_ty_1>() ,
-                8usize , concat ! (
-                "Alignment of " , stringify ! ( pthread_rwlock_t__bindgen_ty_1
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __lock as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! ( __lock
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __nr_readers as * const _ as usize } , 4usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __nr_readers ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __readers_wakeup as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __readers_wakeup ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __writer_wakeup as * const _ as usize } , 12usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __writer_wakeup ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __nr_readers_queued as * const _ as usize } , 16usize , concat
-                ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __nr_readers_queued ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __nr_writers_queued as * const _ as usize } , 20usize , concat
-                ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __nr_writers_queued ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __writer as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __writer ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __shared as * const _ as usize } , 28usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __shared ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __rwelision as * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __rwelision ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __pad1 as * const _ as usize } , 33usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! ( __pad1
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __pad2 as * const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! ( __pad2
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t__bindgen_ty_1 ) ) .
-                __flags as * const _ as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                pthread_rwlock_t__bindgen_ty_1 ) , "::" , stringify ! (
-                __flags ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_rwlock_t__bindgen_ty_1>(),
+        56usize,
+        concat!("Size of: ", stringify!(pthread_rwlock_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_rwlock_t__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_rwlock_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__lock as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__lock)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__nr_readers as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__nr_readers)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__readers_wakeup as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__readers_wakeup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__writer_wakeup as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__writer_wakeup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__nr_readers_queued as *const _ as
+                usize
+        },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__nr_readers_queued)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__nr_writers_queued as *const _ as
+                usize
+        },
+        20usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__nr_writers_queued)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__writer as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__writer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__shared as *const _ as usize },
+        28usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__shared)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__rwelision as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__rwelision)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__pad1 as *const _ as usize },
+        33usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__pad1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__pad2 as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__pad2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t__bindgen_ty_1)).__flags as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            "::",
+            stringify!(__flags)
+        )
+    );
 }
 impl Clone for pthread_rwlock_t__bindgen_ty_1 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_pthread_rwlock_t() {
-    assert_eq!(::std::mem::size_of::<pthread_rwlock_t>() , 56usize , concat !
-               ( "Size of: " , stringify ! ( pthread_rwlock_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_rwlock_t>() , 8usize , concat !
-                ( "Alignment of " , stringify ! ( pthread_rwlock_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t ) ) . __data as * const
-                _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_rwlock_t ) ,
-                "::" , stringify ! ( __data ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t ) ) . __size as * const
-                _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_rwlock_t ) ,
-                "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlock_t ) ) . __align as * const
-                _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_rwlock_t ) ,
-                "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_rwlock_t>(),
+        56usize,
+        concat!("Size of: ", stringify!(pthread_rwlock_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_rwlock_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_rwlock_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t)).__data as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t),
+            "::",
+            stringify!(__data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlock_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlock_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_rwlock_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -1029,24 +1474,41 @@ pub struct pthread_rwlockattr_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_rwlockattr_t() {
-    assert_eq!(::std::mem::size_of::<pthread_rwlockattr_t>() , 8usize , concat
-               ! ( "Size of: " , stringify ! ( pthread_rwlockattr_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_rwlockattr_t>() , 8usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( pthread_rwlockattr_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlockattr_t ) ) . __size as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_rwlockattr_t )
-                , "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_rwlockattr_t ) ) . __align as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_rwlockattr_t )
-                , "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_rwlockattr_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(pthread_rwlockattr_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_rwlockattr_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_rwlockattr_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlockattr_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlockattr_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_rwlockattr_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_rwlockattr_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_rwlockattr_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type pthread_spinlock_t = ::std::os::raw::c_int;
 #[repr(C)]
@@ -1058,23 +1520,41 @@ pub struct pthread_barrier_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_barrier_t() {
-    assert_eq!(::std::mem::size_of::<pthread_barrier_t>() , 32usize , concat !
-               ( "Size of: " , stringify ! ( pthread_barrier_t ) ));
-    assert_eq! (::std::mem::align_of::<pthread_barrier_t>() , 8usize , concat
-                ! ( "Alignment of " , stringify ! ( pthread_barrier_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_barrier_t ) ) . __size as * const
-                _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_barrier_t ) ,
-                "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_barrier_t ) ) . __align as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_barrier_t ) ,
-                "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_barrier_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(pthread_barrier_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_barrier_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_barrier_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_barrier_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_barrier_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_barrier_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_barrier_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_barrier_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -1085,25 +1565,41 @@ pub struct pthread_barrierattr_t {
 }
 #[test]
 fn bindgen_test_layout_pthread_barrierattr_t() {
-    assert_eq!(::std::mem::size_of::<pthread_barrierattr_t>() , 4usize ,
-               concat ! ( "Size of: " , stringify ! ( pthread_barrierattr_t )
-               ));
-    assert_eq! (::std::mem::align_of::<pthread_barrierattr_t>() , 4usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( pthread_barrierattr_t ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_barrierattr_t ) ) . __size as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_barrierattr_t )
-                , "::" , stringify ! ( __size ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const pthread_barrierattr_t ) ) . __align as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( pthread_barrierattr_t )
-                , "::" , stringify ! ( __align ) ));
+    assert_eq!(
+        ::std::mem::size_of::<pthread_barrierattr_t>(),
+        4usize,
+        concat!("Size of: ", stringify!(pthread_barrierattr_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_barrierattr_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(pthread_barrierattr_t))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_barrierattr_t)).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_barrierattr_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const pthread_barrierattr_t)).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(pthread_barrierattr_t),
+            "::",
+            stringify!(__align)
+        )
+    );
 }
 impl Clone for pthread_barrierattr_t {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 extern "C" {
     pub fn random() -> ::std::os::raw::c_long;
@@ -1112,13 +1608,14 @@ extern "C" {
     pub fn srandom(__seed: ::std::os::raw::c_uint);
 }
 extern "C" {
-    pub fn initstate(__seed: ::std::os::raw::c_uint,
-                     __statebuf: *mut ::std::os::raw::c_char,
-                     __statelen: usize) -> *mut ::std::os::raw::c_char;
+    pub fn initstate(
+        __seed: ::std::os::raw::c_uint,
+        __statebuf: *mut ::std::os::raw::c_char,
+        __statelen: usize,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn setstate(__statebuf: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn setstate(__statebuf: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -1133,66 +1630,114 @@ pub struct random_data {
 }
 #[test]
 fn bindgen_test_layout_random_data() {
-    assert_eq!(::std::mem::size_of::<random_data>() , 48usize , concat ! (
-               "Size of: " , stringify ! ( random_data ) ));
-    assert_eq! (::std::mem::align_of::<random_data>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( random_data ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . fptr as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( fptr ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . rptr as * const _ as
-                usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( rptr ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . state as * const _ as
-                usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( state ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . rand_type as * const _
-                as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( rand_type ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . rand_deg as * const _
-                as usize } , 28usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( rand_deg ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . rand_sep as * const _
-                as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( rand_sep ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const random_data ) ) . end_ptr as * const _ as
-                usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( random_data ) , "::" ,
-                stringify ! ( end_ptr ) ));
+    assert_eq!(
+        ::std::mem::size_of::<random_data>(),
+        48usize,
+        concat!("Size of: ", stringify!(random_data))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<random_data>(),
+        8usize,
+        concat!("Alignment of ", stringify!(random_data))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).fptr as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(fptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).rptr as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(rptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).state as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(state)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).rand_type as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(rand_type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).rand_deg as *const _ as usize },
+        28usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(rand_deg)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).rand_sep as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(rand_sep)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const random_data)).end_ptr as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(random_data),
+            "::",
+            stringify!(end_ptr)
+        )
+    );
 }
 impl Clone for random_data {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 extern "C" {
-    pub fn random_r(__buf: *mut random_data, __result: *mut i32)
-     -> ::std::os::raw::c_int;
+    pub fn random_r(__buf: *mut random_data, __result: *mut i32) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn srandom_r(__seed: ::std::os::raw::c_uint, __buf: *mut random_data)
-     -> ::std::os::raw::c_int;
+    pub fn srandom_r(
+        __seed: ::std::os::raw::c_uint,
+        __buf: *mut random_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn initstate_r(__seed: ::std::os::raw::c_uint,
-                       __statebuf: *mut ::std::os::raw::c_char,
-                       __statelen: usize, __buf: *mut random_data)
-     -> ::std::os::raw::c_int;
+    pub fn initstate_r(
+        __seed: ::std::os::raw::c_uint,
+        __statebuf: *mut ::std::os::raw::c_char,
+        __statelen: usize,
+        __buf: *mut random_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn setstate_r(__statebuf: *mut ::std::os::raw::c_char,
-                      __buf: *mut random_data) -> ::std::os::raw::c_int;
+    pub fn setstate_r(
+        __statebuf: *mut ::std::os::raw::c_char,
+        __buf: *mut random_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn rand() -> ::std::os::raw::c_int;
@@ -1201,8 +1746,7 @@ extern "C" {
     pub fn srand(__seed: ::std::os::raw::c_uint);
 }
 extern "C" {
-    pub fn rand_r(__seed: *mut ::std::os::raw::c_uint)
-     -> ::std::os::raw::c_int;
+    pub fn rand_r(__seed: *mut ::std::os::raw::c_uint) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn drand48() -> f64;
@@ -1214,22 +1758,19 @@ extern "C" {
     pub fn lrand48() -> ::std::os::raw::c_long;
 }
 extern "C" {
-    pub fn nrand48(__xsubi: *mut ::std::os::raw::c_ushort)
-     -> ::std::os::raw::c_long;
+    pub fn nrand48(__xsubi: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_long;
 }
 extern "C" {
     pub fn mrand48() -> ::std::os::raw::c_long;
 }
 extern "C" {
-    pub fn jrand48(__xsubi: *mut ::std::os::raw::c_ushort)
-     -> ::std::os::raw::c_long;
+    pub fn jrand48(__xsubi: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_long;
 }
 extern "C" {
     pub fn srand48(__seedval: ::std::os::raw::c_long);
 }
 extern "C" {
-    pub fn seed48(__seed16v: *mut ::std::os::raw::c_ushort)
-     -> *mut ::std::os::raw::c_ushort;
+    pub fn seed48(__seed16v: *mut ::std::os::raw::c_ushort) -> *mut ::std::os::raw::c_ushort;
 }
 extern "C" {
     pub fn lcong48(__param: *mut ::std::os::raw::c_ushort);
@@ -1245,92 +1786,137 @@ pub struct drand48_data {
 }
 #[test]
 fn bindgen_test_layout_drand48_data() {
-    assert_eq!(::std::mem::size_of::<drand48_data>() , 24usize , concat ! (
-               "Size of: " , stringify ! ( drand48_data ) ));
-    assert_eq! (::std::mem::align_of::<drand48_data>() , 8usize , concat ! (
-                "Alignment of " , stringify ! ( drand48_data ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const drand48_data ) ) . __x as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( drand48_data ) , "::" ,
-                stringify ! ( __x ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const drand48_data ) ) . __old_x as * const _
-                as usize } , 6usize , concat ! (
-                "Alignment of field: " , stringify ! ( drand48_data ) , "::" ,
-                stringify ! ( __old_x ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const drand48_data ) ) . __c as * const _ as
-                usize } , 12usize , concat ! (
-                "Alignment of field: " , stringify ! ( drand48_data ) , "::" ,
-                stringify ! ( __c ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const drand48_data ) ) . __init as * const _ as
-                usize } , 14usize , concat ! (
-                "Alignment of field: " , stringify ! ( drand48_data ) , "::" ,
-                stringify ! ( __init ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const drand48_data ) ) . __a as * const _ as
-                usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( drand48_data ) , "::" ,
-                stringify ! ( __a ) ));
+    assert_eq!(
+        ::std::mem::size_of::<drand48_data>(),
+        24usize,
+        concat!("Size of: ", stringify!(drand48_data))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<drand48_data>(),
+        8usize,
+        concat!("Alignment of ", stringify!(drand48_data))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const drand48_data)).__x as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(drand48_data),
+            "::",
+            stringify!(__x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const drand48_data)).__old_x as *const _ as usize },
+        6usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(drand48_data),
+            "::",
+            stringify!(__old_x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const drand48_data)).__c as *const _ as usize },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(drand48_data),
+            "::",
+            stringify!(__c)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const drand48_data)).__init as *const _ as usize },
+        14usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(drand48_data),
+            "::",
+            stringify!(__init)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const drand48_data)).__a as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(drand48_data),
+            "::",
+            stringify!(__a)
+        )
+    );
 }
 impl Clone for drand48_data {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 extern "C" {
-    pub fn drand48_r(__buffer: *mut drand48_data, __result: *mut f64)
-     -> ::std::os::raw::c_int;
+    pub fn drand48_r(__buffer: *mut drand48_data, __result: *mut f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn erand48_r(__xsubi: *mut ::std::os::raw::c_ushort,
-                     __buffer: *mut drand48_data, __result: *mut f64)
-     -> ::std::os::raw::c_int;
+    pub fn erand48_r(
+        __xsubi: *mut ::std::os::raw::c_ushort,
+        __buffer: *mut drand48_data,
+        __result: *mut f64,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn lrand48_r(__buffer: *mut drand48_data,
-                     __result: *mut ::std::os::raw::c_long)
-     -> ::std::os::raw::c_int;
+    pub fn lrand48_r(
+        __buffer: *mut drand48_data,
+        __result: *mut ::std::os::raw::c_long,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn nrand48_r(__xsubi: *mut ::std::os::raw::c_ushort,
-                     __buffer: *mut drand48_data,
-                     __result: *mut ::std::os::raw::c_long)
-     -> ::std::os::raw::c_int;
+    pub fn nrand48_r(
+        __xsubi: *mut ::std::os::raw::c_ushort,
+        __buffer: *mut drand48_data,
+        __result: *mut ::std::os::raw::c_long,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mrand48_r(__buffer: *mut drand48_data,
-                     __result: *mut ::std::os::raw::c_long)
-     -> ::std::os::raw::c_int;
+    pub fn mrand48_r(
+        __buffer: *mut drand48_data,
+        __result: *mut ::std::os::raw::c_long,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn jrand48_r(__xsubi: *mut ::std::os::raw::c_ushort,
-                     __buffer: *mut drand48_data,
-                     __result: *mut ::std::os::raw::c_long)
-     -> ::std::os::raw::c_int;
+    pub fn jrand48_r(
+        __xsubi: *mut ::std::os::raw::c_ushort,
+        __buffer: *mut drand48_data,
+        __result: *mut ::std::os::raw::c_long,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn srand48_r(__seedval: ::std::os::raw::c_long,
-                     __buffer: *mut drand48_data) -> ::std::os::raw::c_int;
+    pub fn srand48_r(
+        __seedval: ::std::os::raw::c_long,
+        __buffer: *mut drand48_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn seed48_r(__seed16v: *mut ::std::os::raw::c_ushort,
-                    __buffer: *mut drand48_data) -> ::std::os::raw::c_int;
+    pub fn seed48_r(
+        __seed16v: *mut ::std::os::raw::c_ushort,
+        __buffer: *mut drand48_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn lcong48_r(__param: *mut ::std::os::raw::c_ushort,
-                     __buffer: *mut drand48_data) -> ::std::os::raw::c_int;
+    pub fn lcong48_r(
+        __param: *mut ::std::os::raw::c_ushort,
+        __buffer: *mut drand48_data,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn malloc(__size: usize) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn calloc(__nmemb: usize, __size: usize)
-     -> *mut ::std::os::raw::c_void;
+    pub fn calloc(__nmemb: usize, __size: usize) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn realloc(__ptr: *mut ::std::os::raw::c_void, __size: usize)
-     -> *mut ::std::os::raw::c_void;
+    pub fn realloc(
+        __ptr: *mut ::std::os::raw::c_void,
+        __size: usize,
+    ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
     pub fn free(__ptr: *mut ::std::os::raw::c_void);
@@ -1345,34 +1931,36 @@ extern "C" {
     pub fn valloc(__size: usize) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn posix_memalign(__memptr: *mut *mut ::std::os::raw::c_void,
-                          __alignment: usize, __size: usize)
-     -> ::std::os::raw::c_int;
+    pub fn posix_memalign(
+        __memptr: *mut *mut ::std::os::raw::c_void,
+        __alignment: usize,
+        __size: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn aligned_alloc(__alignment: usize, __size: usize)
-     -> *mut ::std::os::raw::c_void;
+    pub fn aligned_alloc(__alignment: usize, __size: usize) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
     pub fn abort();
 }
 extern "C" {
-    pub fn atexit(__func: ::std::option::Option<unsafe extern "C" fn()>)
-     -> ::std::os::raw::c_int;
+    pub fn atexit(__func: ::std::option::Option<unsafe extern "C" fn()>) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn at_quick_exit(__func:
-                             ::std::option::Option<unsafe extern "C" fn()>)
-     -> ::std::os::raw::c_int;
+    pub fn at_quick_exit(
+        __func: ::std::option::Option<unsafe extern "C" fn()>,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn on_exit(__func:
-                       ::std::option::Option<unsafe extern "C" fn(__status:
-                                                                      ::std::os::raw::c_int,
-                                                                  __arg:
-                                                                      *mut ::std::os::raw::c_void)>,
-                   __arg: *mut ::std::os::raw::c_void)
-     -> ::std::os::raw::c_int;
+    pub fn on_exit(
+        __func: ::std::option::Option<
+            unsafe extern "C" fn(
+                __status: ::std::os::raw::c_int,
+                __arg: *mut ::std::os::raw::c_void,
+            ),
+        >,
+        __arg: *mut ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn exit(__status: ::std::os::raw::c_int);
@@ -1384,66 +1972,68 @@ extern "C" {
     pub fn _Exit(__status: ::std::os::raw::c_int);
 }
 extern "C" {
-    pub fn getenv(__name: *const ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn getenv(__name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn putenv(__string: *mut ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn putenv(__string: *mut ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn setenv(__name: *const ::std::os::raw::c_char,
-                  __value: *const ::std::os::raw::c_char,
-                  __replace: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn setenv(
+        __name: *const ::std::os::raw::c_char,
+        __value: *const ::std::os::raw::c_char,
+        __replace: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn unsetenv(__name: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn unsetenv(__name: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn clearenv() -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mktemp(__template: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn mktemp(__template: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn mkstemp(__template: *mut ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn mkstemp(__template: *mut ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mkstemps(__template: *mut ::std::os::raw::c_char,
-                    __suffixlen: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_int;
+    pub fn mkstemps(
+        __template: *mut ::std::os::raw::c_char,
+        __suffixlen: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mkdtemp(__template: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn mkdtemp(__template: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn system(__command: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn system(__command: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn realpath(__name: *const ::std::os::raw::c_char,
-                    __resolved: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn realpath(
+        __name: *const ::std::os::raw::c_char,
+        __resolved: *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
 }
-pub type __compar_fn_t =
-    ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                   *const ::std::os::raw::c_void,
-                                               arg2:
-                                                   *const ::std::os::raw::c_void)
-                              -> ::std::os::raw::c_int>;
+pub type __compar_fn_t = ::std::option::Option<
+    unsafe extern "C" fn(arg1: *const ::std::os::raw::c_void, arg2: *const ::std::os::raw::c_void)
+        -> ::std::os::raw::c_int,
+>;
 extern "C" {
-    pub fn bsearch(__key: *const ::std::os::raw::c_void,
-                   __base: *const ::std::os::raw::c_void, __nmemb: usize,
-                   __size: usize, __compar: __compar_fn_t)
-     -> *mut ::std::os::raw::c_void;
+    pub fn bsearch(
+        __key: *const ::std::os::raw::c_void,
+        __base: *const ::std::os::raw::c_void,
+        __nmemb: usize,
+        __size: usize,
+        __compar: __compar_fn_t,
+    ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn qsort(__base: *mut ::std::os::raw::c_void, __nmemb: usize,
-                 __size: usize, __compar: __compar_fn_t);
+    pub fn qsort(
+        __base: *mut ::std::os::raw::c_void,
+        __nmemb: usize,
+        __size: usize,
+        __compar: __compar_fn_t,
+    );
 }
 extern "C" {
     pub fn abs(__x: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
@@ -1452,116 +2042,138 @@ extern "C" {
     pub fn labs(__x: ::std::os::raw::c_long) -> ::std::os::raw::c_long;
 }
 extern "C" {
-    pub fn llabs(__x: ::std::os::raw::c_longlong)
-     -> ::std::os::raw::c_longlong;
+    pub fn llabs(__x: ::std::os::raw::c_longlong) -> ::std::os::raw::c_longlong;
 }
 extern "C" {
-    pub fn div(__numer: ::std::os::raw::c_int, __denom: ::std::os::raw::c_int)
-     -> div_t;
+    pub fn div(__numer: ::std::os::raw::c_int, __denom: ::std::os::raw::c_int) -> div_t;
 }
 extern "C" {
-    pub fn ldiv(__numer: ::std::os::raw::c_long,
-                __denom: ::std::os::raw::c_long) -> ldiv_t;
+    pub fn ldiv(__numer: ::std::os::raw::c_long, __denom: ::std::os::raw::c_long) -> ldiv_t;
 }
 extern "C" {
-    pub fn lldiv(__numer: ::std::os::raw::c_longlong,
-                 __denom: ::std::os::raw::c_longlong) -> lldiv_t;
+    pub fn lldiv(
+        __numer: ::std::os::raw::c_longlong,
+        __denom: ::std::os::raw::c_longlong,
+    ) -> lldiv_t;
 }
 extern "C" {
-    pub fn ecvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                __decpt: *mut ::std::os::raw::c_int,
-                __sign: *mut ::std::os::raw::c_int)
-     -> *mut ::std::os::raw::c_char;
+    pub fn ecvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn fcvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                __decpt: *mut ::std::os::raw::c_int,
-                __sign: *mut ::std::os::raw::c_int)
-     -> *mut ::std::os::raw::c_char;
+    pub fn fcvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn gcvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                __buf: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn gcvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn qecvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                 __decpt: *mut ::std::os::raw::c_int,
-                 __sign: *mut ::std::os::raw::c_int)
-     -> *mut ::std::os::raw::c_char;
+    pub fn qecvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn qfcvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                 __decpt: *mut ::std::os::raw::c_int,
-                 __sign: *mut ::std::os::raw::c_int)
-     -> *mut ::std::os::raw::c_char;
+    pub fn qfcvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn qgcvt(__value: f64, __ndigit: ::std::os::raw::c_int,
-                 __buf: *mut ::std::os::raw::c_char)
-     -> *mut ::std::os::raw::c_char;
+    pub fn qgcvt(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn ecvt_r(__value: f64, __ndigit: ::std::os::raw::c_int,
-                  __decpt: *mut ::std::os::raw::c_int,
-                  __sign: *mut ::std::os::raw::c_int,
-                  __buf: *mut ::std::os::raw::c_char, __len: usize)
-     -> ::std::os::raw::c_int;
+    pub fn ecvt_r(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+        __len: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn fcvt_r(__value: f64, __ndigit: ::std::os::raw::c_int,
-                  __decpt: *mut ::std::os::raw::c_int,
-                  __sign: *mut ::std::os::raw::c_int,
-                  __buf: *mut ::std::os::raw::c_char, __len: usize)
-     -> ::std::os::raw::c_int;
+    pub fn fcvt_r(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+        __len: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn qecvt_r(__value: f64, __ndigit: ::std::os::raw::c_int,
-                   __decpt: *mut ::std::os::raw::c_int,
-                   __sign: *mut ::std::os::raw::c_int,
-                   __buf: *mut ::std::os::raw::c_char, __len: usize)
-     -> ::std::os::raw::c_int;
+    pub fn qecvt_r(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+        __len: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn qfcvt_r(__value: f64, __ndigit: ::std::os::raw::c_int,
-                   __decpt: *mut ::std::os::raw::c_int,
-                   __sign: *mut ::std::os::raw::c_int,
-                   __buf: *mut ::std::os::raw::c_char, __len: usize)
-     -> ::std::os::raw::c_int;
+    pub fn qfcvt_r(
+        __value: f64,
+        __ndigit: ::std::os::raw::c_int,
+        __decpt: *mut ::std::os::raw::c_int,
+        __sign: *mut ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_char,
+        __len: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mblen(__s: *const ::std::os::raw::c_char, __n: usize)
-     -> ::std::os::raw::c_int;
+    pub fn mblen(__s: *const ::std::os::raw::c_char, __n: usize) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mbtowc(__pwc: *mut wchar_t, __s: *const ::std::os::raw::c_char,
-                  __n: usize) -> ::std::os::raw::c_int;
+    pub fn mbtowc(
+        __pwc: *mut wchar_t,
+        __s: *const ::std::os::raw::c_char,
+        __n: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn wctomb(__s: *mut ::std::os::raw::c_char, __wchar: wchar_t)
-     -> ::std::os::raw::c_int;
+    pub fn wctomb(__s: *mut ::std::os::raw::c_char, __wchar: wchar_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn mbstowcs(__pwcs: *mut wchar_t, __s: *const ::std::os::raw::c_char,
-                    __n: usize) -> usize;
+    pub fn mbstowcs(__pwcs: *mut wchar_t, __s: *const ::std::os::raw::c_char, __n: usize) -> usize;
 }
 extern "C" {
-    pub fn wcstombs(__s: *mut ::std::os::raw::c_char, __pwcs: *const wchar_t,
-                    __n: usize) -> usize;
+    pub fn wcstombs(__s: *mut ::std::os::raw::c_char, __pwcs: *const wchar_t, __n: usize) -> usize;
 }
 extern "C" {
-    pub fn rpmatch(__response: *const ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn rpmatch(__response: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn getsubopt(__optionp: *mut *mut ::std::os::raw::c_char,
-                     __tokens: *const *const ::std::os::raw::c_char,
-                     __valuep: *mut *mut ::std::os::raw::c_char)
-     -> ::std::os::raw::c_int;
+    pub fn getsubopt(
+        __optionp: *mut *mut ::std::os::raw::c_char,
+        __tokens: *const *const ::std::os::raw::c_char,
+        __valuep: *mut *mut ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn getloadavg(__loadavg: *mut f64, __nelem: ::std::os::raw::c_int)
-     -> ::std::os::raw::c_int;
+        -> ::std::os::raw::c_int;
 }
 pub type int_least8_t = ::std::os::raw::c_schar;
 pub type int_least16_t = ::std::os::raw::c_short;
@@ -1654,18 +2266,31 @@ pub struct CUuuid_st {
 }
 #[test]
 fn bindgen_test_layout_CUuuid_st() {
-    assert_eq!(::std::mem::size_of::<CUuuid_st>() , 16usize , concat ! (
-               "Size of: " , stringify ! ( CUuuid_st ) ));
-    assert_eq! (::std::mem::align_of::<CUuuid_st>() , 1usize , concat ! (
-                "Alignment of " , stringify ! ( CUuuid_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUuuid_st ) ) . bytes as * const _ as
-                usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUuuid_st ) , "::" ,
-                stringify ! ( bytes ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUuuid_st>(),
+        16usize,
+        concat!("Size of: ", stringify!(CUuuid_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUuuid_st>(),
+        1usize,
+        concat!("Alignment of ", stringify!(CUuuid_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUuuid_st)).bytes as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUuuid_st),
+            "::",
+            stringify!(bytes)
+        )
+    );
 }
 impl Clone for CUuuid_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUuuid = CUuuid_st;
 #[repr(C)]
@@ -1674,16 +2299,26 @@ pub struct CUipcEventHandle_st {
 }
 #[test]
 fn bindgen_test_layout_CUipcEventHandle_st() {
-    assert_eq!(::std::mem::size_of::<CUipcEventHandle_st>() , 64usize , concat
-               ! ( "Size of: " , stringify ! ( CUipcEventHandle_st ) ));
-    assert_eq! (::std::mem::align_of::<CUipcEventHandle_st>() , 1usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( CUipcEventHandle_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUipcEventHandle_st ) ) . reserved as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUipcEventHandle_st ) ,
-                "::" , stringify ! ( reserved ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUipcEventHandle_st>(),
+        64usize,
+        concat!("Size of: ", stringify!(CUipcEventHandle_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUipcEventHandle_st>(),
+        1usize,
+        concat!("Alignment of ", stringify!(CUipcEventHandle_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUipcEventHandle_st)).reserved as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUipcEventHandle_st),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 pub type CUipcEventHandle = CUipcEventHandle_st;
 #[repr(C)]
@@ -1692,20 +2327,33 @@ pub struct CUipcMemHandle_st {
 }
 #[test]
 fn bindgen_test_layout_CUipcMemHandle_st() {
-    assert_eq!(::std::mem::size_of::<CUipcMemHandle_st>() , 64usize , concat !
-               ( "Size of: " , stringify ! ( CUipcMemHandle_st ) ));
-    assert_eq! (::std::mem::align_of::<CUipcMemHandle_st>() , 1usize , concat
-                ! ( "Alignment of " , stringify ! ( CUipcMemHandle_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUipcMemHandle_st ) ) . reserved as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUipcMemHandle_st ) ,
-                "::" , stringify ! ( reserved ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUipcMemHandle_st>(),
+        64usize,
+        concat!("Size of: ", stringify!(CUipcMemHandle_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUipcMemHandle_st>(),
+        1usize,
+        concat!("Alignment of ", stringify!(CUipcMemHandle_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUipcMemHandle_st)).reserved as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUipcMemHandle_st),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 pub type CUipcMemHandle = CUipcMemHandle_st;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum CUipcMem_flags_enum { CU_IPC_MEM_LAZY_ENABLE_PEER_ACCESS = 1, }
+pub enum CUipcMem_flags_enum {
+    CU_IPC_MEM_LAZY_ENABLE_PEER_ACCESS = 1,
+}
 pub use self::CUipcMem_flags_enum as CUipcMem_flags;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
@@ -1774,9 +2422,12 @@ pub use self::CUstreamBatchMemOpType_enum as CUstreamBatchMemOpType;
 #[derive(Debug, Copy)]
 pub struct CUstreamBatchMemOpParams_union {
     pub operation: __BindgenUnionField<CUstreamBatchMemOpType>,
-    pub waitValue: __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>,
-    pub writeValue: __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>,
-    pub flushRemoteWrites: __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st>,
+    pub waitValue:
+        __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>,
+    pub writeValue:
+        __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>,
+    pub flushRemoteWrites:
+        __BindgenUnionField<CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st>,
     pub pad: __BindgenUnionField<[cuuint64_t; 6usize]>,
     pub bindgen_union_field: [u64; 6usize],
 }
@@ -1785,7 +2436,8 @@ pub struct CUstreamBatchMemOpParams_union {
 pub struct CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st {
     pub operation: CUstreamBatchMemOpType,
     pub address: CUdeviceptr,
-    pub __bindgen_anon_1: CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1,
+    pub __bindgen_anon_1:
+        CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1,
     pub flags: ::std::os::raw::c_uint,
     pub alias: CUdeviceptr,
 }
@@ -1797,100 +2449,156 @@ pub struct CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindg
     pub bindgen_union_field: u64,
 }
 #[test]
-fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1>()
-               , 8usize , concat ! (
-               "Size of: " , stringify ! (
-               CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
+fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1(){
+    assert_eq!(
+        ::std::mem::size_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1,
+        >(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-                ) ));
-    assert_eq! (unsafe {
-                & (
+            )
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1,
+        >(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(
+                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
+            )
+        )
+    );
+    assert_eq!(
+        unsafe {
+            & (
                 * (
                 0 as * const
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-                ) ) . value as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
+                ) ) . value as * const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-                ) , "::" , stringify ! ( value ) ));
-    assert_eq! (unsafe {
-                & (
+            ),
+            "::",
+            stringify!(value)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            & (
                 * (
                 0 as * const
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-                ) ) . pad as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
+                ) ) . pad as * const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
-                ) , "::" , stringify ! ( pad ) ));
+            ),
+            "::",
+            stringify!(pad)
+        )
+    );
 }
-impl Clone for
- CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1
- {
-    fn clone(&self) -> Self { *self }
+impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st__bindgen_ty_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>()
-               , 40usize , concat ! (
-               "Size of: " , stringify ! (
-               CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) ) . operation as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) , "::" , stringify ! ( operation ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) ) . address as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) , "::" , stringify ! ( address ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) ) . flags as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) , "::" , stringify ! ( flags ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) ) . alias as * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
-                ) , "::" , stringify ! ( alias ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>(),
+        40usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st))
+                .operation as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st),
+            "::",
+            stringify!(operation)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st))
+                .address as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st),
+            "::",
+            stringify!(address)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st))
+                .flags as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st))
+                .alias as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st),
+            "::",
+            stringify!(alias)
+        )
+    );
 }
-impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st
- {
-    fn clone(&self) -> Self { *self }
+impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWaitValueParams_st {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
 pub struct CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st {
     pub operation: CUstreamBatchMemOpType,
     pub address: CUdeviceptr,
-    pub __bindgen_anon_1: CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1,
+    pub __bindgen_anon_1:
+        CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1,
     pub flags: ::std::os::raw::c_uint,
     pub alias: CUdeviceptr,
 }
@@ -1902,93 +2610,152 @@ pub struct CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bind
     pub bindgen_union_field: u64,
 }
 #[test]
-fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1>()
-               , 8usize , concat ! (
-               "Size of: " , stringify ! (
-               CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
+fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1(){
+    assert_eq!(
+        ::std::mem::size_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1,
+        >(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-                ) ));
-    assert_eq! (unsafe {
-                & (
+            )
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1,
+        >(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(
+                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
+            )
+        )
+    );
+    assert_eq!(
+        unsafe {
+            & (
                 * (
                 0 as * const
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-                ) ) . value as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
+                ) ) . value as * const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-                ) , "::" , stringify ! ( value ) ));
-    assert_eq! (unsafe {
-                & (
+            ),
+            "::",
+            stringify!(value)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            & (
                 * (
                 0 as * const
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-                ) ) . pad as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
+                ) ) . pad as * const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(
                 CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
-                ) , "::" , stringify ! ( pad ) ));
+            ),
+            "::",
+            stringify!(pad)
+        )
+    );
 }
-impl Clone for
- CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1
- {
-    fn clone(&self) -> Self { *self }
+impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st__bindgen_ty_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>()
-               , 40usize , concat ! (
-               "Size of: " , stringify ! (
-               CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) ) . operation as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) , "::" , stringify ! ( operation ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) ) . address as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) , "::" , stringify ! ( address ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) ) . flags as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) , "::" , stringify ! ( flags ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) ) . alias as * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
-                ) , "::" , stringify ! ( alias ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>(),
+        40usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st))
+                .operation as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st),
+            "::",
+            stringify!(operation)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st))
+                .address as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st),
+            "::",
+            stringify!(address)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st))
+                .flags as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st))
+                .alias as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st),
+            "::",
+            stringify!(alias)
+        )
+    );
 }
-impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st
- {
-    fn clone(&self) -> Self { *self }
+impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpWriteValueParams_st {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -1998,83 +2765,131 @@ pub struct CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_s
 }
 #[test]
 fn bindgen_test_layout_CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st>()
-               , 8usize , concat ! (
-               "Size of: " , stringify ! (
-               CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st>()
-                , 4usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-                ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-                ) ) . operation as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-                ) , "::" , stringify ! ( operation ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const
-                CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-                ) ) . flags as * const _ as usize } , 4usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st
-                ) , "::" , stringify ! ( flags ) ));
+    assert_eq!(
+        ::std::mem::size_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st,
+        >(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<
+            CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st,
+        >(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st))
+                .operation as
+                *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st),
+            "::",
+            stringify!(operation)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as
+                *const CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st))
+                .flags as
+                *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st),
+            "::",
+            stringify!(flags)
+        )
+    );
 }
-impl Clone for
- CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st {
-    fn clone(&self) -> Self { *self }
+impl Clone for CUstreamBatchMemOpParams_union_CUstreamMemOpFlushRemoteWritesParams_st {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_CUstreamBatchMemOpParams_union() {
-    assert_eq!(::std::mem::size_of::<CUstreamBatchMemOpParams_union>() ,
-               48usize , concat ! (
-               "Size of: " , stringify ! ( CUstreamBatchMemOpParams_union )
-               ));
-    assert_eq! (::std::mem::align_of::<CUstreamBatchMemOpParams_union>() ,
-                8usize , concat ! (
-                "Alignment of " , stringify ! ( CUstreamBatchMemOpParams_union
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUstreamBatchMemOpParams_union ) ) .
-                operation as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union ) , "::" , stringify ! (
-                operation ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUstreamBatchMemOpParams_union ) ) .
-                waitValue as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union ) , "::" , stringify ! (
-                waitValue ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUstreamBatchMemOpParams_union ) ) .
-                writeValue as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union ) , "::" , stringify ! (
-                writeValue ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUstreamBatchMemOpParams_union ) ) .
-                flushRemoteWrites as * const _ as usize } , 0usize , concat !
-                (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union ) , "::" , stringify ! (
-                flushRemoteWrites ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUstreamBatchMemOpParams_union ) ) . pad
-                as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUstreamBatchMemOpParams_union ) , "::" , stringify ! ( pad )
-                ));
+    assert_eq!(
+        ::std::mem::size_of::<CUstreamBatchMemOpParams_union>(),
+        48usize,
+        concat!("Size of: ", stringify!(CUstreamBatchMemOpParams_union))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUstreamBatchMemOpParams_union>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUstreamBatchMemOpParams_union))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUstreamBatchMemOpParams_union)).operation as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union),
+            "::",
+            stringify!(operation)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUstreamBatchMemOpParams_union)).waitValue as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union),
+            "::",
+            stringify!(waitValue)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUstreamBatchMemOpParams_union)).writeValue as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union),
+            "::",
+            stringify!(writeValue)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUstreamBatchMemOpParams_union)).flushRemoteWrites as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union),
+            "::",
+            stringify!(flushRemoteWrites)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUstreamBatchMemOpParams_union)).pad as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUstreamBatchMemOpParams_union),
+            "::",
+            stringify!(pad)
+        )
+    );
 }
 impl Clone for CUstreamBatchMemOpParams_union {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUstreamBatchMemOpParams = CUstreamBatchMemOpParams_union;
 #[repr(u32)]
@@ -2241,63 +3056,121 @@ pub struct CUdevprop_st {
 }
 #[test]
 fn bindgen_test_layout_CUdevprop_st() {
-    assert_eq!(::std::mem::size_of::<CUdevprop_st>() , 56usize , concat ! (
-               "Size of: " , stringify ! ( CUdevprop_st ) ));
-    assert_eq! (::std::mem::align_of::<CUdevprop_st>() , 4usize , concat ! (
-                "Alignment of " , stringify ! ( CUdevprop_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . maxThreadsPerBlock as
-                * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( maxThreadsPerBlock ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . maxThreadsDim as *
-                const _ as usize } , 4usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( maxThreadsDim ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . maxGridSize as * const
-                _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( maxGridSize ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . sharedMemPerBlock as *
-                const _ as usize } , 28usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( sharedMemPerBlock ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . totalConstantMemory as
-                * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( totalConstantMemory ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . SIMDWidth as * const _
-                as usize } , 36usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( SIMDWidth ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . memPitch as * const _
-                as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( memPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . regsPerBlock as *
-                const _ as usize } , 44usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( regsPerBlock ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . clockRate as * const _
-                as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( clockRate ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUdevprop_st ) ) . textureAlign as *
-                const _ as usize } , 52usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUdevprop_st ) , "::" ,
-                stringify ! ( textureAlign ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUdevprop_st>(),
+        56usize,
+        concat!("Size of: ", stringify!(CUdevprop_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUdevprop_st>(),
+        4usize,
+        concat!("Alignment of ", stringify!(CUdevprop_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).maxThreadsPerBlock as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(maxThreadsPerBlock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).maxThreadsDim as *const _ as usize },
+        4usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(maxThreadsDim)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).maxGridSize as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(maxGridSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).sharedMemPerBlock as *const _ as usize },
+        28usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(sharedMemPerBlock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).totalConstantMemory as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(totalConstantMemory)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).SIMDWidth as *const _ as usize },
+        36usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(SIMDWidth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).memPitch as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(memPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).regsPerBlock as *const _ as usize },
+        44usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(regsPerBlock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).clockRate as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(clockRate)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUdevprop_st)).textureAlign as *const _ as usize },
+        52usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUdevprop_st),
+            "::",
+            stringify!(textureAlign)
+        )
+    );
 }
 impl Clone for CUdevprop_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUdevprop = CUdevprop_st;
 #[repr(u32)]
@@ -2427,7 +3300,10 @@ pub enum CUjit_target_enum {
 pub use self::CUjit_target_enum as CUjit_target;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum CUjit_fallback_enum { CU_PREFER_PTX = 0, CU_PREFER_BINARY = 1, }
+pub enum CUjit_fallback_enum {
+    CU_PREFER_PTX = 0,
+    CU_PREFER_BINARY = 1,
+}
 pub use self::CUjit_fallback_enum as CUjit_fallback;
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
@@ -2575,15 +3451,16 @@ pub enum CUdevice_P2PAttribute_enum {
     CU_DEVICE_P2P_ATTRIBUTE_NATIVE_ATOMIC_SUPPORTED = 3,
 }
 pub use self::CUdevice_P2PAttribute_enum as CUdevice_P2PAttribute;
-pub type CUstreamCallback =
-    ::std::option::Option<unsafe extern "C" fn(hStream: CUstream,
-                                               status: CUresult,
-                                               userData:
-                                                   *mut ::std::os::raw::c_void)>;
-pub type CUoccupancyB2DSize =
-    ::std::option::Option<unsafe extern "C" fn(blockSize:
-                                                   ::std::os::raw::c_int)
-                              -> usize>;
+pub type CUstreamCallback = ::std::option::Option<
+    unsafe extern "C" fn(
+        hStream: CUstream,
+        status: CUresult,
+        userData: *mut ::std::os::raw::c_void,
+    ),
+>;
+pub type CUoccupancyB2DSize = ::std::option::Option<
+    unsafe extern "C" fn(blockSize: ::std::os::raw::c_int) -> usize,
+>;
 #[repr(C)]
 #[derive(Debug, Copy)]
 pub struct CUDA_MEMCPY2D_st {
@@ -2606,93 +3483,181 @@ pub struct CUDA_MEMCPY2D_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_MEMCPY2D_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_MEMCPY2D_st>() , 128usize , concat !
-               ( "Size of: " , stringify ! ( CUDA_MEMCPY2D_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_MEMCPY2D_st>() , 8usize , concat !
-                ( "Alignment of " , stringify ! ( CUDA_MEMCPY2D_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcXInBytes as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcY as * const _
-                as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcMemoryType as *
-                const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcHost as * const
-                _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcDevice as *
-                const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcArray as *
-                const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . srcPitch as *
-                const _ as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( srcPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstXInBytes as *
-                const _ as usize } , 56usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstY as * const _
-                as usize } , 64usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstMemoryType as *
-                const _ as usize } , 72usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstHost as * const
-                _ as usize } , 80usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstDevice as *
-                const _ as usize } , 88usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstArray as *
-                const _ as usize } , 96usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . dstPitch as *
-                const _ as usize } , 104usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( dstPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . WidthInBytes as *
-                const _ as usize } , 112usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( WidthInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY2D_st ) ) . Height as * const
-                _ as usize } , 120usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY2D_st ) ,
-                "::" , stringify ! ( Height ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_MEMCPY2D_st>(),
+        128usize,
+        concat!("Size of: ", stringify!(CUDA_MEMCPY2D_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_MEMCPY2D_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_MEMCPY2D_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcXInBytes as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcY as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcMemoryType as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcHost as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcDevice as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcArray as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).srcPitch as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(srcPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstXInBytes as *const _ as usize },
+        56usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstY as *const _ as usize },
+        64usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstMemoryType as *const _ as usize },
+        72usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstHost as *const _ as usize },
+        80usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstDevice as *const _ as usize },
+        88usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstArray as *const _ as usize },
+        96usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).dstPitch as *const _ as usize },
+        104usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(dstPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).WidthInBytes as *const _ as usize },
+        112usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(WidthInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY2D_st)).Height as *const _ as usize },
+        120usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY2D_st),
+            "::",
+            stringify!(Height)
+        )
+    );
 }
 impl Clone for CUDA_MEMCPY2D_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_MEMCPY2D = CUDA_MEMCPY2D_st;
 #[repr(C)]
@@ -2726,138 +3691,271 @@ pub struct CUDA_MEMCPY3D_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_MEMCPY3D_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_MEMCPY3D_st>() , 200usize , concat !
-               ( "Size of: " , stringify ! ( CUDA_MEMCPY3D_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_MEMCPY3D_st>() , 8usize , concat !
-                ( "Alignment of " , stringify ! ( CUDA_MEMCPY3D_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcXInBytes as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcY as * const _
-                as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcZ as * const _
-                as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcZ ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcLOD as * const
-                _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcLOD ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcMemoryType as *
-                const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcHost as * const
-                _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcDevice as *
-                const _ as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcArray as *
-                const _ as usize } , 56usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . reserved0 as *
-                const _ as usize } , 64usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( reserved0 ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcPitch as *
-                const _ as usize } , 72usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . srcHeight as *
-                const _ as usize } , 80usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( srcHeight ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstXInBytes as *
-                const _ as usize } , 88usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstY as * const _
-                as usize } , 96usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstZ as * const _
-                as usize } , 104usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstZ ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstLOD as * const
-                _ as usize } , 112usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstLOD ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstMemoryType as *
-                const _ as usize } , 120usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstHost as * const
-                _ as usize } , 128usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstDevice as *
-                const _ as usize } , 136usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstArray as *
-                const _ as usize } , 144usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . reserved1 as *
-                const _ as usize } , 152usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( reserved1 ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstPitch as *
-                const _ as usize } , 160usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . dstHeight as *
-                const _ as usize } , 168usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( dstHeight ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . WidthInBytes as *
-                const _ as usize } , 176usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( WidthInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . Height as * const
-                _ as usize } , 184usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( Height ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_st ) ) . Depth as * const _
-                as usize } , 192usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_st ) ,
-                "::" , stringify ! ( Depth ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_MEMCPY3D_st>(),
+        200usize,
+        concat!("Size of: ", stringify!(CUDA_MEMCPY3D_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_MEMCPY3D_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_MEMCPY3D_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcXInBytes as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcY as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcZ as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcZ)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcLOD as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcLOD)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcMemoryType as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcHost as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcDevice as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcArray as *const _ as usize },
+        56usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).reserved0 as *const _ as usize },
+        64usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(reserved0)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcPitch as *const _ as usize },
+        72usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).srcHeight as *const _ as usize },
+        80usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(srcHeight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstXInBytes as *const _ as usize },
+        88usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstY as *const _ as usize },
+        96usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstZ as *const _ as usize },
+        104usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstZ)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstLOD as *const _ as usize },
+        112usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstLOD)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstMemoryType as *const _ as usize },
+        120usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstHost as *const _ as usize },
+        128usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstDevice as *const _ as usize },
+        136usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstArray as *const _ as usize },
+        144usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).reserved1 as *const _ as usize },
+        152usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstPitch as *const _ as usize },
+        160usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).dstHeight as *const _ as usize },
+        168usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(dstHeight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).WidthInBytes as *const _ as usize },
+        176usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(WidthInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).Height as *const _ as usize },
+        184usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(Height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_st)).Depth as *const _ as usize },
+        192usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_st),
+            "::",
+            stringify!(Depth)
+        )
+    );
 }
 impl Clone for CUDA_MEMCPY3D_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_MEMCPY3D = CUDA_MEMCPY3D_st;
 #[repr(C)]
@@ -2891,140 +3989,271 @@ pub struct CUDA_MEMCPY3D_PEER_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_MEMCPY3D_PEER_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_MEMCPY3D_PEER_st>() , 200usize ,
-               concat ! ( "Size of: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-               ));
-    assert_eq! (::std::mem::align_of::<CUDA_MEMCPY3D_PEER_st>() , 8usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( CUDA_MEMCPY3D_PEER_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcXInBytes
-                as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcY as *
-                const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcZ as *
-                const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcZ ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcLOD as *
-                const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcLOD ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcMemoryType
-                as * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcHost as *
-                const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcDevice as
-                * const _ as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcArray as *
-                const _ as usize } , 56usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcContext as
-                * const _ as usize } , 64usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcContext ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcPitch as *
-                const _ as usize } , 72usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . srcHeight as
-                * const _ as usize } , 80usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( srcHeight ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstXInBytes
-                as * const _ as usize } , 88usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstXInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstY as *
-                const _ as usize } , 96usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstY ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstZ as *
-                const _ as usize } , 104usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstZ ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstLOD as *
-                const _ as usize } , 112usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstLOD ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstMemoryType
-                as * const _ as usize } , 120usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstMemoryType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstHost as *
-                const _ as usize } , 128usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstHost ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstDevice as
-                * const _ as usize } , 136usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstDevice ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstArray as *
-                const _ as usize } , 144usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstArray ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstContext as
-                * const _ as usize } , 152usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstContext ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstPitch as *
-                const _ as usize } , 160usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstPitch ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . dstHeight as
-                * const _ as usize } , 168usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( dstHeight ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . WidthInBytes
-                as * const _ as usize } , 176usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( WidthInBytes ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . Height as *
-                const _ as usize } , 184usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( Height ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_MEMCPY3D_PEER_st ) ) . Depth as *
-                const _ as usize } , 192usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_MEMCPY3D_PEER_st )
-                , "::" , stringify ! ( Depth ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_MEMCPY3D_PEER_st>(),
+        200usize,
+        concat!("Size of: ", stringify!(CUDA_MEMCPY3D_PEER_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_MEMCPY3D_PEER_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_MEMCPY3D_PEER_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcXInBytes as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcY as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcZ as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcZ)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcLOD as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcLOD)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcMemoryType as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcHost as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcDevice as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcArray as *const _ as usize },
+        56usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcContext as *const _ as usize },
+        64usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcContext)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcPitch as *const _ as usize },
+        72usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).srcHeight as *const _ as usize },
+        80usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(srcHeight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstXInBytes as *const _ as usize },
+        88usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstXInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstY as *const _ as usize },
+        96usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstZ as *const _ as usize },
+        104usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstZ)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstLOD as *const _ as usize },
+        112usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstLOD)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstMemoryType as *const _ as usize },
+        120usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstMemoryType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstHost as *const _ as usize },
+        128usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstDevice as *const _ as usize },
+        136usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstDevice)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstArray as *const _ as usize },
+        144usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstContext as *const _ as usize },
+        152usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstContext)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstPitch as *const _ as usize },
+        160usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstPitch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).dstHeight as *const _ as usize },
+        168usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(dstHeight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).WidthInBytes as *const _ as usize },
+        176usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(WidthInBytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).Height as *const _ as usize },
+        184usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(Height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_MEMCPY3D_PEER_st)).Depth as *const _ as usize },
+        192usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_MEMCPY3D_PEER_st),
+            "::",
+            stringify!(Depth)
+        )
+    );
 }
 impl Clone for CUDA_MEMCPY3D_PEER_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_MEMCPY3D_PEER = CUDA_MEMCPY3D_PEER_st;
 #[repr(C)]
@@ -3037,36 +4266,61 @@ pub struct CUDA_ARRAY_DESCRIPTOR_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_ARRAY_DESCRIPTOR_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_ARRAY_DESCRIPTOR_st>() , 24usize ,
-               concat ! (
-               "Size of: " , stringify ! ( CUDA_ARRAY_DESCRIPTOR_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_ARRAY_DESCRIPTOR_st>() , 8usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( CUDA_ARRAY_DESCRIPTOR_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY_DESCRIPTOR_st ) ) . Width as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY_DESCRIPTOR_st ) , "::" , stringify ! ( Width ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY_DESCRIPTOR_st ) ) . Height as
-                * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY_DESCRIPTOR_st ) , "::" , stringify ! ( Height ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY_DESCRIPTOR_st ) ) . Format as
-                * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY_DESCRIPTOR_st ) , "::" , stringify ! ( Format ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY_DESCRIPTOR_st ) ) .
-                NumChannels as * const _ as usize } , 20usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY_DESCRIPTOR_st ) , "::" , stringify ! ( NumChannels
-                ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_ARRAY_DESCRIPTOR_st>(),
+        24usize,
+        concat!("Size of: ", stringify!(CUDA_ARRAY_DESCRIPTOR_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_ARRAY_DESCRIPTOR_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_ARRAY_DESCRIPTOR_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY_DESCRIPTOR_st)).Width as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY_DESCRIPTOR_st),
+            "::",
+            stringify!(Width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY_DESCRIPTOR_st)).Height as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY_DESCRIPTOR_st),
+            "::",
+            stringify!(Height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY_DESCRIPTOR_st)).Format as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY_DESCRIPTOR_st),
+            "::",
+            stringify!(Format)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY_DESCRIPTOR_st)).NumChannels as *const _ as usize },
+        20usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY_DESCRIPTOR_st),
+            "::",
+            stringify!(NumChannels)
+        )
+    );
 }
 impl Clone for CUDA_ARRAY_DESCRIPTOR_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_ARRAY_DESCRIPTOR = CUDA_ARRAY_DESCRIPTOR_st;
 #[repr(C)]
@@ -3081,52 +4335,81 @@ pub struct CUDA_ARRAY3D_DESCRIPTOR_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_ARRAY3D_DESCRIPTOR_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_ARRAY3D_DESCRIPTOR_st>() , 40usize ,
-               concat ! (
-               "Size of: " , stringify ! ( CUDA_ARRAY3D_DESCRIPTOR_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_ARRAY3D_DESCRIPTOR_st>() , 8usize
-                , concat ! (
-                "Alignment of " , stringify ! ( CUDA_ARRAY3D_DESCRIPTOR_st )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) . Width as
-                * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! ( Width )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) . Height
-                as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! ( Height )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) . Depth as
-                * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! ( Depth )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) . Format
-                as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! ( Format )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) .
-                NumChannels as * const _ as usize } , 28usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! (
-                NumChannels ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_ARRAY3D_DESCRIPTOR_st ) ) . Flags as
-                * const _ as usize } , 32usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_ARRAY3D_DESCRIPTOR_st ) , "::" , stringify ! ( Flags )
-                ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_ARRAY3D_DESCRIPTOR_st>(),
+        40usize,
+        concat!("Size of: ", stringify!(CUDA_ARRAY3D_DESCRIPTOR_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_ARRAY3D_DESCRIPTOR_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_ARRAY3D_DESCRIPTOR_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).Width as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(Width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).Height as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(Height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).Depth as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(Depth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).Format as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(Format)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).NumChannels as *const _ as usize },
+        28usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(NumChannels)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_ARRAY3D_DESCRIPTOR_st)).Flags as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_ARRAY3D_DESCRIPTOR_st),
+            "::",
+            stringify!(Flags)
+        )
+    );
 }
 impl Clone for CUDA_ARRAY3D_DESCRIPTOR_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_ARRAY3D_DESCRIPTOR = CUDA_ARRAY3D_DESCRIPTOR_st;
 #[repr(C)]
@@ -3153,25 +4436,40 @@ pub struct CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1 {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1>()
-               , 8usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1 ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1 ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1
-                ) ) . hArray as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1 ) , "::" ,
-                stringify ! ( hArray ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1)).hArray as
+                *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(hArray)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_1 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -3180,26 +4478,40 @@ pub struct CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2 {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2>()
-               , 8usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2 ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2 ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2
-                ) ) . hMipmappedArray as * const _ as usize } , 0usize ,
-                concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2 ) , "::" ,
-                stringify ! ( hMipmappedArray ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2))
+                .hMipmappedArray as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(hMipmappedArray)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_2 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -3211,51 +4523,79 @@ pub struct CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3>()
-               , 24usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3
-                ) ) . devPtr as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) , "::" ,
-                stringify ! ( devPtr ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3
-                ) ) . format as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) , "::" ,
-                stringify ! ( format ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3
-                ) ) . numChannels as * const _ as usize } , 12usize , concat !
-                (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) , "::" ,
-                stringify ! ( numChannels ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3
-                ) ) . sizeInBytes as * const _ as usize } , 16usize , concat !
-                (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 ) , "::" ,
-                stringify ! ( sizeInBytes ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3>(),
+        24usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)).devPtr as
+                *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3),
+            "::",
+            stringify!(devPtr)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)).format as
+                *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3),
+            "::",
+            stringify!(format)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)).numChannels as
+                *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3),
+            "::",
+            stringify!(numChannels)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3)).sizeInBytes as
+                *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3),
+            "::",
+            stringify!(sizeInBytes)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_3 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -3269,67 +4609,105 @@ pub struct CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4>()
-               , 40usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . devPtr as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( devPtr ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . format as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( format ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . numChannels as * const _ as usize } , 12usize , concat !
-                (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( numChannels ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . width as * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( width ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . height as * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( height ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4
-                ) ) . pitchInBytes as * const _ as usize } , 32usize , concat
-                ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 ) , "::" ,
-                stringify ! ( pitchInBytes ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4>(),
+        40usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).devPtr as
+                *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(devPtr)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).format as
+                *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(format)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).numChannels as
+                *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(numChannels)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).width as
+                *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(width)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).height as
+                *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(height)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4)).pitchInBytes as
+                *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(pitchInBytes)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_4 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy)]
@@ -3338,96 +4716,167 @@ pub struct CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5 {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5>()
-               , 128usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5 ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5>()
-                , 4usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5 ) ));
-    assert_eq! (unsafe {
-                & (
-                * (
-                0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5
-                ) ) . reserved as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5 ) , "::" ,
-                stringify ! ( reserved ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5>(),
+        128usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5)).reserved as
+                *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1__bindgen_ty_5 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1>() ,
-               128usize , concat ! (
-               "Size of: " , stringify ! ( CUDA_RESOURCE_DESC_st__bindgen_ty_1
-               ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ) .
-                array as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) , "::" , stringify ! (
-                array ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ) .
-                mipmap as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) , "::" , stringify ! (
-                mipmap ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ) .
-                linear as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) , "::" , stringify ! (
-                linear ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ) .
-                pitch2D as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) , "::" , stringify ! (
-                pitch2D ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) ) .
-                reserved as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_DESC_st__bindgen_ty_1 ) , "::" , stringify ! (
-                reserved ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1>(),
+        128usize,
+        concat!("Size of: ", stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1)).array as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1),
+            "::",
+            stringify!(array)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1)).mipmap as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1),
+            "::",
+            stringify!(mipmap)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1)).linear as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1),
+            "::",
+            stringify!(linear)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1)).pitch2D as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1),
+            "::",
+            stringify!(pitch2D)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_DESC_st__bindgen_ty_1)).reserved as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st__bindgen_ty_1),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st__bindgen_ty_1 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_DESC_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_DESC_st>() , 144usize ,
-               concat ! ( "Size of: " , stringify ! ( CUDA_RESOURCE_DESC_st )
-               ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_DESC_st>() , 8usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( CUDA_RESOURCE_DESC_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st ) ) . resType as *
-                const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_RESOURCE_DESC_st )
-                , "::" , stringify ! ( resType ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st ) ) . res as *
-                const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_RESOURCE_DESC_st )
-                , "::" , stringify ! ( res ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_DESC_st ) ) . flags as *
-                const _ as usize } , 136usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_RESOURCE_DESC_st )
-                , "::" , stringify ! ( flags ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_DESC_st>(),
+        144usize,
+        concat!("Size of: ", stringify!(CUDA_RESOURCE_DESC_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_DESC_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_RESOURCE_DESC_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_DESC_st)).resType as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st),
+            "::",
+            stringify!(resType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_DESC_st)).res as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st),
+            "::",
+            stringify!(res)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_DESC_st)).flags as *const _ as usize },
+        136usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_DESC_st),
+            "::",
+            stringify!(flags)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_DESC_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_RESOURCE_DESC = CUDA_RESOURCE_DESC_st;
 #[repr(C)]
@@ -3446,68 +4895,121 @@ pub struct CUDA_TEXTURE_DESC_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_TEXTURE_DESC_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_TEXTURE_DESC_st>() , 104usize ,
-               concat ! ( "Size of: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-               ));
-    assert_eq! (::std::mem::align_of::<CUDA_TEXTURE_DESC_st>() , 4usize ,
-                concat ! (
-                "Alignment of " , stringify ! ( CUDA_TEXTURE_DESC_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . addressMode as
-                * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( addressMode ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . filterMode as
-                * const _ as usize } , 12usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( filterMode ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . flags as *
-                const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( flags ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . maxAnisotropy
-                as * const _ as usize } , 20usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( maxAnisotropy ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) .
-                mipmapFilterMode as * const _ as usize } , 24usize , concat !
-                (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( mipmapFilterMode ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) .
-                mipmapLevelBias as * const _ as usize } , 28usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( mipmapLevelBias ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) .
-                minMipmapLevelClamp as * const _ as usize } , 32usize , concat
-                ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( minMipmapLevelClamp ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) .
-                maxMipmapLevelClamp as * const _ as usize } , 36usize , concat
-                ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( maxMipmapLevelClamp ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . borderColor as
-                * const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( borderColor ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_TEXTURE_DESC_st ) ) . reserved as *
-                const _ as usize } , 56usize , concat ! (
-                "Alignment of field: " , stringify ! ( CUDA_TEXTURE_DESC_st )
-                , "::" , stringify ! ( reserved ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_TEXTURE_DESC_st>(),
+        104usize,
+        concat!("Size of: ", stringify!(CUDA_TEXTURE_DESC_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_TEXTURE_DESC_st>(),
+        4usize,
+        concat!("Alignment of ", stringify!(CUDA_TEXTURE_DESC_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).addressMode as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(addressMode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).filterMode as *const _ as usize },
+        12usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(filterMode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).flags as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).maxAnisotropy as *const _ as usize },
+        20usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(maxAnisotropy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).mipmapFilterMode as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(mipmapFilterMode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).mipmapLevelBias as *const _ as usize },
+        28usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(mipmapLevelBias)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).minMipmapLevelClamp as *const _ as usize },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(minMipmapLevelClamp)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).maxMipmapLevelClamp as *const _ as usize },
+        36usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(maxMipmapLevelClamp)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).borderColor as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(borderColor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_TEXTURE_DESC_st)).reserved as *const _ as usize },
+        56usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_TEXTURE_DESC_st),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 impl Clone for CUDA_TEXTURE_DESC_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_TEXTURE_DESC = CUDA_TEXTURE_DESC_st;
 #[repr(u32)]
@@ -3565,71 +5067,115 @@ pub struct CUDA_RESOURCE_VIEW_DESC_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_RESOURCE_VIEW_DESC_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_RESOURCE_VIEW_DESC_st>() , 112usize
-               , concat ! (
-               "Size of: " , stringify ! ( CUDA_RESOURCE_VIEW_DESC_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_RESOURCE_VIEW_DESC_st>() , 8usize
-                , concat ! (
-                "Alignment of " , stringify ! ( CUDA_RESOURCE_VIEW_DESC_st )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) . format
-                as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( format )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) . width as
-                * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( width )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) . height
-                as * const _ as usize } , 16usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( height )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) . depth as
-                * const _ as usize } , 24usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( depth )
-                ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) .
-                firstMipmapLevel as * const _ as usize } , 32usize , concat !
-                (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! (
-                firstMipmapLevel ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) .
-                lastMipmapLevel as * const _ as usize } , 36usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! (
-                lastMipmapLevel ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) .
-                firstLayer as * const _ as usize } , 40usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( firstLayer
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) .
-                lastLayer as * const _ as usize } , 44usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( lastLayer
-                ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_RESOURCE_VIEW_DESC_st ) ) . reserved
-                as * const _ as usize } , 48usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_RESOURCE_VIEW_DESC_st ) , "::" , stringify ! ( reserved )
-                ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_RESOURCE_VIEW_DESC_st>(),
+        112usize,
+        concat!("Size of: ", stringify!(CUDA_RESOURCE_VIEW_DESC_st))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_RESOURCE_VIEW_DESC_st>(),
+        8usize,
+        concat!("Alignment of ", stringify!(CUDA_RESOURCE_VIEW_DESC_st))
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).format as *const _ as usize },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(format)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).width as *const _ as usize },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).height as *const _ as usize },
+        16usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).depth as *const _ as usize },
+        24usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(depth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).firstMipmapLevel as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(firstMipmapLevel)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).lastMipmapLevel as *const _ as usize
+        },
+        36usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(lastMipmapLevel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).firstLayer as *const _ as usize },
+        40usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(firstLayer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).lastLayer as *const _ as usize },
+        44usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(lastLayer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(0 as *const CUDA_RESOURCE_VIEW_DESC_st)).reserved as *const _ as usize },
+        48usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_RESOURCE_VIEW_DESC_st),
+            "::",
+            stringify!(reserved)
+        )
+    );
 }
 impl Clone for CUDA_RESOURCE_VIEW_DESC_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 pub type CUDA_RESOURCE_VIEW_DESC = CUDA_RESOURCE_VIEW_DESC_st;
 #[repr(C)]
@@ -3640,102 +5186,123 @@ pub struct CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st {
 }
 #[test]
 fn bindgen_test_layout_CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st() {
-    assert_eq!(::std::mem::size_of::<CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st>() ,
-               16usize , concat ! (
-               "Size of: " , stringify ! (
-               CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) ));
-    assert_eq! (::std::mem::align_of::<CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st>()
-                , 8usize , concat ! (
-                "Alignment of " , stringify ! (
-                CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) )
-                . p2pToken as * const _ as usize } , 0usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) , "::" , stringify ! (
-                p2pToken ) ));
-    assert_eq! (unsafe {
-                & ( * ( 0 as * const CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) )
-                . vaSpaceToken as * const _ as usize } , 8usize , concat ! (
-                "Alignment of field: " , stringify ! (
-                CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st ) , "::" , stringify ! (
-                vaSpaceToken ) ));
+    assert_eq!(
+        ::std::mem::size_of::<CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st)).p2pToken as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st),
+            "::",
+            stringify!(p2pToken)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(0 as *const CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st)).vaSpaceToken as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Alignment of field: ",
+            stringify!(CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st),
+            "::",
+            stringify!(vaSpaceToken)
+        )
+    );
 }
 impl Clone for CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-pub type CUDA_POINTER_ATTRIBUTE_P2P_TOKENS =
-    CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st;
+pub type CUDA_POINTER_ATTRIBUTE_P2P_TOKENS = CUDA_POINTER_ATTRIBUTE_P2P_TOKENS_st;
 extern "C" {
-    pub fn cuGetErrorString(error: CUresult,
-                            pStr: *mut *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuGetErrorString(error: CUresult, pStr: *mut *const ::std::os::raw::c_char) -> CUresult;
 }
 extern "C" {
-    pub fn cuGetErrorName(error: CUresult,
-                          pStr: *mut *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuGetErrorName(error: CUresult, pStr: *mut *const ::std::os::raw::c_char) -> CUresult;
 }
 extern "C" {
     pub fn cuInit(Flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuDriverGetVersion(driverVersion: *mut ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuDriverGetVersion(driverVersion: *mut ::std::os::raw::c_int) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGet(device: *mut CUdevice, ordinal: ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuDeviceGet(device: *mut CUdevice, ordinal: ::std::os::raw::c_int) -> CUresult;
 }
 extern "C" {
     pub fn cuDeviceGetCount(count: *mut ::std::os::raw::c_int) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetName(name: *mut ::std::os::raw::c_char,
-                           len: ::std::os::raw::c_int, dev: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceGetName(
+        name: *mut ::std::os::raw::c_char,
+        len: ::std::os::raw::c_int,
+        dev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuDeviceTotalMem_v2(bytes: *mut usize, dev: CUdevice) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetAttribute(pi: *mut ::std::os::raw::c_int,
-                                attrib: CUdevice_attribute, dev: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceGetAttribute(
+        pi: *mut ::std::os::raw::c_int,
+        attrib: CUdevice_attribute,
+        dev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetProperties(prop: *mut CUdevprop, dev: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceGetProperties(prop: *mut CUdevprop, dev: CUdevice) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceComputeCapability(major: *mut ::std::os::raw::c_int,
-                                     minor: *mut ::std::os::raw::c_int,
-                                     dev: CUdevice) -> CUresult;
+    pub fn cuDeviceComputeCapability(
+        major: *mut ::std::os::raw::c_int,
+        minor: *mut ::std::os::raw::c_int,
+        dev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDevicePrimaryCtxRetain(pctx: *mut CUcontext, dev: CUdevice)
-     -> CUresult;
+    pub fn cuDevicePrimaryCtxRetain(pctx: *mut CUcontext, dev: CUdevice) -> CUresult;
 }
 extern "C" {
     pub fn cuDevicePrimaryCtxRelease(dev: CUdevice) -> CUresult;
 }
 extern "C" {
-    pub fn cuDevicePrimaryCtxSetFlags(dev: CUdevice,
-                                      flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuDevicePrimaryCtxSetFlags(dev: CUdevice, flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuDevicePrimaryCtxGetState(dev: CUdevice,
-                                      flags: *mut ::std::os::raw::c_uint,
-                                      active: *mut ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuDevicePrimaryCtxGetState(
+        dev: CUdevice,
+        flags: *mut ::std::os::raw::c_uint,
+        active: *mut ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuDevicePrimaryCtxReset(dev: CUdevice) -> CUresult;
 }
 extern "C" {
-    pub fn cuCtxCreate_v2(pctx: *mut CUcontext, flags: ::std::os::raw::c_uint,
-                          dev: CUdevice) -> CUresult;
+    pub fn cuCtxCreate_v2(
+        pctx: *mut CUcontext,
+        flags: ::std::os::raw::c_uint,
+        dev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuCtxDestroy_v2(ctx: CUcontext) -> CUresult;
@@ -3780,95 +5347,112 @@ extern "C" {
     pub fn cuCtxSetSharedMemConfig(config: CUsharedconfig) -> CUresult;
 }
 extern "C" {
-    pub fn cuCtxGetApiVersion(ctx: CUcontext,
-                              version: *mut ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuCtxGetApiVersion(ctx: CUcontext, version: *mut ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuCtxGetStreamPriorityRange(leastPriority:
-                                           *mut ::std::os::raw::c_int,
-                                       greatestPriority:
-                                           *mut ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuCtxGetStreamPriorityRange(
+        leastPriority: *mut ::std::os::raw::c_int,
+        greatestPriority: *mut ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuCtxAttach(pctx: *mut CUcontext, flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuCtxAttach(pctx: *mut CUcontext, flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
     pub fn cuCtxDetach(ctx: CUcontext) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleLoad(module: *mut CUmodule,
-                        fname: *const ::std::os::raw::c_char) -> CUresult;
+    pub fn cuModuleLoad(module: *mut CUmodule, fname: *const ::std::os::raw::c_char) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleLoadData(module: *mut CUmodule,
-                            image: *const ::std::os::raw::c_void) -> CUresult;
+    pub fn cuModuleLoadData(
+        module: *mut CUmodule,
+        image: *const ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleLoadDataEx(module: *mut CUmodule,
-                              image: *const ::std::os::raw::c_void,
-                              numOptions: ::std::os::raw::c_uint,
-                              options: *mut CUjit_option,
-                              optionValues: *mut *mut ::std::os::raw::c_void)
-     -> CUresult;
+    pub fn cuModuleLoadDataEx(
+        module: *mut CUmodule,
+        image: *const ::std::os::raw::c_void,
+        numOptions: ::std::os::raw::c_uint,
+        options: *mut CUjit_option,
+        optionValues: *mut *mut ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleLoadFatBinary(module: *mut CUmodule,
-                                 fatCubin: *const ::std::os::raw::c_void)
-     -> CUresult;
+    pub fn cuModuleLoadFatBinary(
+        module: *mut CUmodule,
+        fatCubin: *const ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuModuleUnload(hmod: CUmodule) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleGetFunction(hfunc: *mut CUfunction, hmod: CUmodule,
-                               name: *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuModuleGetFunction(
+        hfunc: *mut CUfunction,
+        hmod: CUmodule,
+        name: *const ::std::os::raw::c_char,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleGetGlobal_v2(dptr: *mut CUdeviceptr, bytes: *mut usize,
-                                hmod: CUmodule,
-                                name: *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuModuleGetGlobal_v2(
+        dptr: *mut CUdeviceptr,
+        bytes: *mut usize,
+        hmod: CUmodule,
+        name: *const ::std::os::raw::c_char,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleGetTexRef(pTexRef: *mut CUtexref, hmod: CUmodule,
-                             name: *const ::std::os::raw::c_char) -> CUresult;
+    pub fn cuModuleGetTexRef(
+        pTexRef: *mut CUtexref,
+        hmod: CUmodule,
+        name: *const ::std::os::raw::c_char,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuModuleGetSurfRef(pSurfRef: *mut CUsurfref, hmod: CUmodule,
-                              name: *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuModuleGetSurfRef(
+        pSurfRef: *mut CUsurfref,
+        hmod: CUmodule,
+        name: *const ::std::os::raw::c_char,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuLinkCreate_v2(numOptions: ::std::os::raw::c_uint,
-                           options: *mut CUjit_option,
-                           optionValues: *mut *mut ::std::os::raw::c_void,
-                           stateOut: *mut CUlinkState) -> CUresult;
+    pub fn cuLinkCreate_v2(
+        numOptions: ::std::os::raw::c_uint,
+        options: *mut CUjit_option,
+        optionValues: *mut *mut ::std::os::raw::c_void,
+        stateOut: *mut CUlinkState,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuLinkAddData_v2(state: CUlinkState, type_: CUjitInputType,
-                            data: *mut ::std::os::raw::c_void, size: usize,
-                            name: *const ::std::os::raw::c_char,
-                            numOptions: ::std::os::raw::c_uint,
-                            options: *mut CUjit_option,
-                            optionValues: *mut *mut ::std::os::raw::c_void)
-     -> CUresult;
+    pub fn cuLinkAddData_v2(
+        state: CUlinkState,
+        type_: CUjitInputType,
+        data: *mut ::std::os::raw::c_void,
+        size: usize,
+        name: *const ::std::os::raw::c_char,
+        numOptions: ::std::os::raw::c_uint,
+        options: *mut CUjit_option,
+        optionValues: *mut *mut ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuLinkAddFile_v2(state: CUlinkState, type_: CUjitInputType,
-                            path: *const ::std::os::raw::c_char,
-                            numOptions: ::std::os::raw::c_uint,
-                            options: *mut CUjit_option,
-                            optionValues: *mut *mut ::std::os::raw::c_void)
-     -> CUresult;
+    pub fn cuLinkAddFile_v2(
+        state: CUlinkState,
+        type_: CUjitInputType,
+        path: *const ::std::os::raw::c_char,
+        numOptions: ::std::os::raw::c_uint,
+        options: *mut CUjit_option,
+        optionValues: *mut *mut ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuLinkComplete(state: CUlinkState,
-                          cubinOut: *mut *mut ::std::os::raw::c_void,
-                          sizeOut: *mut usize) -> CUresult;
+    pub fn cuLinkComplete(
+        state: CUlinkState,
+        cubinOut: *mut *mut ::std::os::raw::c_void,
+        sizeOut: *mut usize,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuLinkDestroy(state: CUlinkState) -> CUresult;
@@ -3880,127 +5464,172 @@ extern "C" {
     pub fn cuMemAlloc_v2(dptr: *mut CUdeviceptr, bytesize: usize) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemAllocPitch_v2(dptr: *mut CUdeviceptr, pPitch: *mut usize,
-                              WidthInBytes: usize, Height: usize,
-                              ElementSizeBytes: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuMemAllocPitch_v2(
+        dptr: *mut CUdeviceptr,
+        pPitch: *mut usize,
+        WidthInBytes: usize,
+        Height: usize,
+        ElementSizeBytes: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuMemFree_v2(dptr: CUdeviceptr) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemGetAddressRange_v2(pbase: *mut CUdeviceptr, psize: *mut usize,
-                                   dptr: CUdeviceptr) -> CUresult;
+    pub fn cuMemGetAddressRange_v2(
+        pbase: *mut CUdeviceptr,
+        psize: *mut usize,
+        dptr: CUdeviceptr,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemAllocHost_v2(pp: *mut *mut ::std::os::raw::c_void,
-                             bytesize: usize) -> CUresult;
+    pub fn cuMemAllocHost_v2(pp: *mut *mut ::std::os::raw::c_void, bytesize: usize) -> CUresult;
 }
 extern "C" {
     pub fn cuMemFreeHost(p: *mut ::std::os::raw::c_void) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemHostAlloc(pp: *mut *mut ::std::os::raw::c_void,
-                          bytesize: usize, Flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuMemHostAlloc(
+        pp: *mut *mut ::std::os::raw::c_void,
+        bytesize: usize,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemHostGetDevicePointer_v2(pdptr: *mut CUdeviceptr,
-                                        p: *mut ::std::os::raw::c_void,
-                                        Flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuMemHostGetDevicePointer_v2(
+        pdptr: *mut CUdeviceptr,
+        p: *mut ::std::os::raw::c_void,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemHostGetFlags(pFlags: *mut ::std::os::raw::c_uint,
-                             p: *mut ::std::os::raw::c_void) -> CUresult;
+    pub fn cuMemHostGetFlags(
+        pFlags: *mut ::std::os::raw::c_uint,
+        p: *mut ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemAllocManaged(dptr: *mut CUdeviceptr, bytesize: usize,
-                             flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuMemAllocManaged(
+        dptr: *mut CUdeviceptr,
+        bytesize: usize,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetByPCIBusId(dev: *mut CUdevice,
-                                 pciBusId: *const ::std::os::raw::c_char)
-     -> CUresult;
+    pub fn cuDeviceGetByPCIBusId(
+        dev: *mut CUdevice,
+        pciBusId: *const ::std::os::raw::c_char,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetPCIBusId(pciBusId: *mut ::std::os::raw::c_char,
-                               len: ::std::os::raw::c_int, dev: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceGetPCIBusId(
+        pciBusId: *mut ::std::os::raw::c_char,
+        len: ::std::os::raw::c_int,
+        dev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuIpcGetEventHandle(pHandle: *mut CUipcEventHandle, event: CUevent)
-     -> CUresult;
+    pub fn cuIpcGetEventHandle(pHandle: *mut CUipcEventHandle, event: CUevent) -> CUresult;
 }
 extern "C" {
-    pub fn cuIpcOpenEventHandle(phEvent: *mut CUevent,
-                                handle: CUipcEventHandle) -> CUresult;
+    pub fn cuIpcOpenEventHandle(phEvent: *mut CUevent, handle: CUipcEventHandle) -> CUresult;
 }
 extern "C" {
-    pub fn cuIpcGetMemHandle(pHandle: *mut CUipcMemHandle, dptr: CUdeviceptr)
-     -> CUresult;
+    pub fn cuIpcGetMemHandle(pHandle: *mut CUipcMemHandle, dptr: CUdeviceptr) -> CUresult;
 }
 extern "C" {
-    pub fn cuIpcOpenMemHandle(pdptr: *mut CUdeviceptr, handle: CUipcMemHandle,
-                              Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuIpcOpenMemHandle(
+        pdptr: *mut CUdeviceptr,
+        handle: CUipcMemHandle,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuIpcCloseMemHandle(dptr: CUdeviceptr) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemHostRegister_v2(p: *mut ::std::os::raw::c_void,
-                                bytesize: usize,
-                                Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuMemHostRegister_v2(
+        p: *mut ::std::os::raw::c_void,
+        bytesize: usize,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuMemHostUnregister(p: *mut ::std::os::raw::c_void) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpy(dst: CUdeviceptr, src: CUdeviceptr, ByteCount: usize)
-     -> CUresult;
+    pub fn cuMemcpy(dst: CUdeviceptr, src: CUdeviceptr, ByteCount: usize) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyPeer(dstDevice: CUdeviceptr, dstContext: CUcontext,
-                        srcDevice: CUdeviceptr, srcContext: CUcontext,
-                        ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyPeer(
+        dstDevice: CUdeviceptr,
+        dstContext: CUcontext,
+        srcDevice: CUdeviceptr,
+        srcContext: CUcontext,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyHtoD_v2(dstDevice: CUdeviceptr,
-                           srcHost: *const ::std::os::raw::c_void,
-                           ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyHtoD_v2(
+        dstDevice: CUdeviceptr,
+        srcHost: *const ::std::os::raw::c_void,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyDtoH_v2(dstHost: *mut ::std::os::raw::c_void,
-                           srcDevice: CUdeviceptr, ByteCount: usize)
-     -> CUresult;
+    pub fn cuMemcpyDtoH_v2(
+        dstHost: *mut ::std::os::raw::c_void,
+        srcDevice: CUdeviceptr,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyDtoD_v2(dstDevice: CUdeviceptr, srcDevice: CUdeviceptr,
-                           ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyDtoD_v2(
+        dstDevice: CUdeviceptr,
+        srcDevice: CUdeviceptr,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyDtoA_v2(dstArray: CUarray, dstOffset: usize,
-                           srcDevice: CUdeviceptr, ByteCount: usize)
-     -> CUresult;
+    pub fn cuMemcpyDtoA_v2(
+        dstArray: CUarray,
+        dstOffset: usize,
+        srcDevice: CUdeviceptr,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyAtoD_v2(dstDevice: CUdeviceptr, srcArray: CUarray,
-                           srcOffset: usize, ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyAtoD_v2(
+        dstDevice: CUdeviceptr,
+        srcArray: CUarray,
+        srcOffset: usize,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyHtoA_v2(dstArray: CUarray, dstOffset: usize,
-                           srcHost: *const ::std::os::raw::c_void,
-                           ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyHtoA_v2(
+        dstArray: CUarray,
+        dstOffset: usize,
+        srcHost: *const ::std::os::raw::c_void,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyAtoH_v2(dstHost: *mut ::std::os::raw::c_void,
-                           srcArray: CUarray, srcOffset: usize,
-                           ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyAtoH_v2(
+        dstHost: *mut ::std::os::raw::c_void,
+        srcArray: CUarray,
+        srcOffset: usize,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyAtoA_v2(dstArray: CUarray, dstOffset: usize,
-                           srcArray: CUarray, srcOffset: usize,
-                           ByteCount: usize) -> CUresult;
+    pub fn cuMemcpyAtoA_v2(
+        dstArray: CUarray,
+        dstOffset: usize,
+        srcArray: CUarray,
+        srcOffset: usize,
+        ByteCount: usize,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuMemcpy2D_v2(pCopy: *const CUDA_MEMCPY2D) -> CUresult;
@@ -4015,222 +5644,310 @@ extern "C" {
     pub fn cuMemcpy3DPeer(pCopy: *const CUDA_MEMCPY3D_PEER) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyAsync(dst: CUdeviceptr, src: CUdeviceptr, ByteCount: usize,
-                         hStream: CUstream) -> CUresult;
+    pub fn cuMemcpyAsync(
+        dst: CUdeviceptr,
+        src: CUdeviceptr,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyPeerAsync(dstDevice: CUdeviceptr, dstContext: CUcontext,
-                             srcDevice: CUdeviceptr, srcContext: CUcontext,
-                             ByteCount: usize, hStream: CUstream) -> CUresult;
+    pub fn cuMemcpyPeerAsync(
+        dstDevice: CUdeviceptr,
+        dstContext: CUcontext,
+        srcDevice: CUdeviceptr,
+        srcContext: CUcontext,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyHtoDAsync_v2(dstDevice: CUdeviceptr,
-                                srcHost: *const ::std::os::raw::c_void,
-                                ByteCount: usize, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemcpyHtoDAsync_v2(
+        dstDevice: CUdeviceptr,
+        srcHost: *const ::std::os::raw::c_void,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyDtoHAsync_v2(dstHost: *mut ::std::os::raw::c_void,
-                                srcDevice: CUdeviceptr, ByteCount: usize,
-                                hStream: CUstream) -> CUresult;
+    pub fn cuMemcpyDtoHAsync_v2(
+        dstHost: *mut ::std::os::raw::c_void,
+        srcDevice: CUdeviceptr,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyDtoDAsync_v2(dstDevice: CUdeviceptr,
-                                srcDevice: CUdeviceptr, ByteCount: usize,
-                                hStream: CUstream) -> CUresult;
+    pub fn cuMemcpyDtoDAsync_v2(
+        dstDevice: CUdeviceptr,
+        srcDevice: CUdeviceptr,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyHtoAAsync_v2(dstArray: CUarray, dstOffset: usize,
-                                srcHost: *const ::std::os::raw::c_void,
-                                ByteCount: usize, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemcpyHtoAAsync_v2(
+        dstArray: CUarray,
+        dstOffset: usize,
+        srcHost: *const ::std::os::raw::c_void,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpyAtoHAsync_v2(dstHost: *mut ::std::os::raw::c_void,
-                                srcArray: CUarray, srcOffset: usize,
-                                ByteCount: usize, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemcpyAtoHAsync_v2(
+        dstHost: *mut ::std::os::raw::c_void,
+        srcArray: CUarray,
+        srcOffset: usize,
+        ByteCount: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpy2DAsync_v2(pCopy: *const CUDA_MEMCPY2D, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemcpy2DAsync_v2(pCopy: *const CUDA_MEMCPY2D, hStream: CUstream) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpy3DAsync_v2(pCopy: *const CUDA_MEMCPY3D, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemcpy3DAsync_v2(pCopy: *const CUDA_MEMCPY3D, hStream: CUstream) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemcpy3DPeerAsync(pCopy: *const CUDA_MEMCPY3D_PEER,
-                               hStream: CUstream) -> CUresult;
+    pub fn cuMemcpy3DPeerAsync(pCopy: *const CUDA_MEMCPY3D_PEER, hStream: CUstream) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD8_v2(dstDevice: CUdeviceptr, uc: ::std::os::raw::c_uchar,
-                         N: usize) -> CUresult;
+    pub fn cuMemsetD8_v2(dstDevice: CUdeviceptr, uc: ::std::os::raw::c_uchar, N: usize)
+        -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD16_v2(dstDevice: CUdeviceptr,
-                          us: ::std::os::raw::c_ushort, N: usize) -> CUresult;
+    pub fn cuMemsetD16_v2(
+        dstDevice: CUdeviceptr,
+        us: ::std::os::raw::c_ushort,
+        N: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD32_v2(dstDevice: CUdeviceptr, ui: ::std::os::raw::c_uint,
-                          N: usize) -> CUresult;
+    pub fn cuMemsetD32_v2(dstDevice: CUdeviceptr, ui: ::std::os::raw::c_uint, N: usize)
+        -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D8_v2(dstDevice: CUdeviceptr, dstPitch: usize,
-                           uc: ::std::os::raw::c_uchar, Width: usize,
-                           Height: usize) -> CUresult;
+    pub fn cuMemsetD2D8_v2(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        uc: ::std::os::raw::c_uchar,
+        Width: usize,
+        Height: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D16_v2(dstDevice: CUdeviceptr, dstPitch: usize,
-                            us: ::std::os::raw::c_ushort, Width: usize,
-                            Height: usize) -> CUresult;
+    pub fn cuMemsetD2D16_v2(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        us: ::std::os::raw::c_ushort,
+        Width: usize,
+        Height: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D32_v2(dstDevice: CUdeviceptr, dstPitch: usize,
-                            ui: ::std::os::raw::c_uint, Width: usize,
-                            Height: usize) -> CUresult;
+    pub fn cuMemsetD2D32_v2(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        ui: ::std::os::raw::c_uint,
+        Width: usize,
+        Height: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD8Async(dstDevice: CUdeviceptr,
-                           uc: ::std::os::raw::c_uchar, N: usize,
-                           hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD8Async(
+        dstDevice: CUdeviceptr,
+        uc: ::std::os::raw::c_uchar,
+        N: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD16Async(dstDevice: CUdeviceptr,
-                            us: ::std::os::raw::c_ushort, N: usize,
-                            hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD16Async(
+        dstDevice: CUdeviceptr,
+        us: ::std::os::raw::c_ushort,
+        N: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD32Async(dstDevice: CUdeviceptr,
-                            ui: ::std::os::raw::c_uint, N: usize,
-                            hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD32Async(
+        dstDevice: CUdeviceptr,
+        ui: ::std::os::raw::c_uint,
+        N: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D8Async(dstDevice: CUdeviceptr, dstPitch: usize,
-                             uc: ::std::os::raw::c_uchar, Width: usize,
-                             Height: usize, hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD2D8Async(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        uc: ::std::os::raw::c_uchar,
+        Width: usize,
+        Height: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D16Async(dstDevice: CUdeviceptr, dstPitch: usize,
-                              us: ::std::os::raw::c_ushort, Width: usize,
-                              Height: usize, hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD2D16Async(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        us: ::std::os::raw::c_ushort,
+        Width: usize,
+        Height: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemsetD2D32Async(dstDevice: CUdeviceptr, dstPitch: usize,
-                              ui: ::std::os::raw::c_uint, Width: usize,
-                              Height: usize, hStream: CUstream) -> CUresult;
+    pub fn cuMemsetD2D32Async(
+        dstDevice: CUdeviceptr,
+        dstPitch: usize,
+        ui: ::std::os::raw::c_uint,
+        Width: usize,
+        Height: usize,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuArrayCreate_v2(pHandle: *mut CUarray,
-                            pAllocateArray: *const CUDA_ARRAY_DESCRIPTOR)
-     -> CUresult;
+    pub fn cuArrayCreate_v2(
+        pHandle: *mut CUarray,
+        pAllocateArray: *const CUDA_ARRAY_DESCRIPTOR,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuArrayGetDescriptor_v2(pArrayDescriptor:
-                                       *mut CUDA_ARRAY_DESCRIPTOR,
-                                   hArray: CUarray) -> CUresult;
+    pub fn cuArrayGetDescriptor_v2(
+        pArrayDescriptor: *mut CUDA_ARRAY_DESCRIPTOR,
+        hArray: CUarray,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuArrayDestroy(hArray: CUarray) -> CUresult;
 }
 extern "C" {
-    pub fn cuArray3DCreate_v2(pHandle: *mut CUarray,
-                              pAllocateArray: *const CUDA_ARRAY3D_DESCRIPTOR)
-     -> CUresult;
+    pub fn cuArray3DCreate_v2(
+        pHandle: *mut CUarray,
+        pAllocateArray: *const CUDA_ARRAY3D_DESCRIPTOR,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuArray3DGetDescriptor_v2(pArrayDescriptor:
-                                         *mut CUDA_ARRAY3D_DESCRIPTOR,
-                                     hArray: CUarray) -> CUresult;
+    pub fn cuArray3DGetDescriptor_v2(
+        pArrayDescriptor: *mut CUDA_ARRAY3D_DESCRIPTOR,
+        hArray: CUarray,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMipmappedArrayCreate(pHandle: *mut CUmipmappedArray,
-                                  pMipmappedArrayDesc:
-                                      *const CUDA_ARRAY3D_DESCRIPTOR,
-                                  numMipmapLevels: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuMipmappedArrayCreate(
+        pHandle: *mut CUmipmappedArray,
+        pMipmappedArrayDesc: *const CUDA_ARRAY3D_DESCRIPTOR,
+        numMipmapLevels: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMipmappedArrayGetLevel(pLevelArray: *mut CUarray,
-                                    hMipmappedArray: CUmipmappedArray,
-                                    level: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuMipmappedArrayGetLevel(
+        pLevelArray: *mut CUarray,
+        hMipmappedArray: CUmipmappedArray,
+        level: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMipmappedArrayDestroy(hMipmappedArray: CUmipmappedArray)
-     -> CUresult;
+    pub fn cuMipmappedArrayDestroy(hMipmappedArray: CUmipmappedArray) -> CUresult;
 }
 extern "C" {
-    pub fn cuPointerGetAttribute(data: *mut ::std::os::raw::c_void,
-                                 attribute: CUpointer_attribute,
-                                 ptr: CUdeviceptr) -> CUresult;
+    pub fn cuPointerGetAttribute(
+        data: *mut ::std::os::raw::c_void,
+        attribute: CUpointer_attribute,
+        ptr: CUdeviceptr,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemPrefetchAsync(devPtr: CUdeviceptr, count: usize,
-                              dstDevice: CUdevice, hStream: CUstream)
-     -> CUresult;
+    pub fn cuMemPrefetchAsync(
+        devPtr: CUdeviceptr,
+        count: usize,
+        dstDevice: CUdevice,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemAdvise(devPtr: CUdeviceptr, count: usize,
-                       advice: CUmem_advise, device: CUdevice) -> CUresult;
+    pub fn cuMemAdvise(
+        devPtr: CUdeviceptr,
+        count: usize,
+        advice: CUmem_advise,
+        device: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemRangeGetAttribute(data: *mut ::std::os::raw::c_void,
-                                  dataSize: usize,
-                                  attribute: CUmem_range_attribute,
-                                  devPtr: CUdeviceptr, count: usize)
-     -> CUresult;
+    pub fn cuMemRangeGetAttribute(
+        data: *mut ::std::os::raw::c_void,
+        dataSize: usize,
+        attribute: CUmem_range_attribute,
+        devPtr: CUdeviceptr,
+        count: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuMemRangeGetAttributes(data: *mut *mut ::std::os::raw::c_void,
-                                   dataSizes: *mut usize,
-                                   attributes: *mut CUmem_range_attribute,
-                                   numAttributes: usize, devPtr: CUdeviceptr,
-                                   count: usize) -> CUresult;
+    pub fn cuMemRangeGetAttributes(
+        data: *mut *mut ::std::os::raw::c_void,
+        dataSizes: *mut usize,
+        attributes: *mut CUmem_range_attribute,
+        numAttributes: usize,
+        devPtr: CUdeviceptr,
+        count: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuPointerSetAttribute(value: *const ::std::os::raw::c_void,
-                                 attribute: CUpointer_attribute,
-                                 ptr: CUdeviceptr) -> CUresult;
+    pub fn cuPointerSetAttribute(
+        value: *const ::std::os::raw::c_void,
+        attribute: CUpointer_attribute,
+        ptr: CUdeviceptr,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuPointerGetAttributes(numAttributes: ::std::os::raw::c_uint,
-                                  attributes: *mut CUpointer_attribute,
-                                  data: *mut *mut ::std::os::raw::c_void,
-                                  ptr: CUdeviceptr) -> CUresult;
+    pub fn cuPointerGetAttributes(
+        numAttributes: ::std::os::raw::c_uint,
+        attributes: *mut CUpointer_attribute,
+        data: *mut *mut ::std::os::raw::c_void,
+        ptr: CUdeviceptr,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamCreate(phStream: *mut CUstream,
-                          Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamCreate(phStream: *mut CUstream, Flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamCreateWithPriority(phStream: *mut CUstream,
-                                      flags: ::std::os::raw::c_uint,
-                                      priority: ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuStreamCreateWithPriority(
+        phStream: *mut CUstream,
+        flags: ::std::os::raw::c_uint,
+        priority: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamGetPriority(hStream: CUstream,
-                               priority: *mut ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuStreamGetPriority(hStream: CUstream, priority: *mut ::std::os::raw::c_int)
+        -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamGetFlags(hStream: CUstream,
-                            flags: *mut ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamGetFlags(hStream: CUstream, flags: *mut ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamWaitEvent(hStream: CUstream, hEvent: CUevent,
-                             Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamWaitEvent(
+        hStream: CUstream,
+        hEvent: CUevent,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamAddCallback(hStream: CUstream, callback: CUstreamCallback,
-                               userData: *mut ::std::os::raw::c_void,
-                               flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamAddCallback(
+        hStream: CUstream,
+        callback: CUstreamCallback,
+        userData: *mut ::std::os::raw::c_void,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamAttachMemAsync(hStream: CUstream, dptr: CUdeviceptr,
-                                  length: usize,
-                                  flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamAttachMemAsync(
+        hStream: CUstream,
+        dptr: CUdeviceptr,
+        length: usize,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuStreamQuery(hStream: CUstream) -> CUresult;
@@ -4242,8 +5959,7 @@ extern "C" {
     pub fn cuStreamDestroy_v2(hStream: CUstream) -> CUresult;
 }
 extern "C" {
-    pub fn cuEventCreate(phEvent: *mut CUevent, Flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuEventCreate(phEvent: *mut CUevent, Flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
     pub fn cuEventRecord(hEvent: CUevent, hStream: CUstream) -> CUresult;
@@ -4258,251 +5974,280 @@ extern "C" {
     pub fn cuEventDestroy_v2(hEvent: CUevent) -> CUresult;
 }
 extern "C" {
-    pub fn cuEventElapsedTime(pMilliseconds: *mut f32, hStart: CUevent,
-                              hEnd: CUevent) -> CUresult;
+    pub fn cuEventElapsedTime(pMilliseconds: *mut f32, hStart: CUevent, hEnd: CUevent) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamWaitValue32(stream: CUstream, addr: CUdeviceptr,
-                               value: cuuint32_t,
-                               flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamWaitValue32(
+        stream: CUstream,
+        addr: CUdeviceptr,
+        value: cuuint32_t,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamWriteValue32(stream: CUstream, addr: CUdeviceptr,
-                                value: cuuint32_t,
-                                flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamWriteValue32(
+        stream: CUstream,
+        addr: CUdeviceptr,
+        value: cuuint32_t,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuStreamBatchMemOp(stream: CUstream, count: ::std::os::raw::c_uint,
-                              paramArray: *mut CUstreamBatchMemOpParams,
-                              flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuStreamBatchMemOp(
+        stream: CUstream,
+        count: ::std::os::raw::c_uint,
+        paramArray: *mut CUstreamBatchMemOpParams,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuFuncGetAttribute(pi: *mut ::std::os::raw::c_int,
-                              attrib: CUfunction_attribute, hfunc: CUfunction)
-     -> CUresult;
+    pub fn cuFuncGetAttribute(
+        pi: *mut ::std::os::raw::c_int,
+        attrib: CUfunction_attribute,
+        hfunc: CUfunction,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuFuncSetCacheConfig(hfunc: CUfunction, config: CUfunc_cache)
-     -> CUresult;
+    pub fn cuFuncSetCacheConfig(hfunc: CUfunction, config: CUfunc_cache) -> CUresult;
 }
 extern "C" {
-    pub fn cuFuncSetSharedMemConfig(hfunc: CUfunction, config: CUsharedconfig)
-     -> CUresult;
+    pub fn cuFuncSetSharedMemConfig(hfunc: CUfunction, config: CUsharedconfig) -> CUresult;
 }
 extern "C" {
-    pub fn cuLaunchKernel(f: CUfunction, gridDimX: ::std::os::raw::c_uint,
-                          gridDimY: ::std::os::raw::c_uint,
-                          gridDimZ: ::std::os::raw::c_uint,
-                          blockDimX: ::std::os::raw::c_uint,
-                          blockDimY: ::std::os::raw::c_uint,
-                          blockDimZ: ::std::os::raw::c_uint,
-                          sharedMemBytes: ::std::os::raw::c_uint,
-                          hStream: CUstream,
-                          kernelParams: *mut *mut ::std::os::raw::c_void,
-                          extra: *mut *mut ::std::os::raw::c_void)
-     -> CUresult;
+    pub fn cuLaunchKernel(
+        f: CUfunction,
+        gridDimX: ::std::os::raw::c_uint,
+        gridDimY: ::std::os::raw::c_uint,
+        gridDimZ: ::std::os::raw::c_uint,
+        blockDimX: ::std::os::raw::c_uint,
+        blockDimY: ::std::os::raw::c_uint,
+        blockDimZ: ::std::os::raw::c_uint,
+        sharedMemBytes: ::std::os::raw::c_uint,
+        hStream: CUstream,
+        kernelParams: *mut *mut ::std::os::raw::c_void,
+        extra: *mut *mut ::std::os::raw::c_void,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuFuncSetBlockShape(hfunc: CUfunction, x: ::std::os::raw::c_int,
-                               y: ::std::os::raw::c_int,
-                               z: ::std::os::raw::c_int) -> CUresult;
+    pub fn cuFuncSetBlockShape(
+        hfunc: CUfunction,
+        x: ::std::os::raw::c_int,
+        y: ::std::os::raw::c_int,
+        z: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuFuncSetSharedSize(hfunc: CUfunction,
-                               bytes: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuFuncSetSharedSize(hfunc: CUfunction, bytes: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuParamSetSize(hfunc: CUfunction, numbytes: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuParamSetSize(hfunc: CUfunction, numbytes: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuParamSeti(hfunc: CUfunction, offset: ::std::os::raw::c_int,
-                       value: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuParamSeti(
+        hfunc: CUfunction,
+        offset: ::std::os::raw::c_int,
+        value: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuParamSetf(hfunc: CUfunction, offset: ::std::os::raw::c_int,
-                       value: f32) -> CUresult;
+    pub fn cuParamSetf(hfunc: CUfunction, offset: ::std::os::raw::c_int, value: f32) -> CUresult;
 }
 extern "C" {
-    pub fn cuParamSetv(hfunc: CUfunction, offset: ::std::os::raw::c_int,
-                       ptr: *mut ::std::os::raw::c_void,
-                       numbytes: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuParamSetv(
+        hfunc: CUfunction,
+        offset: ::std::os::raw::c_int,
+        ptr: *mut ::std::os::raw::c_void,
+        numbytes: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuLaunch(f: CUfunction) -> CUresult;
 }
 extern "C" {
-    pub fn cuLaunchGrid(f: CUfunction, grid_width: ::std::os::raw::c_int,
-                        grid_height: ::std::os::raw::c_int) -> CUresult;
+    pub fn cuLaunchGrid(
+        f: CUfunction,
+        grid_width: ::std::os::raw::c_int,
+        grid_height: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuLaunchGridAsync(f: CUfunction, grid_width: ::std::os::raw::c_int,
-                             grid_height: ::std::os::raw::c_int,
-                             hStream: CUstream) -> CUresult;
+    pub fn cuLaunchGridAsync(
+        f: CUfunction,
+        grid_width: ::std::os::raw::c_int,
+        grid_height: ::std::os::raw::c_int,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuParamSetTexRef(hfunc: CUfunction, texunit: ::std::os::raw::c_int,
-                            hTexRef: CUtexref) -> CUresult;
+    pub fn cuParamSetTexRef(
+        hfunc: CUfunction,
+        texunit: ::std::os::raw::c_int,
+        hTexRef: CUtexref,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuOccupancyMaxActiveBlocksPerMultiprocessor(numBlocks:
-                                                           *mut ::std::os::raw::c_int,
-                                                       func: CUfunction,
-                                                       blockSize:
-                                                           ::std::os::raw::c_int,
-                                                       dynamicSMemSize: usize)
-     -> CUresult;
+    pub fn cuOccupancyMaxActiveBlocksPerMultiprocessor(
+        numBlocks: *mut ::std::os::raw::c_int,
+        func: CUfunction,
+        blockSize: ::std::os::raw::c_int,
+        dynamicSMemSize: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags(numBlocks:
-                                                                    *mut ::std::os::raw::c_int,
-                                                                func:
-                                                                    CUfunction,
-                                                                blockSize:
-                                                                    ::std::os::raw::c_int,
-                                                                dynamicSMemSize:
-                                                                    usize,
-                                                                flags:
-                                                                    ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags(
+        numBlocks: *mut ::std::os::raw::c_int,
+        func: CUfunction,
+        blockSize: ::std::os::raw::c_int,
+        dynamicSMemSize: usize,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuOccupancyMaxPotentialBlockSize(minGridSize:
-                                                *mut ::std::os::raw::c_int,
-                                            blockSize:
-                                                *mut ::std::os::raw::c_int,
-                                            func: CUfunction,
-                                            blockSizeToDynamicSMemSize:
-                                                CUoccupancyB2DSize,
-                                            dynamicSMemSize: usize,
-                                            blockSizeLimit:
-                                                ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuOccupancyMaxPotentialBlockSize(
+        minGridSize: *mut ::std::os::raw::c_int,
+        blockSize: *mut ::std::os::raw::c_int,
+        func: CUfunction,
+        blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
+        dynamicSMemSize: usize,
+        blockSizeLimit: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuOccupancyMaxPotentialBlockSizeWithFlags(minGridSize:
-                                                         *mut ::std::os::raw::c_int,
-                                                     blockSize:
-                                                         *mut ::std::os::raw::c_int,
-                                                     func: CUfunction,
-                                                     blockSizeToDynamicSMemSize:
-                                                         CUoccupancyB2DSize,
-                                                     dynamicSMemSize: usize,
-                                                     blockSizeLimit:
-                                                         ::std::os::raw::c_int,
-                                                     flags:
-                                                         ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuOccupancyMaxPotentialBlockSizeWithFlags(
+        minGridSize: *mut ::std::os::raw::c_int,
+        blockSize: *mut ::std::os::raw::c_int,
+        func: CUfunction,
+        blockSizeToDynamicSMemSize: CUoccupancyB2DSize,
+        dynamicSMemSize: usize,
+        blockSizeLimit: ::std::os::raw::c_int,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetArray(hTexRef: CUtexref, hArray: CUarray,
-                            Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuTexRefSetArray(
+        hTexRef: CUtexref,
+        hArray: CUarray,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetMipmappedArray(hTexRef: CUtexref,
-                                     hMipmappedArray: CUmipmappedArray,
-                                     Flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuTexRefSetMipmappedArray(
+        hTexRef: CUtexref,
+        hMipmappedArray: CUmipmappedArray,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetAddress_v2(ByteOffset: *mut usize, hTexRef: CUtexref,
-                                 dptr: CUdeviceptr, bytes: usize) -> CUresult;
+    pub fn cuTexRefSetAddress_v2(
+        ByteOffset: *mut usize,
+        hTexRef: CUtexref,
+        dptr: CUdeviceptr,
+        bytes: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetAddress2D_v3(hTexRef: CUtexref,
-                                   desc: *const CUDA_ARRAY_DESCRIPTOR,
-                                   dptr: CUdeviceptr, Pitch: usize)
-     -> CUresult;
+    pub fn cuTexRefSetAddress2D_v3(
+        hTexRef: CUtexref,
+        desc: *const CUDA_ARRAY_DESCRIPTOR,
+        dptr: CUdeviceptr,
+        Pitch: usize,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetFormat(hTexRef: CUtexref, fmt: CUarray_format,
-                             NumPackedComponents: ::std::os::raw::c_int)
-     -> CUresult;
+    pub fn cuTexRefSetFormat(
+        hTexRef: CUtexref,
+        fmt: CUarray_format,
+        NumPackedComponents: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetAddressMode(hTexRef: CUtexref,
-                                  dim: ::std::os::raw::c_int,
-                                  am: CUaddress_mode) -> CUresult;
+    pub fn cuTexRefSetAddressMode(
+        hTexRef: CUtexref,
+        dim: ::std::os::raw::c_int,
+        am: CUaddress_mode,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetFilterMode(hTexRef: CUtexref, fm: CUfilter_mode)
-     -> CUresult;
+    pub fn cuTexRefSetFilterMode(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetMipmapFilterMode(hTexRef: CUtexref, fm: CUfilter_mode)
-     -> CUresult;
+    pub fn cuTexRefSetMipmapFilterMode(hTexRef: CUtexref, fm: CUfilter_mode) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetMipmapLevelBias(hTexRef: CUtexref, bias: f32)
-     -> CUresult;
+    pub fn cuTexRefSetMipmapLevelBias(hTexRef: CUtexref, bias: f32) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetMipmapLevelClamp(hTexRef: CUtexref,
-                                       minMipmapLevelClamp: f32,
-                                       maxMipmapLevelClamp: f32) -> CUresult;
+    pub fn cuTexRefSetMipmapLevelClamp(
+        hTexRef: CUtexref,
+        minMipmapLevelClamp: f32,
+        maxMipmapLevelClamp: f32,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetMaxAnisotropy(hTexRef: CUtexref,
-                                    maxAniso: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuTexRefSetMaxAnisotropy(
+        hTexRef: CUtexref,
+        maxAniso: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetBorderColor(hTexRef: CUtexref, pBorderColor: *mut f32)
-     -> CUresult;
+    pub fn cuTexRefSetBorderColor(hTexRef: CUtexref, pBorderColor: *mut f32) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefSetFlags(hTexRef: CUtexref, Flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuTexRefSetFlags(hTexRef: CUtexref, Flags: ::std::os::raw::c_uint) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetAddress_v2(pdptr: *mut CUdeviceptr, hTexRef: CUtexref)
-     -> CUresult;
+    pub fn cuTexRefGetAddress_v2(pdptr: *mut CUdeviceptr, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetArray(phArray: *mut CUarray, hTexRef: CUtexref)
-     -> CUresult;
+    pub fn cuTexRefGetArray(phArray: *mut CUarray, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetMipmappedArray(phMipmappedArray: *mut CUmipmappedArray,
-                                     hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetMipmappedArray(
+        phMipmappedArray: *mut CUmipmappedArray,
+        hTexRef: CUtexref,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetAddressMode(pam: *mut CUaddress_mode, hTexRef: CUtexref,
-                                  dim: ::std::os::raw::c_int) -> CUresult;
+    pub fn cuTexRefGetAddressMode(
+        pam: *mut CUaddress_mode,
+        hTexRef: CUtexref,
+        dim: ::std::os::raw::c_int,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetFilterMode(pfm: *mut CUfilter_mode, hTexRef: CUtexref)
-     -> CUresult;
+    pub fn cuTexRefGetFilterMode(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetFormat(pFormat: *mut CUarray_format,
-                             pNumChannels: *mut ::std::os::raw::c_int,
-                             hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetFormat(
+        pFormat: *mut CUarray_format,
+        pNumChannels: *mut ::std::os::raw::c_int,
+        hTexRef: CUtexref,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetMipmapFilterMode(pfm: *mut CUfilter_mode,
-                                       hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetMipmapFilterMode(pfm: *mut CUfilter_mode, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetMipmapLevelBias(pbias: *mut f32, hTexRef: CUtexref)
-     -> CUresult;
+    pub fn cuTexRefGetMipmapLevelBias(pbias: *mut f32, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetMipmapLevelClamp(pminMipmapLevelClamp: *mut f32,
-                                       pmaxMipmapLevelClamp: *mut f32,
-                                       hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetMipmapLevelClamp(
+        pminMipmapLevelClamp: *mut f32,
+        pmaxMipmapLevelClamp: *mut f32,
+        hTexRef: CUtexref,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetMaxAnisotropy(pmaxAniso: *mut ::std::os::raw::c_int,
-                                    hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetMaxAnisotropy(
+        pmaxAniso: *mut ::std::os::raw::c_int,
+        hTexRef: CUtexref,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetBorderColor(pBorderColor: *mut f32, hTexRef: CUtexref)
-     -> CUresult;
+    pub fn cuTexRefGetBorderColor(pBorderColor: *mut f32, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexRefGetFlags(pFlags: *mut ::std::os::raw::c_uint,
-                            hTexRef: CUtexref) -> CUresult;
+    pub fn cuTexRefGetFlags(pFlags: *mut ::std::os::raw::c_uint, hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
     pub fn cuTexRefCreate(pTexRef: *mut CUtexref) -> CUresult;
@@ -4511,108 +6256,128 @@ extern "C" {
     pub fn cuTexRefDestroy(hTexRef: CUtexref) -> CUresult;
 }
 extern "C" {
-    pub fn cuSurfRefSetArray(hSurfRef: CUsurfref, hArray: CUarray,
-                             Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuSurfRefSetArray(
+        hSurfRef: CUsurfref,
+        hArray: CUarray,
+        Flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuSurfRefGetArray(phArray: *mut CUarray, hSurfRef: CUsurfref)
-     -> CUresult;
+    pub fn cuSurfRefGetArray(phArray: *mut CUarray, hSurfRef: CUsurfref) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexObjectCreate(pTexObject: *mut CUtexObject,
-                             pResDesc: *const CUDA_RESOURCE_DESC,
-                             pTexDesc: *const CUDA_TEXTURE_DESC,
-                             pResViewDesc: *const CUDA_RESOURCE_VIEW_DESC)
-     -> CUresult;
+    pub fn cuTexObjectCreate(
+        pTexObject: *mut CUtexObject,
+        pResDesc: *const CUDA_RESOURCE_DESC,
+        pTexDesc: *const CUDA_TEXTURE_DESC,
+        pResViewDesc: *const CUDA_RESOURCE_VIEW_DESC,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuTexObjectDestroy(texObject: CUtexObject) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexObjectGetResourceDesc(pResDesc: *mut CUDA_RESOURCE_DESC,
-                                      texObject: CUtexObject) -> CUresult;
+    pub fn cuTexObjectGetResourceDesc(
+        pResDesc: *mut CUDA_RESOURCE_DESC,
+        texObject: CUtexObject,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexObjectGetTextureDesc(pTexDesc: *mut CUDA_TEXTURE_DESC,
-                                     texObject: CUtexObject) -> CUresult;
+    pub fn cuTexObjectGetTextureDesc(
+        pTexDesc: *mut CUDA_TEXTURE_DESC,
+        texObject: CUtexObject,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuTexObjectGetResourceViewDesc(pResViewDesc:
-                                              *mut CUDA_RESOURCE_VIEW_DESC,
-                                          texObject: CUtexObject) -> CUresult;
+    pub fn cuTexObjectGetResourceViewDesc(
+        pResViewDesc: *mut CUDA_RESOURCE_VIEW_DESC,
+        texObject: CUtexObject,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuSurfObjectCreate(pSurfObject: *mut CUsurfObject,
-                              pResDesc: *const CUDA_RESOURCE_DESC)
-     -> CUresult;
+    pub fn cuSurfObjectCreate(
+        pSurfObject: *mut CUsurfObject,
+        pResDesc: *const CUDA_RESOURCE_DESC,
+    ) -> CUresult;
 }
 extern "C" {
     pub fn cuSurfObjectDestroy(surfObject: CUsurfObject) -> CUresult;
 }
 extern "C" {
-    pub fn cuSurfObjectGetResourceDesc(pResDesc: *mut CUDA_RESOURCE_DESC,
-                                       surfObject: CUsurfObject) -> CUresult;
+    pub fn cuSurfObjectGetResourceDesc(
+        pResDesc: *mut CUDA_RESOURCE_DESC,
+        surfObject: CUsurfObject,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceCanAccessPeer(canAccessPeer: *mut ::std::os::raw::c_int,
-                                 dev: CUdevice, peerDev: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceCanAccessPeer(
+        canAccessPeer: *mut ::std::os::raw::c_int,
+        dev: CUdevice,
+        peerDev: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuDeviceGetP2PAttribute(value: *mut ::std::os::raw::c_int,
-                                   attrib: CUdevice_P2PAttribute,
-                                   srcDevice: CUdevice, dstDevice: CUdevice)
-     -> CUresult;
+    pub fn cuDeviceGetP2PAttribute(
+        value: *mut ::std::os::raw::c_int,
+        attrib: CUdevice_P2PAttribute,
+        srcDevice: CUdevice,
+        dstDevice: CUdevice,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuCtxEnablePeerAccess(peerContext: CUcontext,
-                                 Flags: ::std::os::raw::c_uint) -> CUresult;
+    pub fn cuCtxEnablePeerAccess(peerContext: CUcontext, Flags: ::std::os::raw::c_uint)
+        -> CUresult;
 }
 extern "C" {
     pub fn cuCtxDisablePeerAccess(peerContext: CUcontext) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsUnregisterResource(resource: CUgraphicsResource)
-     -> CUresult;
+    pub fn cuGraphicsUnregisterResource(resource: CUgraphicsResource) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsSubResourceGetMappedArray(pArray: *mut CUarray,
-                                               resource: CUgraphicsResource,
-                                               arrayIndex:
-                                                   ::std::os::raw::c_uint,
-                                               mipLevel:
-                                                   ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuGraphicsSubResourceGetMappedArray(
+        pArray: *mut CUarray,
+        resource: CUgraphicsResource,
+        arrayIndex: ::std::os::raw::c_uint,
+        mipLevel: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsResourceGetMappedMipmappedArray(pMipmappedArray:
-                                                         *mut CUmipmappedArray,
-                                                     resource:
-                                                         CUgraphicsResource)
-     -> CUresult;
+    pub fn cuGraphicsResourceGetMappedMipmappedArray(
+        pMipmappedArray: *mut CUmipmappedArray,
+        resource: CUgraphicsResource,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsResourceGetMappedPointer_v2(pDevPtr: *mut CUdeviceptr,
-                                                 pSize: *mut usize,
-                                                 resource: CUgraphicsResource)
-     -> CUresult;
+    pub fn cuGraphicsResourceGetMappedPointer_v2(
+        pDevPtr: *mut CUdeviceptr,
+        pSize: *mut usize,
+        resource: CUgraphicsResource,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsResourceSetMapFlags_v2(resource: CUgraphicsResource,
-                                            flags: ::std::os::raw::c_uint)
-     -> CUresult;
+    pub fn cuGraphicsResourceSetMapFlags_v2(
+        resource: CUgraphicsResource,
+        flags: ::std::os::raw::c_uint,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsMapResources(count: ::std::os::raw::c_uint,
-                                  resources: *mut CUgraphicsResource,
-                                  hStream: CUstream) -> CUresult;
+    pub fn cuGraphicsMapResources(
+        count: ::std::os::raw::c_uint,
+        resources: *mut CUgraphicsResource,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGraphicsUnmapResources(count: ::std::os::raw::c_uint,
-                                    resources: *mut CUgraphicsResource,
-                                    hStream: CUstream) -> CUresult;
+    pub fn cuGraphicsUnmapResources(
+        count: ::std::os::raw::c_uint,
+        resources: *mut CUgraphicsResource,
+        hStream: CUstream,
+    ) -> CUresult;
 }
 extern "C" {
-    pub fn cuGetExportTable(ppExportTable: *mut *const ::std::os::raw::c_void,
-                            pExportTableId: *const CUuuid) -> CUresult;
+    pub fn cuGetExportTable(
+        ppExportTable: *mut *const ::std::os::raw::c_void,
+        pExportTableId: *const CUuuid,
+    ) -> CUresult;
 }

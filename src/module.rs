@@ -1,5 +1,5 @@
-pub unsafe trait Module<'a>: Sized+'a {
-    unsafe fn load(cuda: &'a super::Cuda) -> super::Result<Self>;
+pub unsafe trait Module<'a>: Sized + 'a {
+    fn load(cuda: &'a super::Cuda) -> super::Result<Self>;
 }
 
 #[macro_export]
@@ -15,13 +15,14 @@ macro_rules! cuda_module_gen {
         }
 
         unsafe impl<'a> $crate::module::Module<'a> for $name<'a> {
-            unsafe fn load(cuda: &'a $crate::Cuda) -> $crate::Result<$name<'a>> {
+            fn load(cuda: &'a $crate::Cuda) -> $crate::Result<$name<'a>> {
+                cuda.make_current()?;
                 let module = $load_module;
                 Ok($name { cuda, module })
             }
         }
 
-        impl<'a> mstd::ops::Drop for $name<'a> {
+        impl<'a> Drop for $name<'a> {
             fn drop(&mut self) {
                 self.cuda.make_current().ok();
                 unsafe {
@@ -41,9 +42,11 @@ macro_rules! parse_module_loader {
             $name {
                 let data: Vec<_> = $bin.iter().cloned().collect();
                 let data = mstd::ffi::CString::new(data)?;
-                let mut module = mstd::mem::uninitialized();
-                $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const _)?;
-                module
+                unsafe {
+                    let mut module = mstd::mem::uninitialized();
+                    $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const _)?;
+                    module
+                }
             }
         }
     };
@@ -55,9 +58,11 @@ macro_rules! parse_module_loader {
             $name {
                 let file: String = $file.into();
                 let file = mstd::ffi::CString::new(file)?;
-                let mut module = mstd::mem::uninitialized();
-                $crate::ffi::cuModuleLoad(&mut module, file.as_ptr() as *const _)?;
-                module
+                unsafe {
+                    let mut module = mstd::mem::uninitialized();
+                    $crate::ffi::cuModuleLoad(&mut module, file.as_ptr() as *const _)?;
+                    module
+                }
             }
         }
     };
@@ -77,11 +82,10 @@ cuda_module! {
     }
 }
 
-#[test]
-fn create_cuda_module() {
-    let cuda = ::Cuda::with_primary_context().unwrap();
-    let adder: Adder = cuda.load_module().unwrap();
-}
+    #[test]
+    fn create_cuda_module() {
+        let cuda = ::Cuda::with_primary_context().unwrap();
+        let adder: Adder = cuda.load_module().unwrap();
+    }
 
 }
-
