@@ -58,6 +58,11 @@ impl Cuda {
         }
         Ok(context)
     }
+
+    pub fn load_module<'a, Module: module::Module<'a>>(&'a self) -> Result<Module> {
+        self.make_current()?;
+        unsafe { Module::load(self) }
+    }
 }
 
 impl Drop for Cuda {

@@ -10,5 +10,5 @@ cuda_module! {
 #[test]
 fn create_cuda_module() {
     let cuda = cuda_hlb::Cuda::with_primary_context().unwrap();
-    let adder = Adder::new(&cuda);
+    let adder: Adder = cuda.load_module().unwrap();
 }
