@@ -3,10 +3,10 @@ pub unsafe trait Module<'a>: Sized+'a {
 }
 
 #[macro_export]
-macro_rules! cuda_module {
-    ($name:ident {
-        binary($bin:expr)
-    }) => {
+macro_rules! cuda_module_gen {
+    ($name:ident
+        $load_module:expr
+    ) => {
         use std as mstd;
 
         struct $name<'a> {
@@ -16,10 +16,7 @@ macro_rules! cuda_module {
 
         unsafe impl<'a> $crate::module::Module<'a> for $name<'a> {
             unsafe fn load(cuda: &'a $crate::Cuda) -> $crate::Result<$name<'a>> {
-                let data = $bin.iter().cloned().collect::<Vec<_>>();
-                let data = mstd::ffi::CString::new(data)?;
-                let mut module = mstd::mem::uninitialized();
-                $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const _)?;
+                let module = $load_module;
                 Ok($name { cuda, module })
             }
         }
@@ -35,6 +32,38 @@ macro_rules! cuda_module {
     };
 }
 
+#[macro_export]
+macro_rules! cuda_module {
+    ($name:ident {
+        binary($bin:expr)
+    }) => {
+        cuda_module_gen! {
+            $name {
+                let data: Vec<_> = $bin.iter().cloned().collect();
+                let data = mstd::ffi::CString::new(data)?;
+                let mut module = mstd::mem::uninitialized();
+                $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const _)?;
+                module
+            }
+        }
+    };
+
+    ($name:ident {
+        binary_file($file:expr)
+    }) => {
+        cuda_module_gen! {
+            $name {
+                let file: String = $file.into();
+                let file = mstd::ffi::CString::new(file)?;
+                let mut module = mstd::mem::uninitialized();
+                $crate::ffi::cuModuleLoad(&mut module, file.as_ptr() as *const _)?;
+                module
+            }
+        }
+    };
+}
+
+#[cfg(test)]
 mod test {
 
 cuda_module! {
@@ -46,7 +75,7 @@ cuda_module! {
 #[test]
 fn create_cuda_module() {
     let cuda = ::Cuda::with_primary_context().unwrap();
-    let adder = cuda.load_module::<Adder>();
+    let adder: Adder = cuda.load_module().unwrap();
 }
 
 }
