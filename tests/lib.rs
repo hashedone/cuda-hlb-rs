@@ -3,7 +3,7 @@ extern crate cuda_hlb;
 
 cuda_module! {
     Adder {
-        binary_file([env!("CARGO_MANIFEST_DIR"), "tests/add.ptx"].join("/"))
+        binary_file([env!("CARGO_MANIFEST_DIR"), "tests/add.ptx"].join("/"));
     }
 }
 

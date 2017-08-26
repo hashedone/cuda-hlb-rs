@@ -33,9 +33,9 @@ macro_rules! cuda_module_gen {
 }
 
 #[macro_export]
-macro_rules! cuda_module {
+macro_rules! parse_module_loader {
     ($name:ident {
-        binary($bin:expr)
+        binary($bin:expr);
     }) => {
         cuda_module_gen! {
             $name {
@@ -49,7 +49,7 @@ macro_rules! cuda_module {
     };
 
     ($name:ident {
-        binary_file($file:expr)
+        binary_file($file:expr);
     }) => {
         cuda_module_gen! {
             $name {
@@ -63,12 +63,17 @@ macro_rules! cuda_module {
     };
 }
 
+#[macro_export]
+macro_rules! cuda_module {
+    ($($t:tt)*) => { parse_module_loader!($($t)*); };
+}
+
 #[cfg(test)]
 mod test {
 
 cuda_module! {
     Adder {
-        binary(include_bytes!("../tests/add.ptx"))
+        binary(include_bytes!("../tests/add.ptx"));
     }
 }
 
