@@ -3,11 +3,8 @@ name = "cuda-hlb"
 version = "0.1.0"
 authors = ["Bartłomiej Kuras <hash.deb@gmail.com>"]
 
-[features]
-default = ["runtime"]
-compiler = []
-runtime = ["error-chain"]
-
 [dependencies]
 libc = "^0.2"
-error-chain = { version = "^0.10", optional = true }
+error-chain = "^0.10"
+interpolate_idents = "^0.1.7"
+

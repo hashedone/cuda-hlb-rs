@@ -182,8 +182,8 @@ impl<'a, T: Copy> TryInto<Vec<T>> for BufferView<'a, T> {
 #[macro_export]
 macro_rules! cuda_buffer {
     ($cuda:expr => $elem:expr ; $n:expr) => { $cuda.buffer_from_slice(&vec![$elem;$n]).unwrap() };
-    ($cuda:expr => $($x:expr) , *) => { $cuda.buffer_from_slice(&vec![$($x) , *]).unwrap() };
-    ($cuda:expr => $($x:expr ,)*) => { $cuda.buffer_from_slice(&vec![$($x) , *]).unwrap() };
+    ($cuda:expr => $($x:expr),*) => { $cuda.buffer_from_slice(&vec![$($x),*]).unwrap() };
+    ($cuda:expr => $($x:expr,)*) => { $cuda.buffer_from_slice(&vec![$($x),*]).unwrap() };
 }
 
 #[cfg(test)]
@@ -304,11 +304,11 @@ mod test {
     #[test]
     fn cuda_buffer_macro() {
         let cuda = ::Cuda::with_primary_context().unwrap();
-        let buffer = cuda_buffer!(cuda => 2;10);
+        let buffer = cuda_buffer![cuda => 2;10];
         assert_eq!(vec![2; 10], buffer.get_vec().unwrap());
-        let buffer = cuda_buffer!(cuda => 1,2,3);
+        let buffer = cuda_buffer![cuda => 1,2,3];
         assert_eq!(vec![1, 2, 3], buffer.get_vec().unwrap());
-        let buffer = cuda_buffer!(cuda => 1,2,3,);
+        let buffer = cuda_buffer![cuda => 1,2,3,];
         assert_eq!(vec![1, 2, 3], buffer.get_vec().unwrap());
     }
 }

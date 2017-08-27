@@ -2,7 +2,12 @@
 #![feature(conservative_impl_trait)]
 #![feature(try_from)]
 #![feature(collections_range)]
+#![feature(trace_macros)]
+#![feature(concat_idents)]
+#![feature(plugin)]
 #![recursion_limit = "1024"]
+
+#![plugin(interpolate_idents)]
 
 extern crate libc;
 #[macro_use]
