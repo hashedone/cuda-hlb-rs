@@ -1,5 +1,7 @@
 #![feature(try_trait)]
 #![feature(conservative_impl_trait)]
+#![feature(try_from)]
+#![feature(collections_range)]
 #![recursion_limit = "1024"]
 
 extern crate libc;
@@ -74,6 +76,12 @@ impl Cuda {
 
     pub fn new_buffer<'a, T: Sized>(&'a self, cnt: usize) -> Result<Buffer<'a, T>> {
         Buffer::new(self, cnt)
+    }
+
+    pub fn buffer_from_slice<'a, T: Sized + Copy>(&'a self, data: &[T]) -> Result<Buffer<'a, T>> {
+        let buf = unsafe { Buffer::uninitialized(self, data.len())? };
+        buf.load_slice(&data)?;
+        Ok(buf)
     }
 }
 

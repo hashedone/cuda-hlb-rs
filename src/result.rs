@@ -32,6 +32,9 @@ error_chain! {
         BuffersSizeMissmatch(source: usize, dest: usize) {
             display("Missmatching buffers size, source: {}, dest: {}", source, dest)
         }
+        OutOfBound(index: usize, size: usize) {
+            display("Index out of bound: {}, (size is {})", index, size)
+        }
     }
 }
 

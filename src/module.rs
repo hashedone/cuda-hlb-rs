@@ -76,7 +76,7 @@ macro_rules! cuda_module {
 #[cfg(test)]
 mod test {
 
-cuda_module! {
+    cuda_module! {
     Adder {
         binary(include_bytes!("../tests/add.ptx"));
     }
