@@ -80,6 +80,8 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
     pub fn len(&self) -> usize {
         self.size
     }
+    
+    pub fn is_empty(&self) -> bool { self.size == 0 }
 
     pub fn load_slice(&self, data: &[T]) -> Result<()> {
         if data.len() != self.size {
@@ -88,6 +90,8 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
                 self.size
             ));
         }
+
+        if self.size == 0 { return Ok(()); }
 
         self.cuda.make_current()?;
         unsafe {
@@ -109,6 +113,8 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
             ));
         }
 
+        if self.size == 0 { return Ok(()); }
+
         self.cuda.make_current()?;
         unsafe {
             ffi::cuMemcpyDtoHAsync_v2(
@@ -122,6 +128,8 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
     }
 
     pub fn get_vec(&self) -> Result<Vec<T>> {
+        if self.size == 0 { return Ok(vec![]); }
+
         unsafe {
             let mut v = vec![uninitialized(); self.size];
             self.write_to_slice(&mut v)?;
@@ -129,9 +137,9 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
         }
     }
 
-    pub fn sub<'b, R: RangeArgument<usize>>(&'b self, range: R) -> Result<BufferView<'b, T>> {
+    pub fn sub<R: RangeArgument<usize>>(&self, range: R) -> Result<BufferView<T>> {
         let start = match range.start() {
-            Bound::Included(s) => s.clone(),
+            Bound::Included(s) => *s,
             Bound::Excluded(s) => s + 1,
             Bound::Unbounded => 0,
         };
@@ -141,7 +149,7 @@ impl<'a, T: Sized + Copy> BufferView<'a, T> {
 
         let end = match range.end() {
             Bound::Included(s) => s + 1,
-            Bound::Excluded(s) => s.clone(),
+            Bound::Excluded(s) => *s,
             Bound::Unbounded => self.size,
         };
         if end > self.size {

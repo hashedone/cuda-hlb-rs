@@ -12,7 +12,7 @@ fn get_cuda_err_string(err: DriverError) -> String {
         match ffi::cuGetErrorString(err, &mut buf) {
             ffi::CUresult::CUDA_SUCCESS => std::ffi::CStr::from_ptr(buf)
                 .to_str()
-                .map(|s| String::from(s))
+                .map(String::from)
                 .unwrap_or_else(|_| String::new()),
             _ => String::new(),
         }

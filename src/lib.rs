@@ -67,20 +67,20 @@ impl Cuda {
         Module::load(self)
     }
 
-    pub unsafe fn uninitialized_buffer<'a, T: Sized>(
-        &'a self,
+    pub unsafe fn uninitialized_buffer<T: Sized>(
+        &self,
         cnt: usize,
-    ) -> Result<Buffer<'a, T>> {
+    ) -> Result<Buffer<T>> {
         Buffer::uninitialized(self, cnt)
     }
 
-    pub fn new_buffer<'a, T: Sized>(&'a self, cnt: usize) -> Result<Buffer<'a, T>> {
+    pub fn new_buffer<T: Sized>(&self, cnt: usize) -> Result<Buffer<T>> {
         Buffer::new(self, cnt)
     }
 
     pub fn buffer_from_slice<'a, T: Sized + Copy>(&'a self, data: &[T]) -> Result<Buffer<'a, T>> {
         let buf = unsafe { Buffer::uninitialized(self, data.len())? };
-        buf.load_slice(&data)?;
+        buf.load_slice(data)?;
         Ok(buf)
     }
 }

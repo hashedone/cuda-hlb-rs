@@ -85,7 +85,7 @@ mod test {
     #[test]
     fn create_cuda_module() {
         let cuda = ::Cuda::with_primary_context().unwrap();
-        let adder: Adder = cuda.load_module().unwrap();
+        let _: Adder = cuda.load_module().unwrap();
     }
 
 }
