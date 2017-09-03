@@ -6,7 +6,7 @@ use std::collections::Bound;
 use std::collections::range::RangeArgument;
 use std::convert::TryInto;
 use std::marker::PhantomData;
-use std::mem::{size_of, uninitialized};
+use std::mem::{size_of, uninitialized, transmute};
 use std::ops::Deref;
 
 #[derive(Clone)]
@@ -220,8 +220,7 @@ mod test {
 
     #[test]
     fn read_buffer_fails_with_missmached_sizes() {
-        let cuda = ::Cuda::with_primary_context().unwrap();
-        let buffer = cuda.new_buffer(100).unwrap();
+        let cuda = ::Cuda::with_primary_context().unwrap(); let buffer = cuda.new_buffer(100).unwrap();
         {
             let mut data = vec![2; 99];
             match buffer.write_to_slice(&mut data) {
@@ -312,3 +311,12 @@ mod test {
         assert_eq!(vec![1, 2, 3], buffer.get_vec().unwrap());
     }
 }
+
+unsafe impl<'a, T: super::CudaPrim> super::AsCudaType<*mut T> for BufferView<'a, T>  {
+    unsafe fn cuda_type(&self) -> *const u8 { transmute(&self.ptr) }
+}
+
+unsafe impl<'a, T: super::CudaPrim> super::AsCudaType<*mut T> for Buffer<'a, T> {
+    unsafe fn cuda_type(&self) -> *const u8 { transmute(&self.ptr) }
+}
+

@@ -3,118 +3,124 @@ pub unsafe trait Module<'a>: Sized + 'a {
 }
 
 #[macro_export]
-macro_rules! cuda_module_gen {
-    ($name:ident,
-     $load_module:expr,
-     ($($fname:ident),*)
-    ) => { interpolate_idents! {
-        use std as mstd;
-
-        struct $name<'a> {
-            cuda: &'a $crate::Cuda,
-            module: $crate::ffi::CUmodule,
-            $(
-                [fhandle_ $fname]: $crate::ffi::CUfunction,
-            )*
+macro_rules! cuda_mod {
+    (ptx($name:ident: $src:expr) {
+        $($tail:tt)*
+    }) => {
+        cuda_mod_expand! {
+            $name {
+                let data = include_bytes!($src);
+                let data = [&data[..], &[0]].concat();
+                unsafe {
+                    let mut module = std::mem::uninitialized();
+                    $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const  _)?;
+                    module
+                }
+            } => {
+                $($tail)*
+            }
         }
+    };
 
-        unsafe impl<'a> $crate::module::Module<'a> for $name<'a> {
-            fn load(cuda: &'a $crate::Cuda) -> $crate::Result<$name<'a>> {
-                cuda.make_current()?;
-                let module = $load_module;
-                $(
-                    let [fhandle_ $fname] = unsafe {
-                        let mut handle = mstd::mem::uninitialized();
-                        let name = mstd::ffi::CString::new(stringify!($fname))?;
-                        $crate::ffi::cuModuleGetFunction(&mut handle, module, name.as_ptr() as *const _)?;
-                        handle
+    (ptx($name:ident) {
+        $($tail:tt)*
+    }) => {
+        cuda_mod! {
+            ptx($name: concat!(stringify!($name), ".ptx")) {
+                $($tail)*
+            }
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! cuda_mod_expand {
+    ($name:ident $module_load:expr => {
+        $(fn $fname:ident ($($farg:ident : $fargt:ty),*);)*
+    }) => {
+        #[allow(dead_code)]
+        mod $name {
+            use std;
+
+            pub struct Handles {
+                $($fname: $crate::ffi::CUfunction,)*
+            }
+            
+            pub struct Module<'a> {
+                cuda: &'a $crate::Cuda,
+                module: $crate::ffi::CUmodule,
+                handles: Handles,
+            }
+
+            unsafe impl<'a> $crate::module::Module<'a> for Module<'a> {
+                fn load(cuda: &'a $crate::Cuda) -> $crate::Result<Module<'a>> {
+                    cuda.make_current()?;
+                    let module = $module_load;
+                    let handles = Handles {
+                        $($fname: unsafe {
+                            let mut handle = std::mem::uninitialized();
+                            let name = std::ffi::CString::new(stringify!($fname))?;
+                            $crate::ffi::cuModuleGetFunction(&mut handle, module, name.as_ptr() as *const _)?;
+                            handle
+                        }),*
                     };
-                )*;
-                Ok($name { cuda, module, $([fhandle_ $fname]),* })
-            }
-        }
-
-        impl<'a> Drop for $name<'a> {
-            fn drop(&mut self) {
-                self.cuda.make_current().ok();
-                unsafe {
-                    $crate::ffi::cuModuleUnload(self.module);
+                    Ok(Module { cuda, module, handles })
                 }
             }
-        }
-    }};
-}
 
-#[macro_export]
-macro_rules! parse_functions {
-    ($name:ident,
-     $load_module:expr,
-     $(fn $fname:ident ($($aname:ident : $atype:ty),*);)*) => {
-         cuda_module_gen! {
-             $name,
-             $load_module,
-             ($($fname),*)
-         }
-     };
-}
+            impl<'a> Drop for Module<'a> {
+                fn drop(&mut self) {
+                    self.cuda.make_current().ok();
+                    unsafe { $crate::ffi::cuModuleUnload(self.module); } }
+            }
 
-#[macro_export]
-macro_rules! parse_module_loader {
-    ($name:ident {
-        binary($bin:expr);
-        $($t:tt)*
-    }) => {
-        parse_functions! {
-            $name, {
-                let data: Vec<_> = $bin.iter().cloned().collect();
-                let data = mstd::ffi::CString::new(data)?;
-                unsafe {
-                    let mut module = mstd::mem::uninitialized();
-                    $crate::ffi::cuModuleLoadData(&mut module, data.as_ptr() as *const _)?;
-                    module
-                }
-            }, $($t)*
-        }
-    };
-
-    ($name:ident {
-        binary_file($file:expr);
-        $($t:tt)*
-    }) => {
-        parse_functions! {
-            $name, {
-                let file: String = $file.into();
-                let file = mstd::ffi::CString::new(file)?;
-                unsafe {
-                    let mut module = mstd::mem::uninitialized();
-                    $crate::ffi::cuModuleLoad(&mut module, file.as_ptr() as *const _)?;
-                    module
-                }
-            }, $($t)*
+            impl<'a> Module<'a> {
+                $(gen_cuda_fn!{fn $fname($($farg : $fargt),*)})*
+            }
         }
     };
 }
 
 #[macro_export]
-macro_rules! cuda_module {
-    ($($t:tt)*) => { parse_module_loader!($($t)*); };
+macro_rules! gen_cuda_fn {
+    (fn $fname:ident ($($farg:ident : $fargt:ty),*)) => {
+        #[allow(non_camel_case_types)]
+        pub fn $fname<$($farg: $crate::AsCudaType<$fargt>),*>(
+            &self,
+            ep: &$crate::ExecProp,
+            $($farg : &$farg),*
+        ) -> $crate::Result<()> {
+            let args = [$(
+                unsafe { $farg.cuda_type() as *const _ }
+            ),*];
+            
+            self.cuda.make_current()?;
+            unsafe {
+                $crate::ffi::cuLaunchKernel(
+                    self.handles.$fname,
+                    ep.grid_dim[0] as u32, ep.grid_dim[1] as u32, ep.grid_dim[2] as u32,
+                    ep.block_dim[0] as u32, ep.block_dim[1] as u32, ep.block_dim[2] as u32,
+                    0, 0 as $crate::ffi::CUstream,
+                    args.as_ptr() as *mut _,
+                    0 as *mut _)?;
+            }
+
+            Ok(())
+        }
+    };
 }
 
 #[cfg(test)]
 mod test {
-
-    cuda_module! {
-        Adder {
-            binary(include_bytes!("../tests/add.ptx"));
-            fn add(a: *mut u8, b: *mut u8);
-        }
-    }
+    cuda_mod! { ptx(add: "../tests/add.ptx") {
+        fn add(a: *mut u8, b: *mut u8);
+    } }
 
     #[test]
     fn create_cuda_module() {
         let cuda = ::Cuda::with_primary_context().unwrap();
-        let _: Adder = cuda.load_module().unwrap();
+        let _: add::Module = cuda.load_module().unwrap();
     }
 
-}
+} 
 

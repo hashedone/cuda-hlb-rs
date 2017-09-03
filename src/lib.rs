@@ -7,9 +7,6 @@
 #![feature(plugin)]
 #![recursion_limit = "1024"]
 
-#![plugin(interpolate_idents)]
-
-extern crate libc;
 #[macro_use]
 extern crate error_chain;
 
@@ -99,3 +96,124 @@ impl Drop for Cuda {
         }
     }
 }
+
+pub unsafe trait CudaPrim { }
+
+unsafe impl CudaPrim for u8 { }
+
+pub unsafe trait AsCudaType<T> {
+    unsafe fn cuda_type(&self) -> *const u8;
+}
+
+unsafe impl<T: CudaPrim> AsCudaType<T> for T {
+    unsafe fn cuda_type(&self) -> *const u8 { std::mem::transmute(self) }
+}
+
+#[derive(PartialEq, Debug)]
+pub struct ExecProp {
+    pub grid_dim: [usize; 3],
+    pub block_dim: [usize; 3]
+}
+
+#[macro_export]
+macro_rules! cuda_grid {
+    ($x:expr, $y:expr, $z:expr) => { $crate::ExecProp { grid_dim: [$x, $y, $z], block_dim: [1, 1, 1] } };
+    ($x:expr, $y:expr) => { cuda_grid!{$x, $y, 1} };
+    ($x:expr) => { cuda_grid!{$x, 1, 1} };
+}
+
+#[macro_export]
+macro_rules! cuda_block {
+    ($x:expr, $y:expr, $z:expr) => { $crate::ExecProp { grid_dim: [1, 1, 1], block_dim: [$x, $y, $z] } };
+    ($x:expr, $y:expr) => { cuda_block!{$x, $y, 1} };
+    ($x:expr) => { cuda_block!{$x, 1, 1} };
+}
+
+#[macro_export]
+macro_rules! cuda_ep_impl {
+    ($ep:expr) => { $ep };
+    ($ep:expr, grid($x:expr, $y:expr, $z:expr) $($tail:tt)*) => {
+        cuda_ep_impl!{
+            {
+                let mut ep = $ep;
+                ep.grid_dim = [$x, $y, $z];
+                ep
+            } $($tail)*
+        }
+    };
+    ($ep:expr, grid($x:expr, $y:expr) $($tail:tt)*) => { cuda_ep_impl!{$ep, grid($x, $y, 1) $($tail)*} };
+    ($ep:expr, grid($x:expr) $($tail:tt)*) => { cuda_ep_impl!{$ep, grid($x, 1, 1) $($tail)*} };
+    ($ep:expr, block($x:expr, $y:expr, $z:expr) $($tail:tt)*) => {
+        cuda_ep_impl!{
+            {
+                let mut ep = $ep;
+                ep.block_dim = [$x, $y, $z];
+                ep
+            } $($tail)*
+        }
+    };
+    ($ep:expr, block($x:expr, $y:expr) $($tail:tt)*) => { cuda_ep_impl!{$ep, block($x, $y, 1) $($tail)*} };
+    ($ep:expr, block($x:expr) $($tail:tt)*) => { cuda_ep_impl!{$ep, block($x, 1, 1) $($tail)*} };
+}
+
+#[macro_export]
+macro_rules! cuda_ep {
+    ($($t:tt)+) => { cuda_ep_impl! { $crate::ExecProp { grid_dim: [1, 1, 1], block_dim: [1, 1, 1] }, $($t)* } }
+}
+
+#[cfg(test)]
+mod test {
+#[test]
+fn cuda_grid_works() {
+    assert_eq!(super::ExecProp { grid_dim: [2, 3, 4], block_dim: [1, 1, 1] }, cuda_grid!(2, 3, 4));
+    assert_eq!(super::ExecProp { grid_dim: [2, 3, 1], block_dim: [1, 1, 1] }, cuda_grid!(2, 3));
+    assert_eq!(super::ExecProp { grid_dim: [2, 1, 1], block_dim: [1, 1, 1] }, cuda_grid!(2));
+}
+
+#[test]
+fn cuda_block_works() {
+    assert_eq!(super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 3, 4] }, cuda_block!(2, 3, 4));
+    assert_eq!(super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 3, 1] }, cuda_block!(2, 3));
+    assert_eq!(super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 1, 1] }, cuda_block!(2));
+}
+
+#[test]
+fn cuda_ep_works() {
+    assert_eq!(
+        super::ExecProp { grid_dim: [2, 3, 4], block_dim: [1, 1, 1] },
+        cuda_ep!(grid(2, 3, 4))
+    );
+    assert_eq!(
+        super::ExecProp { grid_dim: [2, 3, 1], block_dim: [1, 1, 1] },
+        cuda_ep!(grid(2, 3))
+    );
+    assert_eq!(
+        super::ExecProp { grid_dim: [2, 1, 1], block_dim: [1, 1, 1] },
+        cuda_ep!(grid(2))
+    );
+
+    assert_eq!(
+        super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 3, 4] },
+        cuda_ep!(block(2, 3, 4))
+    );
+    assert_eq!(
+        super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 3, 1] },
+        cuda_ep!(block(2, 3))
+    );
+    assert_eq!(
+        super::ExecProp { grid_dim: [1, 1, 1], block_dim: [2, 1, 1] },
+        cuda_ep!(block(2))
+    );
+
+    assert_eq!(
+        super::ExecProp { grid_dim: [2, 3, 4], block_dim: [5, 6, 7] },
+        cuda_ep!(grid(2, 3, 4), block(5, 6, 7))
+    );
+    assert_eq!(
+        super::ExecProp { grid_dim: [2, 3, 4], block_dim: [5, 6, 7] },
+        cuda_ep!(block(5, 6, 7), grid(2, 3, 4))
+    );
+}
+
+}
+
