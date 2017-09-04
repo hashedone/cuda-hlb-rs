@@ -313,10 +313,12 @@ mod test {
 }
 
 unsafe impl<'a, T: super::CudaPrim> super::AsCudaType<*mut T> for BufferView<'a, T>  {
-    unsafe fn cuda_type(&self) -> *const u8 { transmute(&self.ptr) }
+    type Type = ffi::CUdeviceptr;
+    unsafe fn cuda_type(&self) -> *const Self::Type { transmute(&self.ptr) }
 }
 
 unsafe impl<'a, T: super::CudaPrim> super::AsCudaType<*mut T> for Buffer<'a, T> {
-    unsafe fn cuda_type(&self) -> *const u8 { transmute(&self.ptr) }
+    type Type = ffi::CUdeviceptr;
+    unsafe fn cuda_type(&self) -> *const Self::Type { transmute(&self.ptr) }
 }
 

@@ -2,8 +2,7 @@
 #![feature(conservative_impl_trait)]
 #![feature(try_from)]
 #![feature(collections_range)]
-#![feature(trace_macros)]
-#![feature(concat_idents)]
+#![feature(trace_macros)] #![feature(concat_idents)]
 #![feature(plugin)]
 #![recursion_limit = "1024"]
 
@@ -97,16 +96,28 @@ impl Drop for Cuda {
     }
 }
 
-pub unsafe trait CudaPrim { }
+pub unsafe trait CudaPrim: Sized { }
 
 unsafe impl CudaPrim for u8 { }
+unsafe impl CudaPrim for u16 { }
+unsafe impl CudaPrim for u32 { }
+unsafe impl CudaPrim for u64 { }
+unsafe impl CudaPrim for i8 { }
+unsafe impl CudaPrim for i16 { }
+unsafe impl CudaPrim for i32 { }
+unsafe impl CudaPrim for i64 { }
+unsafe impl CudaPrim for f32 { }
+unsafe impl CudaPrim for f64 { }
 
 pub unsafe trait AsCudaType<T> {
-    unsafe fn cuda_type(&self) -> *const u8;
+    type Type: Sized;
+
+    unsafe fn cuda_type(&self) -> *const Self::Type;
 }
 
 unsafe impl<T: CudaPrim> AsCudaType<T> for T {
-    unsafe fn cuda_type(&self) -> *const u8 { std::mem::transmute(self) }
+    type Type = T;
+    unsafe fn cuda_type(&self) -> *const T { std::mem::transmute(self) }
 }
 
 #[derive(PartialEq, Debug)]
